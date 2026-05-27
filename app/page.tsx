@@ -10,7 +10,7 @@ const experiences = [
     sector: "Quantitative finance — in-house",
     title: "Adaptive regime-aware trading engine",
     summary:
-      "Designing and building an adaptive multi-strategy trading engine for Complexa Labs: a regime-classification stack (multifractal cascade, UKF, four-regime classifier) feeds thirteen regime-gated strategy templates whose weights update online via Bayesian methodology-fit scoring.",
+      "Designing and building an adaptive multi-strategy trading engine for Complexa Labs: a regime-classification stack rooted in multifractal cascades and extreme value statistics feeds a portfolio of regime-gated strategies whose weights update online via Bayesian learning.",
     tags: ["Regime detection", "Multifractal models", "Bayesian online learning", "Risk management"],
   },
   {
@@ -19,7 +19,7 @@ const experiences = [
     sector: "Staffing",
     title: "B2B customer segmentation & next-best-product recommender",
     summary:
-      "End-to-end CLTV pipeline (mixture cure survival, quantile regression, GBM ensembles, calibrated A/B framework) followed by a causal state-space next-best-product recommender grounded in the power-law causal framework developed at Complexa Labs.",
+      "End-to-end CLTV pipeline (mixture cure survival, quantile regression, GBM ensembles, calibrated A/B framework) followed by a causal state-space next-best-product recommender with cross-product effects identified via difference-in-differences and regression discontinuity.",
     tags: ["Survival analysis", "Causal inference", "DiD/RDD", "Particle filter", "A/B testing"],
   },
   {
@@ -94,7 +94,7 @@ export default function Home() {
           >
             Complexa Labs
           </a>
-          , where I develop the multifractal framework that underpins my client work.
+          , my research vehicle for quantitative work on complex systems.
         </p>
 
         <div className="mt-7 flex flex-wrap gap-3">

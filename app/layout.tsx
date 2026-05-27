@@ -11,7 +11,7 @@ const sourceSerif = Source_Serif_4({ subsets: ["latin"], variable: "--font-serif
 const SITE_URL = "https://nclcc.github.io";
 const SITE_TITLE = "Nicolò Ciccarone — Quantitative Modelling & Causal Inference";
 const SITE_DESCRIPTION =
-  "Causal models and data systems for enterprise clients across financial services, staffing, automotive SaaS, and public research — grounded in the power-law causal framework developed at Complexa Labs.";
+  "Quantitative models and data systems for enterprise clients across financial services, staffing, automotive SaaS, and public research, rooted in fractal theory and extreme value statistics.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

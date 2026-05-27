@@ -24,8 +24,7 @@ export default function Page() {
       <p>
         Two interlocking deliverables came out of the engagement: a <strong>customer lifetime value pipeline</strong>{" "}
         that put a calibrated number — with uncertainty — on every active client, and a{" "}
-        <strong>next-best-product recommender</strong> built on the power-law causal framework developed at
-        Complexa Labs that decides which service to propose, to whom, and when.
+        <strong>next-best-product recommender</strong> that decides which service to propose, to whom, and when.
       </p>
 
       <h2>1 · The CLTV pipeline</h2>
@@ -88,59 +87,53 @@ export default function Page() {
         becomes part of the data-generating process.
       </p>
 
-      <h3>Grounded in the Complexa Labs causal framework</h3>
+      <h3>A causal state-space approach</h3>
       <p>
-        The recommender is an applied instantiation of the power-law causal framework developed at
-        Complexa Labs. Each client carries a latent vector of <strong>need intensities</strong> across the
-        product portfolio. Purchase events enter as <strong>exogenous causal shocks</strong> through a
-        structured matrix <code>B</code>, whose non-zero entries encode genuine cross-product mechanisms
-        (e.g. temporary staffing → training, recruitment → outplacement) rather than the spurious
-        co-occurrence that confounds correlation-based scorers.
+        The recommender treats each client as carrying a latent vector of <strong>need
+        intensities</strong> across the product portfolio. Purchase events enter as exogenous shocks
+        through a structured transition matrix whose non-zero entries encode genuine cross-product
+        mechanisms rather than the spurious co-occurrence that confounds correlation-based scorers.
       </p>
 
-      <h3>Causal identification offline</h3>
+      <h3>Identification via quasi-experimental designs</h3>
       <p>
-        The non-zero entries of <code>B</code> are identified offline through quasi-experimental designs,
-        not through joint maximum-likelihood (which would re-confound them):
+        The cross-product effects are identified offline through quasi-experimental designs, not
+        through joint maximum-likelihood (which would re-confound them):
       </p>
       <ul>
         <li>
-          <strong>Staggered Callaway–Sant&apos;Anna difference-in-differences</strong> for most cross-product
-          edges, using the natural rollout of products across clients as the source of identifying
-          variation.
+          <strong>Staggered Callaway–Sant&apos;Anna difference-in-differences</strong> for most
+          cross-product edges, using the natural rollout of products across clients as the source of
+          identifying variation.
         </li>
         <li>
-          <strong>Regression discontinuity</strong> on Italian labour-law headcount thresholds for the
-          temp-to-outsourcing pathway, where statutory cutoffs generate sharp, exogenous shifts in
-          contract-mix incentives.
+          <strong>Regression discontinuity</strong> on regulatory headcount thresholds where statutory
+          cutoffs generate sharp, exogenous shifts in incentives.
         </li>
         <li>
           Each fitted edge carries a point estimate, a customer-cluster bootstrap confidence interval,
-          a pre-trend diagnostic, and a status flag (<code>fixed</code>, <code>soft_prior</code>,{" "}
-          <code>null</code>, <code>dropped</code>) so downstream consumers know how much to trust each
-          pathway.
+          a pre-trend diagnostic, and a status flag controlling how much downstream inference trusts
+          each pathway.
         </li>
         <li>
-          A five-quantile <strong>tiered variant</strong> splits the same fit by client size, exposing
-          effect heterogeneity that a global average would smear out.
+          A tiered variant splits the same fit by client size, exposing effect heterogeneity that a
+          global average would smear out.
         </li>
       </ul>
 
       <h3>Online inference</h3>
       <p>
-        Client trajectories are tracked through a <strong>Rao–Blackwellised particle filter</strong> that
-        samples the regression coefficients, latent state, and transition matrix jointly per particle —
-        letting the causal pathways drift over time as the market evolves. The filter is built through a
-        single calibrated entry point (<code>RBPFRecommender.from_calibration(...)</code>); every numerical
-        knob is fit from data.
+        Client trajectories are tracked through a <strong>Rao–Blackwellised particle filter</strong>{" "}
+        that samples the regression coefficients, latent state, and transition matrix jointly per
+        particle — letting the causal pathways drift over time as the market evolves.
       </p>
 
       <h3>Why this matters in deployment</h3>
       <p>
-        Because cross-product effects are identified causally rather than correlationally, the recommender{" "}
-        <strong>remains valid once its scores start shaping sales actions</strong>. A correlational model
-        degrades the moment it becomes part of the data-generating process; a causally-identified one does
-        not.
+        Because cross-product effects are identified causally rather than correlationally, the
+        recommender <strong>remains valid once its scores start shaping sales actions</strong>. A
+        correlational model degrades the moment it becomes part of the data-generating process; a
+        causally-identified one does not.
       </p>
 
       <h2>Outcomes</h2>
