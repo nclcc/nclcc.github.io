@@ -79,9 +79,12 @@ export default function Home() {
         </h1>
         <p className="mt-5 text-lg leading-relaxed" style={{ color: "var(--bk-ink-mid)" }}>
           I build quantitative models and data systems for enterprise clients across financial services,
-          staffing, and public research. My work sits at the intersection of causal inference, statistical
-          modelling, and production data engineering — translating econometric rigour into systems that survive
-          deployment. Most of my recent research runs through{" "}
+          staffing, and public research. My work is rooted in <strong style={{ color: "var(--bk-green-dk)" }}>fractal
+          theory</strong> and <strong style={{ color: "var(--bk-green-dk)" }}>extreme value theory</strong> — the
+          mathematics of self-similarity across scales, heavy tails, and the rare events that disproportionately drive
+          outcomes in complex systems. Most quantitative tooling is built for the convenient case: stationarity,
+          finite variance, independent shocks. The models I build take the inconvenient case seriously instead — and
+          the systems they live inside survive deployment because of it. Most of my recent research runs through{" "}
           <a
             href="https://www.linkedin.com/company/complexalabs/"
             target="_blank"
@@ -91,7 +94,7 @@ export default function Home() {
           >
             Complexa Labs
           </a>
-          , where I develop the power-law causal framework that underpins my client work.
+          , where I develop the multifractal framework that underpins my client work.
         </p>
 
         <div className="mt-7 flex flex-wrap gap-3">
