@@ -8,10 +8,36 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const firaCode = Fira_Code({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500"] });
 const sourceSerif = Source_Serif_4({ subsets: ["latin"], variable: "--font-serif", weight: ["400", "600"] });
 
+const SITE_URL = "https://nclcc.github.io";
+const SITE_TITLE = "Nicolò Ciccarone — Quantitative Modelling & Causal Inference";
+const SITE_DESCRIPTION =
+  "Causal models and data systems for enterprise clients across financial services, staffing, automotive SaaS, and public research — grounded in the power-law causal framework developed at Complexa Labs.";
+
 export const metadata: Metadata = {
-  title: "Nicolò Ciccarone — Quantitative Modelling & Data Engineering",
-  description:
-    "Quantitative modelling and data engineering for enterprise clients across financial services, staffing, and public research.",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: "Nicolò Ciccarone",
+    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Nicolò Ciccarone — Quantitative modelling & causal inference",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OG Card</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: "Inter", "Helvetica Neue", "Helvetica", sans-serif;
+    background: #1D4D3E; /* forest green, matching the Complexa banner */
+    color: #F2EDD6;
+    position: relative;
+  }
+  /* Tree backdrop — SVG, positioned left-of-center */
+  #tree-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  /* Subtle vignette/right-side darkening to make the text panel pop */
+  .vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to right,
+      rgba(29, 77, 62, 0) 0%,
+      rgba(29, 77, 62, 0) 45%,
+      rgba(20, 58, 47, 0.55) 70%,
+      rgba(14, 42, 33, 0.7) 100%
+    );
+  }
+  .frame {
+    position: absolute;
+    inset: 28px;
+    border: 1px solid rgba(212, 200, 150, 0.22);
+    border-radius: 4px;
+    z-index: 2;
+  }
+  /* Right-side text panel */
+  .panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 600px;
+    padding: 90px 70px 80px 30px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .eyebrow {
+    font-family: "Fira Code", "Menlo", monospace;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #D17157;
+    margin-bottom: 20px;
+  }
+  .name {
+    font-family: "Iowan Old Style", "Source Serif Pro", "Iowan Old Style W04", Georgia, serif;
+    font-size: 60px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: #F2EDD6;
+    line-height: 1.0;
+    margin-bottom: 18px;
+  }
+  .rule {
+    width: 80px;
+    height: 1px;
+    background: #C9A84C;
+    margin: 14px 0 22px;
+    opacity: 0.7;
+  }
+  .tagline {
+    font-size: 17px;
+    line-height: 1.5;
+    color: #F2EDD6;
+  }
+  .tagline em {
+    font-style: italic;
+    color: #C9A84C;
+    font-weight: 500;
+  }
+  .footer {
+    font-family: "Fira Code", "Menlo", monospace;
+    font-size: 14px;
+    color: #C8E4D8;
+    opacity: 0.85;
+  }
+  .url {
+    color: #E2BE70;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -0.005em;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .pill {
+    display: inline-block;
+    border: 1px solid rgba(201, 168, 76, 0.55);
+    color: #C9A84C;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div id="tree-wrap"></div>
+<div class="vignette"></div>
+<div class="frame"></div>
+
+<div class="panel">
+  <div>
+    <div class="eyebrow">Power-law dynamics · Extreme value theory</div>
+    <div class="name">Nicolò<br>Ciccarone</div>
+    <div class="rule"></div>
+    <div class="tagline">
+      Quantitative models and data systems for enterprise clients across financial services,
+      staffing, automotive SaaS, and public research — <em>grounded in the power-law and
+      extreme-value framework developed at Complexa Labs.</em>
+    </div>
+  </div>
+  <div class="footer">
+    <span class="url">nclcc.github.io</span>
+    <span class="pill">Complexa Labs</span>
+  </div>
+</div>
+
+<script>
+  // ── Fractal tree (port of Complexa AnimatedTree.tsx) ──────────────
+  const MAX_DEPTH = 5;
+  const CORNER_DEPTH = 4;
+
+  function build(x, y, angle, length, depth, maxDepth, spread, scale, acc) {
+    if (depth === 0 || length < 2) return acc;
+    const rad = (angle * Math.PI) / 180;
+    const x2 = x + length * Math.sin(rad);
+    const y2 = y - length * Math.cos(rad);
+    acc.push({ x1: x, y1: y, x2, y2, depth, maxDepth });
+    const sp = spread + depth * 4;
+    build(x2, y2, angle - sp, length * scale, depth - 1, maxDepth, spread, scale, acc);
+    build(x2, y2, angle + sp, length * scale, depth - 1, maxDepth, spread, scale, acc);
+    return acc;
+  }
+
+  // Compose: main tree centered around x=380, root near bottom, reaches high.
+  // + two corner sprouts coming in from the top corners
+  const main  = build(380, 625, 0,    195, MAX_DEPTH,    MAX_DEPTH,    42, 0.68, []);
+  const tl    = build(40,  -10, 130,   72, CORNER_DEPTH, CORNER_DEPTH, 28, 0.70, []);
+  const tr    = build(740, -10, -130,  72, CORNER_DEPTH, CORNER_DEPTH, 28, 0.70, []);
+  const all = [...main, ...tl, ...tr];
+
+  const svgNs = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNs, "svg");
+  svg.setAttribute("viewBox", "0 0 1200 630");
+  svg.setAttribute("width", "1200");
+  svg.setAttribute("height", "630");
+
+  for (const b of all) {
+    const t = b.depth / b.maxDepth;
+    const opacity = 0.55 + t * 0.4;
+    const strokeW = Math.max(1.0, b.depth * 0.9);
+    // Inverted relationship: trunk (depth high) → green; tips (depth low) → gold
+    const color =
+      b.depth > b.maxDepth * 0.7 ? "#4D9B70" :
+      b.depth > b.maxDepth * 0.4 ? "#C8E4D8" :
+                                   "#E2BE70";
+    const line = document.createElementNS(svgNs, "line");
+    line.setAttribute("x1", b.x1);
+    line.setAttribute("y1", b.y1);
+    line.setAttribute("x2", b.x2);
+    line.setAttribute("y2", b.y2);
+    line.setAttribute("stroke", color);
+    line.setAttribute("stroke-width", strokeW);
+    line.setAttribute("stroke-opacity", opacity);
+    line.setAttribute("stroke-linecap", "round");
+    svg.appendChild(line);
+  }
+  document.getElementById("tree-wrap").appendChild(svg);
+</script>
+
+</body>
+</html>

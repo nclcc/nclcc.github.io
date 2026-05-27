@@ -59,10 +59,10 @@ function buildGraph(W: number, H: number): { nodes: Node[]; edges: Edge[] } {
   return { nodes, edges };
 }
 
-// Brand-kit palette (light cream theme)
-const HUB =  { r: 184, g:  84, b:  58 };   // sienna — high-degree hubs
-const MID =  { r:  46, g:  99, b:  84 };   // green-lt — mid-degree
-const LEAF = { r: 212, g: 200, b: 150 };   // rule — peripheral leaves
+// Brand-kit palette (dark mode — Complexa DWS-style)
+const HUB =  { r: 201, g: 168, b:  76 };   // gold — high-degree hubs
+const MID =  { r: 126, g: 168, b: 144 };   // muted teal — mid-degree
+const LEAF = { r:  20, g:  61, b:  43 };   // dark green — peripheral, fades into bg
 
 const rgba = (c: { r: number; g: number; b: number }, a: number) =>
   `rgba(${c.r},${c.g},${c.b},${a})`;
@@ -101,7 +101,7 @@ export default function ScaleFreeBackground() {
         ctx.beginPath();
         ctx.moveTo(na.x, na.y);
         ctx.lineTo(nb.x, nb.y);
-        ctx.strokeStyle = rgba(MID, 0.12);
+        ctx.strokeStyle = rgba(MID, 0.18);
         ctx.lineWidth = 0.7;
         ctx.stroke();
       }
@@ -116,7 +116,7 @@ export default function ScaleFreeBackground() {
 
         if (norm > 0.5) {
           const gr = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, rr * 4);
-          gr.addColorStop(0, rgba(HUB, 0.22));
+          gr.addColorStop(0, rgba(HUB, 0.35));
           gr.addColorStop(1, rgba(HUB, 0));
           ctx.beginPath();
           ctx.arc(n.x, n.y, rr * 4, 0, Math.PI * 2);
@@ -126,7 +126,7 @@ export default function ScaleFreeBackground() {
 
         ctx.beginPath();
         ctx.arc(n.x, n.y, rr, 0, Math.PI * 2);
-        ctx.fillStyle = rgba(col, norm > 0.5 ? 0.55 : 0.4);
+        ctx.fillStyle = rgba(col, norm > 0.5 ? 0.85 : 0.55);
         ctx.fill();
       }
 
@@ -174,7 +174,7 @@ export default function ScaleFreeBackground() {
         height: "100vh",
         pointerEvents: "none",
         zIndex: 0,
-        opacity: 0.35,
+        opacity: 0.7,
       }}
     />
   );

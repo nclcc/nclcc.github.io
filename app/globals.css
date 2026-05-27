@@ -1,19 +1,36 @@
 @import "tailwindcss";
 
-/* ── Brand kit (adapted from Complexa Labs) ──────────────────────────── */
+/* ── Brand kit — DARK MODE (adapted from Complexa DWS palette) ────────
+   Token names preserved from the original cream palette so component
+   styling reads the same; only the *values* are flipped. Mental map:
+     --bk-cream*  → backgrounds (deep forest → elevated surfaces)
+     --bk-ink*    → text (cream → muted green-cream)
+     --bk-green*  → primary accent (now gold, signalling importance)
+     --bk-sienna* → callouts / links (warmer terracotta on dark)
+     --bk-rule    → hairlines (subtle border)
+*/
 :root {
-  --bk-green:      #1D4D3E;
-  --bk-green-dk:   #143A2F;
-  --bk-green-lt:   #2E6354;
-  --bk-cream:      #F0E6C8;
-  --bk-cream-lt:   #F8F1DE;
-  --bk-cream-dk:   #E5D9B5;
-  --bk-sienna:     #B8543A;
-  --bk-sienna-lt:  #D17157;
-  --bk-ink:        #1A1A1A;
-  --bk-ink-mid:    #4A4A4A;
-  --bk-ink-lt:     #6E6E6E;
-  --bk-rule:       #D4C896;
+  /* Backgrounds */
+  --bk-cream:      #0A2018;   /* deepest — body/page */
+  --bk-cream-lt:   #143D2B;   /* elevated cards */
+  --bk-cream-dk:   #1A4A36;   /* tags / hover surfaces */
+
+  /* Primary accent (was forest green → now gold) */
+  --bk-green:      #C9A84C;   /* primary accent */
+  --bk-green-dk:   #E2BE70;   /* strongest emphasis (headings) */
+  --bk-green-lt:   #8C7235;   /* dim accent */
+
+  /* Secondary accent — sienna stays warm on dark */
+  --bk-sienna:     #D17157;
+  --bk-sienna-lt:  #E89A7E;
+
+  /* Text */
+  --bk-ink:        #F2EDD6;   /* body */
+  --bk-ink-mid:    #C8E4D8;   /* secondary */
+  --bk-ink-lt:     #7EA890;   /* tertiary / muted */
+
+  /* Hairlines */
+  --bk-rule:       #2D6B50;
 }
 
 @theme {
@@ -74,11 +91,12 @@ html, body {
 .prose-bk code {
   font-family: var(--font-mono);
   background: var(--bk-cream-dk);
+  color: var(--bk-green-dk);
   padding: 0.1rem 0.35rem;
   border-radius: 3px;
   font-size: 0.92em;
 }
-.prose-bk strong { color: var(--bk-green-dk); font-weight: 600; }
+.prose-bk strong { color: var(--bk-green); font-weight: 600; }
 .prose-bk blockquote {
   border-left: 3px solid var(--bk-sienna);
   padding: 0.25rem 0 0.25rem 1rem;
