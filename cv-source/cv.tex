@@ -1,0 +1,110 @@
+% =============================================================
+%  Nicolò Ciccarone — Curriculum Vitae
+%  moderncv (classic), burgundy accent
+%  Compile:  pdflatex cv.tex
+%  Target:   one-page A4 PDF
+% =============================================================
+\documentclass[10pt,a4paper,sans]{moderncv}
+
+\moderncvstyle{classic}
+\moderncvcolor{burgundy}
+\renewcommand*{\namefont}{\fontsize{22}{26}\mdseries\upshape}
+
+% --- Geometry & layout tuning ---------------------------------
+\usepackage[scale=0.86, top=1.0cm, bottom=0.6cm]{geometry}
+\setlength{\hintscolumnwidth}{2.6cm}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{xpatch}
+\usepackage{eurosym}
+
+% Tight bullet lists
+\setlist[itemize]{
+  topsep=0pt,
+  partopsep=0pt,
+  itemsep=1pt,
+  parsep=0pt,
+  leftmargin=*,
+  labelindent=0pt,
+  label=\textcolor{color1}{\textbullet}
+}
+
+% Tighter section heading
+\renewcommand*{\sectionfont}{\Large\mdseries\upshape}
+\setlength{\parskip}{0pt}
+
+% --- Personal data --------------------------------------------
+\name{Nicolò}{Ciccarone}
+\email{niciccarone@gmail.com}
+\social[linkedin]{nicolociccarone1997}
+\social[github]{nclcc}
+
+\begin{document}
+\makecvtitle
+\vspace*{-12mm}
+
+% =============================================================
+%  Employment History
+% =============================================================
+\section{Employment History}
+
+\cventry{Jan 2025 -- present}{Data Scientist / Data Engineer}{\textit{Complexa Labs}}{Italy}{}{
+\begin{itemize}
+  \item Designing and building an in-house adaptive \textbf{regime-aware trading engine}: multifractal cascade (Liu MSM) and unscented Kalman filter feed a four-regime classifier driving thirteen regime-gated strategy templates with Bayesian online weight allocation.
+  \item Delivering quantitative consulting for enterprise clients (\euro{}1B+ revenue) across staffing, financial services, automotive SaaS, and public research.
+  \item For a \textbf{\euro{}3B+ staffing group}: end-to-end Customer Lifetime Value pipeline --- mixture-cure survival, quantile regression for margin uncertainty, GBM ensembles, calibrated A/B framework with stratified re-randomisation and CATE analysis.
+  \item Follow-on causal \textbf{Next-Best-Product recommender} for the same client --- state-space model with cross-product effects identified via staggered Callaway--Sant'Anna DiD and threshold-based RDD, online inference via a Rao--Blackwellised particle filter.
+  \item Macroeconomic scenario simulator for a \textbf{financial consultancy}: 500+ interdependent variables, non-linear constrained optimisation routing across IPOPT, CMA-ES, and differential evolution.
+  \item NLP and document-processing microservices for an \textbf{automotive retail platform}; Spark-native re-architecture of a critical pandas ingestion pipeline on MongoDB/Azure, with FastAPI + Celery orchestration.
+  \item Epidemiological Health Impact Assessment for a \textbf{national research institute}: Poisson and panel fixed-effects modelling of PM10/PM2.5/NO\textsubscript{2} mortality burden, causal forest and Double ML on perception-survey data.
+\end{itemize}}
+
+\cventry{Jan 2024 -- Nov 2024}{Data Scientist}{\textit{acmetric B.V.}}{Amsterdam (NL)}{}{
+\begin{itemize}
+  \item Developed and maintained a pricing and demand-forecasting engine for a \textbf{global sportswear group} using Causal-AI techniques.
+  \item Designed and shipped a churn / litigation prediction model for a \textbf{major Latin American airline} using gradient-boosting machines --- productionised.
+\end{itemize}}
+
+\cventry{Nov 2022 -- Dec 2023}{Data Scientist}{\textit{MOOS Solutions B.V.}}{Amsterdam (NL)}{}{
+\begin{itemize}
+  \item Built and maintained an AI engine for real-time inventory insights using Mixture-of-Experts techniques --- productionised.
+  \item Conducted exploratory data analysis and visualisation to support decision-making across operational teams.
+\end{itemize}}
+
+% =============================================================
+%  Education
+% =============================================================
+\section{Education}
+
+\cventry{Jul 2023}{Summer School in Deep Learning}{Tinbergen Institute}{Amsterdam}{}{Intensive PhD-level programme with Eran Raviv, PhD --- focus on \textbf{Generative AI}.}
+
+\cventry{2021 -- 2022}{M.Sc. Econometrics \& Operations Research}{Vrije Universiteit Amsterdam}{}{}{Thesis: \emph{Price volatility and climatic extremes: distinguishing signal from noise}. Final mark 8.0/10.}
+
+\cventry{2019 -- 2021}{M.Sc. Economics (Econometrics track)}{University of Bologna}{}{}{Thesis: \emph{Hedging against climate change: a Hawkes process approach}. Final mark 110/110 cum laude.}
+
+\cventry{2015 -- 2018}{B.Sc. Economics \& Management}{University of Trento}{}{}{Honours programme, Department of Economics. Final mark 110/110 cum laude.}
+
+% =============================================================
+%  Skills
+% =============================================================
+\section{Skills}
+
+\cvitem{Languages}{\textbf{Italian} (native), \textbf{English} (C1/C2, TOEFL 107/120), \textbf{French} (B1), \textbf{German} (A2).}
+
+\cvitem{Modelling}{Survival analysis (mixture cure), quantile regression, GBM ensembles, causal forest, Double ML, DiD (Callaway--Sant'Anna), RDD, particle filtering, state-space models, multifractal cascades, MSM/UKF, Bayesian online learning, NLP / LLMs.}
+
+\cvitem{Engineering}{\textbf{Python}, \textbf{R}, \textbf{MATLAB}, \textbf{\LaTeX} (proficient); SQL, MongoDB, Docker, FastAPI, Celery, PySpark, PyTorch, AWS, Azure, GCP, Databricks (intermediate); Julia (basic).}
+
+% =============================================================
+%  Awards & Certifications
+% =============================================================
+\section{Awards \& Certifications}
+
+\cvitem{2021}{TOEFL iBT --- Overall 107/120, C1 (CEFR).}
+\cvitem{2019}{Merit Scholarship, Italian National Social Insurance Agency (INPS) --- 2019 edition.}
+\cvitem{2018}{Merit Scholarship, University of Trento --- 2018 edition.}
+
+\end{document}

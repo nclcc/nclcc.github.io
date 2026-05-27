@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+/* ── Brand kit (adapted from Complexa Labs) ──────────────────────────── */
+:root {
+  --bk-green:      #1D4D3E;
+  --bk-green-dk:   #143A2F;
+  --bk-green-lt:   #2E6354;
+  --bk-cream:      #F0E6C8;
+  --bk-cream-lt:   #F8F1DE;
+  --bk-cream-dk:   #E5D9B5;
+  --bk-sienna:     #B8543A;
+  --bk-sienna-lt:  #D17157;
+  --bk-ink:        #1A1A1A;
+  --bk-ink-mid:    #4A4A4A;
+  --bk-ink-lt:     #6E6E6E;
+  --bk-rule:       #D4C896;
+}
+
+@theme {
+  --font-sans: ui-sans-serif, "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "Fira Code", monospace;
+  --font-serif: ui-serif, "Source Serif Pro", "Iowan Old Style", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--bk-cream);
+  color: var(--bk-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Selection */
+::selection { background: var(--bk-green); color: var(--bk-cream); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bk-cream); }
+::-webkit-scrollbar-thumb { background: var(--bk-rule); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--bk-green-lt); }
+
+/* Long-form prose styling for experience pages */
+.prose-bk {
+  color: var(--bk-ink);
+  line-height: 1.7;
+  font-size: 1.0625rem;
+}
+.prose-bk h2 {
+  font-family: var(--font-serif);
+  font-size: 1.625rem;
+  font-weight: 600;
+  color: var(--bk-green-dk);
+  margin: 2.5rem 0 1rem;
+  letter-spacing: -0.01em;
+}
+.prose-bk h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--bk-green);
+  margin: 2rem 0 0.75rem;
+}
+.prose-bk p { margin: 0.9rem 0; }
+.prose-bk ul { margin: 0.9rem 0; padding-left: 1.25rem; }
+.prose-bk li { margin: 0.3rem 0; }
+.prose-bk a {
+  color: var(--bk-sienna);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.prose-bk a:hover { color: var(--bk-sienna-lt); }
+.prose-bk code {
+  font-family: var(--font-mono);
+  background: var(--bk-cream-dk);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  font-size: 0.92em;
+}
+.prose-bk strong { color: var(--bk-green-dk); font-weight: 600; }
+.prose-bk blockquote {
+  border-left: 3px solid var(--bk-sienna);
+  padding: 0.25rem 0 0.25rem 1rem;
+  margin: 1.25rem 0;
+  color: var(--bk-ink-mid);
+  font-style: italic;
+}
+
+/* Hairline rule */
+.hr-bk {
+  border: 0;
+  height: 1px;
+  background: var(--bk-rule);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.5s ease both; }

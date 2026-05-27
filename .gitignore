@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+.env*
+
+# LaTeX intermediates
+cv-source/*.aux
+cv-source/*.log
+cv-source/*.out
