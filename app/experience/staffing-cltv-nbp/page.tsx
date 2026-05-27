@@ -1,21 +1,21 @@
 import ExperienceLayout from "@/components/ExperienceLayout";
 
 export const metadata = {
-  title: "Gi Group — CLTV pipeline & NBP recommender · Nicolò Ciccarone",
+  title: "B2B staffing — CLTV pipeline & NBP recommender · Nicolò Ciccarone",
 };
 
 export default function Page() {
   return (
     <ExperienceLayout
-      client="Gi Group"
-      sector="Staffing — €3B+ group"
+      client="€3B+ European staffing group"
+      sector="Staffing"
       title="B2B customer segmentation & next-best-product recommender"
       role="Lead quantitative engineer"
       period="2024 – present"
     >
       <h2>The problem</h2>
       <p>
-        Gi Group serves tens of thousands of B2B clients across temporary staffing, permanent placement,
+        The client serves tens of thousands of B2B accounts across temporary staffing, permanent placement,
         outsourcing, training, and HR consulting. The commercial organisation was operating on
         sector-and-headcount heuristics: rules of thumb that grouped clients into segments without any
         principled estimate of how much each relationship would actually be worth, how long it would last,

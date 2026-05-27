@@ -14,7 +14,7 @@ const experiences = [
     tags: ["Regime detection", "Multifractal models", "Bayesian online learning", "Risk management"],
   },
   {
-    slug: "gigroup-cltv-nbp",
+    slug: "staffing-cltv-nbp",
     client: "€3B+ staffing group",
     sector: "Staffing",
     title: "B2B customer segmentation & next-best-product recommender",
