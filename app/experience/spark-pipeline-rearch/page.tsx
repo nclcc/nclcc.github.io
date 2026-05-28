@@ -11,7 +11,7 @@ export default function Page() {
       sector="Data engineering"
       title="Pandas → Spark-native pipeline re-architecture"
       role="Senior data engineer"
-      period="2022 – 2023"
+      period="Jan – Jun 2026"
     >
       <h2>The problem</h2>
       <p>
