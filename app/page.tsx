@@ -71,20 +71,14 @@ export default function Home() {
         >
           Quantitative modelling · Data engineering · Extreme value theory · Causal inference
         </p>
-        <h1
-          className="font-serif text-3xl sm:text-5xl font-semibold leading-tight"
-          style={{ color: "var(--bk-green-dk)", letterSpacing: "-0.02em" }}
-        >
-          Nicolò Ciccarone
-        </h1>
-        <p className="mt-5 text-base sm:text-lg leading-relaxed" style={{ color: "var(--bk-ink-mid)" }}>
-          I build quantitative models and data systems for enterprise clients across financial services,
-          staffing, and public research. My work is rooted in <strong style={{ color: "var(--bk-green-dk)" }}>fractal
+        <p className="mt-3 text-base sm:text-lg leading-relaxed" style={{ color: "var(--bk-ink-mid)" }}>
+          We build quantitative models and data systems for enterprise clients across financial services,
+          staffing, and public research. Our work is rooted in <strong style={{ color: "var(--bk-green-dk)" }}>fractal
           theory</strong> and <strong style={{ color: "var(--bk-green-dk)" }}>extreme value theory</strong> — the
           mathematics of self-similarity across scales, heavy tails, and the rare events that disproportionately drive
           outcomes in complex systems. Most quantitative tooling is built for the convenient case: stationarity,
-          finite variance, independent shocks. The models I build take the inconvenient case seriously instead — and
-          the systems they live inside survive deployment because of it. Most of my recent research runs through{" "}
+          finite variance, independent shocks. The models we build take the inconvenient case seriously instead — and
+          the systems they live inside survive deployment because of it. Most of our research runs through{" "}
           <a
             href="https://www.linkedin.com/company/complexalabs/"
             target="_blank"
@@ -94,7 +88,7 @@ export default function Home() {
           >
             Complexa Labs
           </a>
-          , my research vehicle for quantitative work on complex systems.
+          , our research vehicle for quantitative work on complex systems.
         </p>
 
         <div className="mt-7 flex flex-wrap gap-3">
@@ -152,7 +146,7 @@ export default function Home() {
         </h2>
         <p className="mt-3 mb-7 leading-relaxed max-w-2xl" style={{ color: "var(--bk-ink-mid)" }}>
           Why complexity demands different tools — and why convenience is not a virtue in
-          quantitative analysis. Six principles that shape every engagement I take on.
+          quantitative analysis. Six principles that shape every engagement we take on.
         </p>
 
         <div
