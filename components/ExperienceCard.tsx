@@ -23,7 +23,7 @@ export default function ExperienceCard({ slug, client, sector, title, summary, t
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1">
           <div
-            className="text-xs uppercase tracking-wider font-mono mb-1"
+            className="text-[10px] sm:text-xs uppercase tracking-wider font-mono mb-1 break-words"
             style={{ color: "var(--bk-ink-lt)" }}
           >
             {sector} · {client}

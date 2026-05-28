@@ -44,11 +44,11 @@ export default function PhilosophyTabs() {
 
   return (
     <div>
-      {/* Tab strip */}
+      {/* Tab strip — horizontally scrollable on narrow screens, wraps on wider */}
       <div
         role="tablist"
         aria-label="Philosophy tabs"
-        className="flex flex-wrap gap-1 border-b mb-6 -mx-1"
+        className="flex sm:flex-wrap gap-1 border-b mb-6 -mx-1 overflow-x-auto sm:overflow-visible whitespace-nowrap sm:whitespace-normal scrollbar-thin"
         style={{ borderColor: "var(--bk-rule)" }}
       >
         {TABS.map((t, i) => {
@@ -61,7 +61,7 @@ export default function PhilosophyTabs() {
               aria-controls={`phil-panel-${i}`}
               id={`phil-tab-${i}`}
               onClick={() => setActive(i)}
-              className="px-3 py-2 text-sm font-mono tracking-wide transition border-b-2 -mb-px"
+              className="px-2.5 sm:px-3 py-2 text-xs sm:text-sm font-mono tracking-wide transition border-b-2 -mb-px shrink-0"
               style={{
                 color: isActive ? "var(--bk-green-dk)" : "var(--bk-ink-lt)",
                 borderBottomColor: isActive ? "var(--bk-sienna)" : "transparent",

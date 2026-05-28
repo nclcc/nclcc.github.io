@@ -62,22 +62,22 @@ const experiences = [
 
 export default function Home() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12 animate-fade-up">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 animate-fade-up">
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section id="about" className="mb-14">
         <p
-          className="text-xs uppercase tracking-[0.2em] font-mono mb-3"
-          style={{ color: "var(--bk-sienna)" }}
+          className="text-[10px] sm:text-xs uppercase tracking-[0.08em] sm:tracking-[0.2em] font-mono mb-3"
+          style={{ color: "var(--bk-sienna)", overflowWrap: "anywhere" }}
         >
           Quantitative modelling · Data engineering · Causal inference
         </p>
         <h1
-          className="font-serif text-4xl sm:text-5xl font-semibold leading-tight"
+          className="font-serif text-3xl sm:text-5xl font-semibold leading-tight"
           style={{ color: "var(--bk-green-dk)", letterSpacing: "-0.02em" }}
         >
           Nicolò Ciccarone
         </h1>
-        <p className="mt-5 text-lg leading-relaxed" style={{ color: "var(--bk-ink-mid)" }}>
+        <p className="mt-5 text-base sm:text-lg leading-relaxed" style={{ color: "var(--bk-ink-mid)" }}>
           I build quantitative models and data systems for enterprise clients across financial services,
           staffing, and public research. My work is rooted in <strong style={{ color: "var(--bk-green-dk)" }}>fractal
           theory</strong> and <strong style={{ color: "var(--bk-green-dk)" }}>extreme value theory</strong> — the
@@ -139,7 +139,7 @@ export default function Home() {
       {/* ── Philosophy ─────────────────────────────────────────────── */}
       <section id="philosophy" className="mt-12">
         <div
-          className="text-xs uppercase tracking-[0.2em] font-mono mb-3"
+          className="text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-mono mb-3"
           style={{ color: "var(--bk-sienna)" }}
         >
           Complexa Labs
@@ -156,7 +156,7 @@ export default function Home() {
         </p>
 
         <div
-          className="rounded-md border p-6 sm:p-8"
+          className="rounded-md border p-4 sm:p-8"
           style={{
             background: "var(--bk-cream-lt)",
             borderColor: "var(--bk-rule)",

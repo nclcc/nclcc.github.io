@@ -46,6 +46,8 @@ html, body {
   color: var(--bk-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* Selection */
