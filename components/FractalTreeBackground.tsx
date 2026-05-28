@@ -22,6 +22,12 @@ interface Branch {
   depth: number; maxDepth: number;
 }
 
+// Quantise to 3 decimals so server and client produce bit-identical SVG
+// attribute strings. Math.sin/Math.cos aren't required to be deterministic
+// across JS engines, and the recursion below compounds any drift, which
+// surfaces as a React hydration mismatch on every <line>.
+const q = (n: number) => Math.round(n * 1000) / 1000;
+
 function buildBranches(
   x: number, y: number,
   angle: number, length: number,
@@ -33,8 +39,8 @@ function buildBranches(
 ): Branch[] {
   if (depth === 0 || length < 2) return acc;
   const rad = (angle * Math.PI) / 180;
-  const x2 = x + length * Math.sin(rad);
-  const y2 = y - length * Math.cos(rad);
+  const x2 = q(x + length * Math.sin(rad));
+  const y2 = q(y - length * Math.cos(rad));
   acc.push({ x1: x, y1: y, x2, y2, depth, maxDepth });
   const sp = spread + depth * 4;
   buildBranches(x2, y2, angle - sp, length * scale, depth - 1, maxDepth, spread, scale, acc);

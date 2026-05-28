@@ -132,3 +132,28 @@ html, body {
   to   { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-up { animation: fadeUp 0.5s ease both; }
+
+/* Self-drawing stroke for the fractal-tree landing symbol.
+   Each <line> sets its own stroke-dasharray = length and animates
+   stroke-dashoffset from `length` → 0 with a per-branch delay,
+   so branches appear in order from trunk to tips. */
+@keyframes tree-grow {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Looping animations applied AFTER the initial draw finishes so the
+   tree feels alive rather than frozen. Both are intentionally gentle —
+   slow enough to read as breathing, not flickering. */
+
+/* Slow scale-breathe on the whole tree (applied to the <svg>). */
+@keyframes tree-breathe {
+  0%, 100% { transform: scale(1);     }
+  50%      { transform: scale(1.025); }
+}
+
+/* Opacity pulse on the gold tip branches — multiplied with stroke-opacity
+   set inline, so this only modulates element-level opacity. */
+@keyframes tree-tip-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1;    }
+}

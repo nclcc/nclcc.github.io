@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Download, Mail, Github, Linkedin } from "lucide-react";
 import ExperienceCard from "@/components/ExperienceCard";
 import PhilosophyTabs from "@/components/PhilosophyTabs";
+import FractalTreeHero from "@/components/FractalTreeHero";
 
 const experiences = [
   {
@@ -71,6 +72,11 @@ export default function Home() {
         >
           Quantitative modelling · Data engineering · Extreme value theory · Causal inference
         </p>
+
+        {/* Landing symbol — self-drawing tree + Mandelbrot quote, naming the
+            site's thesis: simple recursive rules generating complex outcomes. */}
+        <FractalTreeHero quote />
+
         <p className="mt-3 text-base sm:text-lg leading-relaxed" style={{ color: "var(--bk-ink-mid)" }}>
           We build quantitative models and data systems for enterprise clients across financial services,
           staffing, and public research. Our work is rooted in <strong style={{ color: "var(--bk-green-dk)" }}>fractal
