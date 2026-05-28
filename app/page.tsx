@@ -69,7 +69,7 @@ export default function Home() {
           className="text-[10px] sm:text-xs uppercase tracking-[0.08em] sm:tracking-[0.2em] font-mono mb-3"
           style={{ color: "var(--bk-sienna)", overflowWrap: "anywhere" }}
         >
-          Quantitative modelling · Data engineering · Causal inference
+          Quantitative modelling · Data engineering · Extreme value theory · Causal inference
         </p>
         <h1
           className="font-serif text-3xl sm:text-5xl font-semibold leading-tight"
