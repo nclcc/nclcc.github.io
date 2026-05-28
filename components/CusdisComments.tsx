@@ -51,24 +51,41 @@ export default function CusdisComments({ title }: { title: string }) {
       : `https://nclcc.github.io${pathname}`;
 
   return (
-    <div className="mt-12">
-      <hr className="hr-bk mb-6" />
+    <section className="mt-14 cusdis-section">
+      <div
+        className="text-[10px] sm:text-xs uppercase tracking-[0.18em] font-mono mb-2"
+        style={{ color: "var(--bk-sienna)" }}
+      >
+        Discussion
+      </div>
       <h3
-        className="font-serif text-xl font-semibold mb-4"
-        style={{ color: "var(--bk-green-dk)" }}
+        className="font-serif text-2xl font-semibold mb-2"
+        style={{ color: "var(--bk-green-dk)", letterSpacing: "-0.01em" }}
       >
         Comments
       </h3>
+      <p className="text-sm mb-5" style={{ color: "var(--bk-ink-lt)" }}>
+        No account required. Comments are moderated — they appear once approved.
+      </p>
+
       <div
-        ref={containerRef}
-        id="cusdis_thread"
-        data-host="https://cusdis.com"
-        data-app-id={appId}
-        data-page-id={pathname}
-        data-page-url={pageUrl}
-        data-page-title={title}
-        data-theme="dark"
-      />
-    </div>
+        className="rounded-md border p-4 sm:p-5"
+        style={{
+          background: "var(--bk-cream-lt)",
+          borderColor: "var(--bk-rule)",
+        }}
+      >
+        <div
+          ref={containerRef}
+          id="cusdis_thread"
+          data-host="https://cusdis.com"
+          data-app-id={appId}
+          data-page-id={pathname}
+          data-page-url={pageUrl}
+          data-page-title={title}
+          data-theme="dark"
+        />
+      </div>
+    </section>
   );
 }

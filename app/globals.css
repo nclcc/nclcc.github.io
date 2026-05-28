@@ -114,6 +114,18 @@ html, body {
   background: var(--bk-rule);
 }
 
+/* ── Cusdis comment iframe — tighten the default container styling ──── */
+.cusdis-section #cusdis_thread {
+  background: transparent;
+}
+.cusdis-section #cusdis_thread iframe {
+  background: transparent;
+  /* Slight bottom breathing room so the iframe doesn't crash into the card edge */
+  margin-bottom: -4px;
+  display: block;
+  width: 100%;
+}
+
 /* Animations */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(8px); }
