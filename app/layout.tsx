@@ -60,18 +60,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               className="shrink-0 inline-flex items-center"
               aria-label="Complexa Labs — home"
             >
-              {/* Mobile: just the sphere mark */}
-              <img
-                src="/complexa-mark.png"
-                alt="Complexa Labs"
-                className="block sm:hidden h-12 w-12"
-                style={{ objectFit: "contain", filter: "brightness(1.15) contrast(1.05)" }}
-              />
-              {/* Desktop: full horizontal wordmark */}
+              {/* Full horizontal wordmark at every breakpoint — sized smaller on
+                  mobile so it shares the header with the nav cleanly. */}
               <img
                 src="/complexa-logo.png"
                 alt="Complexa Labs"
-                className="hidden sm:block h-16 lg:h-20"
+                className="h-10 sm:h-16 lg:h-20"
                 style={{ objectFit: "contain", filter: "brightness(1.15) contrast(1.05)" }}
               />
             </Link>
