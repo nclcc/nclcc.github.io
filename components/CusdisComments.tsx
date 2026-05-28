@@ -41,22 +41,9 @@ export default function CusdisComments({ title }: { title: string }) {
     document.body.appendChild(script);
   }, [appId, pathname]);
 
-  if (!appId) {
-    return (
-      <div
-        className="mt-12 rounded-md border p-4 text-sm"
-        style={{
-          borderColor: "var(--bk-rule)",
-          background: "var(--bk-cream-lt)",
-          color: "var(--bk-ink-mid)",
-        }}
-      >
-        <strong style={{ color: "var(--bk-green-dk)" }}>Comments disabled in this build.</strong>{" "}
-        Set <code>NEXT_PUBLIC_CUSDIS_APP_ID</code> in your environment (Cusdis dashboard → app
-        ID) and rebuild to enable.
-      </div>
-    );
-  }
+  // No app ID configured → render nothing (silent fail). When the env var is
+  // set at build time, the full thread renders below.
+  if (!appId) return null;
 
   const pageUrl =
     typeof window !== "undefined"
