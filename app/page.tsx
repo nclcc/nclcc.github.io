@@ -66,8 +66,11 @@ export default function Home() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 animate-fade-up">
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section id="about" className="mb-14">
+        {/* Tagline is sized + width-constrained to match the tree panel
+            beneath it, so it reads as a cap over the symbol rather than a
+            free-floating line across the full content column. */}
         <p
-          className="text-[10px] sm:text-xs uppercase tracking-[0.08em] sm:tracking-[0.2em] font-mono mb-3"
+          className="max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto text-center text-base sm:text-lg md:text-xl uppercase tracking-[0.1em] sm:tracking-[0.15em] font-mono mb-5 sm:mb-6 leading-snug"
           style={{ color: "var(--bk-sienna)", overflowWrap: "anywhere" }}
         >
           Quantitative modelling · Data engineering · Extreme value theory · Causal inference
