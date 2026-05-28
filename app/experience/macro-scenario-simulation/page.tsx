@@ -11,7 +11,7 @@ export default function Page() {
       sector="Financial services"
       title="Macroeconomic scenario simulation framework"
       role="Quantitative engineer"
-      period="2022 – 2023"
+      period="2025"
     >
       <h2>The problem</h2>
       <p>

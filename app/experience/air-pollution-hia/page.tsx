@@ -11,7 +11,7 @@ export default function Page() {
       sector="Public research — epidemiology"
       title="Mortality burden of air pollution — Health Impact Assessment"
       role="Quantitative researcher"
-      period="2021 – 2022"
+      period="2025 – present"
     >
       <h2>The problem</h2>
       <p>

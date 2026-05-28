@@ -11,7 +11,7 @@ export default function Page() {
       sector="Automotive SaaS"
       title="Enterprise-scale NLP for unstructured text"
       role="NLP engineer"
-      period="2023 – 2024"
+      period="2025"
     >
       <h2>The problem</h2>
       <p>
