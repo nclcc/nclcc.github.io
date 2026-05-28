@@ -54,14 +54,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           className="border-b relative"
           style={{ borderColor: "var(--bk-rule)", zIndex: 1, background: "var(--bk-cream)" }}
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex items-baseline justify-between gap-2 sm:gap-3">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-2 sm:py-3 flex items-center justify-between gap-2 sm:gap-3">
             <Link
               href="/"
-              className="font-serif text-sm sm:text-lg font-semibold shrink-0"
-              style={{ color: "var(--bk-green-dk)" }}
+              className="shrink-0 inline-flex items-center"
+              aria-label="Complexa Labs — home"
             >
-              <span className="sm:hidden">Nicolò</span>
-              <span className="hidden sm:inline">Nicolò Ciccarone</span>
+              {/* Mobile: just the sphere mark */}
+              <img
+                src="/complexa-mark.png"
+                alt="Complexa Labs"
+                className="block sm:hidden h-12 w-12"
+                style={{ objectFit: "contain", filter: "brightness(1.15) contrast(1.05)" }}
+              />
+              {/* Desktop: full horizontal wordmark */}
+              <img
+                src="/complexa-logo.png"
+                alt="Complexa Labs"
+                className="hidden sm:block h-16 lg:h-20"
+                style={{ objectFit: "contain", filter: "brightness(1.15) contrast(1.05)" }}
+              />
             </Link>
             <nav className="text-[11px] sm:text-sm flex gap-2.5 sm:gap-5 min-w-0" style={{ color: "var(--bk-ink-mid)" }}>
               <Link href="/posts/" className="hover:opacity-80">Posts</Link>
