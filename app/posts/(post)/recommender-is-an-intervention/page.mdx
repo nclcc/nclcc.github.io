@@ -1,0 +1,84 @@
+import CusdisComments from "@/components/CusdisComments";
+
+export const metadata = {
+  title: "A recommender is an intervention · Nicolò Ciccarone",
+};
+
+# A recommender is an intervention
+
+A propensity score is the usual way to answer "what should we offer this client next?" You
+train a model on past purchases, rank products by predicted probability, and hand the top of
+the list to sales. It looks good in testing. It ships.
+
+Then it gets worse in production. Not because the data changed or the code broke. It gets worse
+because people started using it.
+
+## Why it breaks
+
+A propensity score answers one question: given what I see about this client today, how likely
+are they to buy? That question fails in four ways once the model is live.
+
+**It has no memory.** Two clients can look identical today but have very different histories. A
+firm that has bought temporary staffing for three years is close to needing permanent
+recruitment. A firm that started last quarter is not. A snapshot model gives them the same
+score.
+
+**It has no sense of direction.** Temporary staffing tends to lead to permanent recruitment,
+not the other way round. A model that looks at a snapshot learns that the two go together. It
+never learns which one comes first.
+
+**It confuses correlation with causation.** If one sales region happens to sell both outsourcing
+and training, the model reads that as a cross-sell effect. Pitch training somewhere else and the
+effect disappears. The signal was the region, not the product.
+
+**It is itself an intervention.** This is the one that matters most. The moment the model
+decides what sales pitches, it changes the data it was trained on. The patterns it learned came
+from the old way of selling. Deployment replaces that. A model built on those patterns has no
+reason to keep working.
+
+That last failure is the one testing can't catch. Your offline score is measured on data from
+the old way of selling. Once you deploy, the model *is* the new way.
+
+## The fix
+
+The fix is not a better classifier. It is two ideas.
+
+First, track how each client's needs change over time, not just where they are today. What you
+offer next should depend on where demand has been heading.
+
+Second, work out the real cross-sell directions from how demand actually moves — separately from
+your own recommendations. Keep a direction only when the evidence is strong, and drop it when it
+isn't.
+
+Because the model relies on cause and effect rather than on patterns that deployment erases, it
+keeps working once it starts shaping decisions.
+
+## What the directions look like
+
+The business picture is simple, and the direction matters more than any number:
+
+- Temporary staffing leads to permanent recruitment as a client's book matures. This is the
+  clearest one.
+- Permanent hiring brings onboarding and career-orientation needs.
+- Growing a workforce creates guidance needs alongside it.
+- Building permanent headcount leads to outsourcing adjacent functions later.
+
+Each is a direction: buying one thing raises real future need for another. Not every guess
+survives — some directions turn out to be noise, and those get dropped.
+
+## What it can't do
+
+It can only test the directions you propose. It won't find new ones on its own. So the biggest
+risk is picking the wrong set to begin with, which is why the directions are decided with the
+commercial team, not left to the model.
+
+## The point
+
+A recommender changes the world it predicts. The only models that survive that are the ones
+built on cause and effect. Before you ship a propensity score, ask one question: what happens to
+its patterns once it starts shaping what gets sold? If the answer is "they go away," you don't
+have a model. You have a snapshot of a policy you're about to replace.
+
+The applied context is under [Experience](/experience/staffing-cltv-nbp/).
+
+<CusdisComments title="A recommender is an intervention" />

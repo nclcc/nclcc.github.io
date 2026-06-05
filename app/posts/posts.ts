@@ -15,6 +15,14 @@ export interface PostMeta {
 
 export const POSTS: PostMeta[] = [
   {
+    slug: "recommender-is-an-intervention",
+    title: "A recommender is an intervention",
+    date: "2026-06-06",
+    excerpt:
+      "A propensity score can pass every backtest and still break in production — because the model changes the data it was trained on.",
+    tags: ["Causal Inference", "Recommenders", "Production ML"],
+  },
+  {
     slug: "welcome",
     title: "Why this site exists",
     date: "2026-05-28",
