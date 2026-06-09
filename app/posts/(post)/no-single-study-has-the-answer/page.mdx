@@ -1,0 +1,127 @@
+import CusdisComments from "@/components/CusdisComments";
+
+export const metadata = {
+  title: "When no single study has the answer · Nicolò Ciccarone",
+};
+
+# When no single study has the answer
+
+You want to know whether a treatment works in a population you cannot experiment on. What you
+have instead is a stack of randomized trials run somewhere else — a drug trial in one country, a
+pricing experiment in one market, a policy pilot in one city. None of them was run on the people
+you actually care about, and the people you care about can only be observed, never poked.
+
+The instinct is to pool the trials and take an average. That is what meta-analysis does. It is
+also, when the populations genuinely differ, the wrong thing to do — and the interesting part is
+that the *right* thing to do sometimes has no answer in any single study at all. The answer lives
+only in the combination.
+
+That is the problem Bareinboim and Pearl formalize in
+[Meta-Transportability of Causal Effects](http://proceedings.mlr.press/v31/bareinboim13a.pdf)
+(AISTATS 2013). This is a note on what they prove and why it matters once you leave the seminar
+room.
+
+## The setup
+
+Call each place you have data a *domain*. You have several source domains where experiments were
+run — `π₁, …, πₙ` — and one target domain `π*` where only passive observation is possible. The
+target quantity is a causal effect there: the distribution of an outcome `Y` under an
+intervention `do(X = x)`, written `P*(y | do(x))`.
+
+If nothing connected the sources to the target, transfer would be hopeless — knowledge of one
+population would say nothing about another. But that is not the world science operates in. We run
+trials in one place precisely because we believe something about the mechanism carries over. The
+whole question is *which* parts carry over and which were local accidents of where the study
+happened to run.
+
+## Drawing where domains disagree
+
+The paper's working tool is the **selection diagram**: an ordinary causal graph, plus square
+nodes (the `S`-variables) hung on exactly the variables whose mechanism is suspected to differ
+between domains. An `S` pointing at a variable means "this could be generated differently here."
+The *absence* of an `S` is the strong claim — it asserts the mechanism is identical across the
+domains in question.
+
+The canonical example makes it concrete. You run a randomized trial in Los Angeles and measure
+the effect of treatment `X` on outcome `Y` within each age band `Z`, giving `P(y | do(x), z)`.
+You want the same effect for the United States, but the US is older on average. The only thing
+that differs between the two populations is the age distribution; the age-specific effects
+themselves are assumed to be the same. In the diagram that is a single `S` pointing at `Z` and
+nothing else.
+
+The target effect is then
+
+`R = Σ_z P(y | do(x), z) · P*(z)`
+
+— the LA age-specific effects, *reweighted* by the US age distribution. That formula is the
+prize. It fuses an experimental quantity from one domain (`P(y | do(x), z)` from LA) with an
+observational quantity from another (`P*(z)`, the US age profile) into an unbiased estimate of
+something neither domain could give you alone. Bareinboim and Pearl call it the *transport
+formula*, and the job of the theory is to decide when one exists and to write it down.
+
+## Why pooling studies is not enough
+
+Here is the result that makes the multi-source case more than a footnote to the two-domain one.
+
+You might guess that if an effect cannot be transported from any single source on its own, the
+whole enterprise is doomed — that combining hopeless studies gives a hopeless answer. It does
+not. The paper shows graphs where the effect is transportable from *no individual source*, yet a
+more involved analysis recovers it by taking different pieces from different domains and gluing
+them together. One source supplies one factor of the formula, another source supplies the next,
+the target supplies an observational term, and the product is unbiased even though no single
+study contained it.
+
+So pairwise transportability — checking each source against the target one at a time — is
+genuinely insufficient. Meta-transportability is not the union of the easy cases. There are
+answers that exist only jointly, and a method that only ever asks "can I get this from study A? from
+study B?" will declare defeat on problems that are in fact solvable.
+
+## When the answer does not exist
+
+The theory is honest about its own failures, which is the part I find most useful. Not every
+target effect is recoverable, and the paper gives a clean graphical reason why.
+
+There is a structure — they name it a *μs-hedge*, a particular configuration of confounded
+components shared across the selection diagrams — and the headline theorem is that the effect is
+meta-transportable **if and only if** that structure does not appear in your diagrams. No hedge,
+there is a transport formula. Hedge present, no formula exists, and no amount of cleverness with
+the available data will manufacture one. They also prove the do-calculus is *complete* for the
+problem: if its rules cannot derive a transport formula, none exists by any means.
+
+This matters because it converts "we couldn't find a way" into "there is provably no way." Those
+are very different messages to bring back to whoever is paying for the study. The first invites
+more analysis. The second tells you the question cannot be answered without collecting different
+data, and points at exactly which assumption — which missing `S`-node, which unmeasured confounder
+— is standing in the way.
+
+And it is constructive. The algorithm, `μsID`, does not just return a yes/no verdict. When the
+effect is transportable it returns the actual transport formula — the recipe telling you which
+measurement to take from which domain and how to combine them. When it fails, the call that fails
+hands you the offending hedge as a certificate of impossibility.
+
+## What it rests on
+
+The whole machinery stands on one assumption that no algorithm can supply for you: that you drew
+the selection diagram correctly. Every `S`-node you placed is a claim that a mechanism *might*
+differ; every one you left out is a stronger claim that it *does not*. The math is exact, but it
+is exact about the graph you gave it.
+
+The authors say this plainly in the conclusion, and it is worth repeating: in practice that
+background knowledge is only partially available, and the real benefit of the analysis "lies
+primarily in understanding what knowledge is needed for the task to succeed and how sensitive
+conclusions are to knowledge that we do not possess." The formula is downstream of the diagram,
+and the diagram is downstream of your understanding of the domains. The contribution is not that
+it removes the need for judgment. It is that it tells you precisely where the judgment has to go,
+and refuses to pretend an answer when the judgment isn't there to support one.
+
+## The point
+
+Meta-analysis answers "what is the average effect across these studies." That is the wrong
+question when the studies were run on different populations than the one you care about. The right
+question is "given experiments here and there, and observations over there, what is the effect in
+the place I actually need it" — and the honest answer is sometimes a formula stitched from several
+domains, sometimes a single number from one, and sometimes a proof that the data on hand cannot
+get you there at all. Knowing which of the three you are in, before you ship the estimate, is the
+whole game.
+
+<CusdisComments title="When no single study has the answer" />

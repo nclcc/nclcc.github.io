@@ -15,6 +15,14 @@ export interface PostMeta {
 
 export const POSTS: PostMeta[] = [
   {
+    slug: "no-single-study-has-the-answer",
+    title: "When no single study has the answer",
+    date: "2026-06-09",
+    excerpt:
+      "Meta-analysis averages studies. Bareinboim and Pearl show how to fuse experiments across populations — and why the right answer sometimes lives in no single study at all.",
+    tags: ["Causal Inference", "Transportability", "Meta-analysis"],
+  },
+  {
     slug: "recommender-is-an-intervention",
     title: "A recommender is an intervention",
     date: "2026-06-06",
