@@ -87,7 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             className="max-w-4xl mx-auto px-6 py-6 text-sm flex flex-col sm:flex-row justify-between gap-2"
             style={{ color: "var(--bk-ink-lt)" }}
           >
-            <span>© {new Date().getFullYear()} Nicolò Ciccarone · Complexa Labs</span>
+            <span>© {new Date().getFullYear()} Nicolò Ciccarone · Complexa Labs · P.IVA IT09082330722</span>
             <span className="font-mono text-xs">v1.0 · built with Next.js</span>
           </div>
         </footer>
