@@ -13,7 +13,7 @@ export default function PostsIndex() {
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 animate-fade-up">
       <p
         className="text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-mono mb-3"
-        style={{ color: "var(--bk-sienna)" }}
+        style={{ color: "var(--bk-eyebrow)" }}
       >
         Notes &amp; essays
       </p>

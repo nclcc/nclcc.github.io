@@ -54,7 +54,7 @@ export default function CusdisComments({ title }: { title: string }) {
     <section className="mt-14 cusdis-section">
       <div
         className="text-[10px] sm:text-xs uppercase tracking-[0.18em] font-mono mb-2"
-        style={{ color: "var(--bk-sienna)" }}
+        style={{ color: "var(--bk-eyebrow)" }}
       >
         Discussion
       </div>

@@ -70,10 +70,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               />
             </Link>
             <nav className="text-[11px] sm:text-sm flex gap-2.5 sm:gap-5 min-w-0" style={{ color: "var(--bk-ink-mid)" }}>
+              <Link href="/philosophy/" className="hover:opacity-80">Philosophy</Link>
+              <Link href="/experience/" className="hover:opacity-80">Experience</Link>
               <Link href="/posts/" className="hover:opacity-80">Posts</Link>
-              <Link href="/#philosophy" className="hover:opacity-80">Philosophy</Link>
-              <Link href="/#experience" className="hidden sm:inline hover:opacity-80">Experience</Link>
-              <Link href="/#about" className="hidden sm:inline hover:opacity-80">About</Link>
               <Link href="/#contact" className="hover:opacity-80">Contact</Link>
             </nav>
           </div>

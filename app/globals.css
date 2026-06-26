@@ -5,32 +5,44 @@
    styling reads the same; only the *values* are flipped. Mental map:
      --bk-cream*  → backgrounds (deep forest → elevated surfaces)
      --bk-ink*    → text (cream → muted green-cream)
-     --bk-green*  → primary accent (now gold, signalling importance)
-     --bk-sienna* → callouts / links (warmer terracotta on dark)
+     --bk-green*  → primary accent (gold — emphasis & headings)
+     --bk-eyebrow → decorative meta labels (cool muted sage)
+     --bk-sienna* → INTERACTIVE only — links & link affordances (terracotta)
      --bk-rule    → hairlines (subtle border)
+
+   Colour logic: warm GOLD = emphasis, cool SAGE = meta labels, warm
+   TERRACOTTA = links. Keeping terracotta exclusively for interactive text
+   means colour reliably signals "clickable"; decorative labels read cool so
+   they don't compete with the gold. Backgrounds are deep + slightly
+   desaturated so the gold pops and the page reads less uniformly saturated.
 */
 :root {
-  /* Backgrounds */
-  --bk-cream:      #0A2018;   /* deepest — body/page */
-  --bk-cream-lt:   #143D2B;   /* elevated cards */
-  --bk-cream-dk:   #1A4A36;   /* tags / hover surfaces */
+  /* Backgrounds — deep, slightly desaturated forest */
+  --bk-cream:      #0C1A14;   /* deepest — body/page */
+  --bk-cream-lt:   #163328;   /* elevated cards */
+  --bk-cream-dk:   #1F4234;   /* tags / hover surfaces */
 
-  /* Primary accent (was forest green → now gold) */
+  /* Primary accent — gold (emphasis & headings) */
   --bk-green:      #C9A84C;   /* primary accent */
   --bk-green-dk:   #E2BE70;   /* strongest emphasis (headings) */
   --bk-green-lt:   #8C7235;   /* dim accent */
 
-  /* Secondary accent — sienna stays warm on dark */
-  --bk-sienna:     #D17157;
-  --bk-sienna-lt:  #E89A7E;
+  /* Meta labels — cool muted sage (eyebrows, captions). Lightened to clear
+     WCAG AAA (7:1) even on the lighter card surface. */
+  --bk-eyebrow:    #A4C4B3;
+
+  /* Links — terracotta, lightened to clear AAA on the page and AA+ on cards
+     while still reading clearly warm/terracotta (not pink). */
+  --bk-sienna:     #EC9F84;
+  --bk-sienna-lt:  #F4B9A2;
 
   /* Text */
-  --bk-ink:        #F2EDD6;   /* body */
-  --bk-ink-mid:    #C8E4D8;   /* secondary */
-  --bk-ink-lt:     #7EA890;   /* tertiary / muted */
+  --bk-ink:        #F2EDD6;   /* body — AAA */
+  --bk-ink-mid:    #D2E8DD;   /* secondary — AAA */
+  --bk-ink-lt:     #A2C2B1;   /* tertiary / muted — AAA on page and cards */
 
   /* Hairlines */
-  --bk-rule:       #2D6B50;
+  --bk-rule:       #2E5A46;
 }
 
 @theme {
@@ -156,4 +168,41 @@ html, body {
 @keyframes tree-tip-pulse {
   0%, 100% { opacity: 0.55; }
   50%      { opacity: 1;    }
+}
+
+/* Firefly twinkle on the gold tip nodes. Runs on the inner <circle>; the
+   wrapping <g> handles the one-time fade-in, and SVG opacity multiplies the
+   two so they compose without clobbering each other. */
+@keyframes tree-twinkle {
+  0%, 100% { opacity: 0.3; }
+  50%      { opacity: 1;   }
+}
+
+/* Self-similar sway ("fractal wind"). Each branch's <g> rotates a little
+   around its base joint; because the groups nest, the rotation compounds down
+   the tree and the tips sway most. `--amp` (per branch, set inline) scales the
+   swing; starting and ending at 0° avoids a jump when the loop begins. */
+@keyframes tree-sway {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(var(--amp, 1deg)); }
+  75%  { transform: rotate(calc(-1 * var(--amp, 1deg))); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Sprouting micro-tree: draw the little branch in, then hold. The dashoffset
+   resets to `--dash` at the loop boundary — which happens while `sprout-fade`
+   has it at opacity 0, so the reset is never seen. */
+@keyframes sprout-draw {
+  0%   { stroke-dashoffset: var(--dash); }
+  18%  { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Bloom then recede, paired with sprout-draw on the same timeline. */
+@keyframes sprout-fade {
+  0%   { opacity: 0;   }
+  12%  { opacity: 0.9; }
+  60%  { opacity: 0.9; }
+  82%  { opacity: 0;   }
+  100% { opacity: 0;   }
 }
