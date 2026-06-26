@@ -29,7 +29,7 @@ export default function Home() {
             free-floating line across the full content column. */}
         <p
           className="max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto text-center text-base sm:text-lg md:text-xl uppercase tracking-[0.1em] sm:tracking-[0.15em] font-mono mb-5 sm:mb-6 leading-snug"
-          style={{ color: "var(--bk-eyebrow)", overflowWrap: "anywhere" }}
+          style={{ color: "var(--bk-green-dk)", overflowWrap: "anywhere" }}
         >
           Quantitative modelling · Data engineering · Extreme value theory · Causal inference
         </p>
