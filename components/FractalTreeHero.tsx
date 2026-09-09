@@ -290,6 +290,19 @@ export default function FractalTreeHero({ quote = false }: FractalTreeHeroProps)
           style={{ opacity: 0, animation: `fadeUp 1.4s ease ${TOTAL_MS}ms forwards` }}
         />
 
+        {/* Faint full tree from the first paint so the hero is never an empty
+            card while the draw-in animation plays. */}
+        {flatten(tree).map((n) => (
+          <line
+            key={`ghost-${key(n)}`}
+            x1={n.x1} y1={n.y1}
+            x2={n.x2} y2={n.y2}
+            stroke={colorFor(n.depth, n.maxDepth)}
+            strokeWidth={Math.max(1, n.depth * 0.9)}
+            strokeOpacity={0.16}
+            strokeLinecap="round"
+          />
+        ))}
         <Branch node={tree} sproutKeys={sproutKeys} />
       </svg>
       </div>
