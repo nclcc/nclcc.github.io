@@ -5,7 +5,7 @@ import { experiences } from "./experiences";
 export const metadata: Metadata = {
   title: "Selected engagements — Nicolò Ciccarone",
   description:
-    "Quantitative modelling and data engineering engagements for enterprise clients across financial services, staffing, automotive SaaS, and public research.",
+    "Quantitative modelling and data engineering engagements across staffing, labour markets, climate-litigation research, financial services, automotive SaaS, and public research.",
 };
 
 export default function ExperienceIndex() {
@@ -24,8 +24,9 @@ export default function ExperienceIndex() {
         Selected engagements
       </h1>
       <p className="mt-3 mb-8 leading-relaxed max-w-2xl" style={{ color: "var(--bk-ink-mid)" }}>
-        Quantitative modelling and data engineering for enterprise clients across financial services,
-        staffing, automotive SaaS, and public research. Each card opens a fuller writeup.
+        Quantitative modelling and data engineering across staffing, labour markets,
+        climate-litigation research, financial services, automotive SaaS, and public research.
+        Each card opens a fuller writeup.
       </p>
 
       <div className="grid gap-4 sm:grid-cols-2">

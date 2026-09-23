@@ -3,14 +3,14 @@ import { ArrowUpRight } from "lucide-react";
 
 interface ExperienceCardProps {
   slug: string;
-  client: string;
   sector: string;
   title: string;
   summary: string;
   tags: string[];
+  period?: string;
 }
 
-export default function ExperienceCard({ slug, client, sector, title, summary, tags }: ExperienceCardProps) {
+export default function ExperienceCard({ slug, sector, title, summary, tags, period }: ExperienceCardProps) {
   return (
     <Link
       href={`/experience/${slug}/`}
@@ -26,7 +26,8 @@ export default function ExperienceCard({ slug, client, sector, title, summary, t
             className="text-[10px] sm:text-xs uppercase tracking-wider font-mono mb-1 break-words"
             style={{ color: "var(--bk-ink-lt)" }}
           >
-            {sector} · {client}
+            {sector}
+            {period ? ` · ${period}` : ""}
           </div>
           <h3
             className="font-serif text-lg font-semibold leading-snug"

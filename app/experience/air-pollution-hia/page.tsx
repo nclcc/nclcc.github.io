@@ -1,91 +1,54 @@
 import ExperienceLayout from "@/components/ExperienceLayout";
 
 export const metadata = {
-  title: "Air pollution Health Impact Assessment · Nicolò Ciccarone",
+  title: "Air-pollution mortality Health Impact Assessment · Nicolò Ciccarone",
 };
 
 export default function Page() {
   return (
     <ExperienceLayout
-      client="National research institute"
-      sector="Public research — epidemiology"
-      title="Mortality burden of air pollution — Health Impact Assessment"
+      sector="Public research"
+      title="Air-pollution mortality Health Impact Assessment"
       role="Quantitative researcher"
       period="2025 – present"
     >
+      <figure className="mb-8 -mt-2">
+        <div
+          className="overflow-hidden rounded-md border"
+          style={{ borderColor: "var(--bk-rule)" }}
+        >
+          <img
+            src="/experience/air-pollution-3d.png?v=2"
+            alt="Screenshot from the Aria Pulita 3D game: neighbourhoods on the map, coloured by how much the air needs help"
+            className="block w-full h-auto"
+          />
+        </div>
+        <figcaption
+          className="mt-3 text-sm font-mono leading-relaxed"
+          style={{ color: "var(--bk-eyebrow)" }}
+        >
+          From the 3D game built for this work — a playable map of the city, not a mock.
+        </figcaption>
+      </figure>
+
       <h2>The problem</h2>
       <p>
-        The institute needed a rigorous quantification of the mortality burden attributable to
-        urban air pollution — specifically PM10, PM2.5, and NO₂ — under counterfactual traffic
-        scenarios. The output had to be defensible to policy stakeholders and methodologically
-        consistent with the epidemiological Health Impact Assessment (HIA) literature.
+        A defensible estimate of mortality attributable to urban air pollution, under
+        alternative traffic scenarios, that can sit in front of policy stakeholders.
       </p>
 
       <h2>Approach</h2>
-
-      <h3>The HIA backbone</h3>
       <p>
-        The standard HIA pipeline links exposure-response functions from cohort studies to
-        population-level exposure distributions and baseline mortality rates, yielding{" "}
-        <strong>attributable fractions</strong> and counterfactual mortality counts under
-        scenario perturbations. I implemented this end-to-end with traceable assumptions —
-        every concentration–response coefficient, every baseline rate, every population stratum
-        could be inspected, swapped, and re-run.
+        A standard epidemiological Health Impact Assessment: exposure–response functions
+        linked to population exposure and baseline mortality, with traceable assumptions
+        that can be inspected and re-run. Complementary causal work on how people perceive
+        local air quality.
       </p>
-
-      <h3>Statistical modelling of pollutant effects</h3>
-      <ul>
-        <li>
-          <strong>Poisson regression</strong> for count outcomes — the workhorse for mortality
-          counts at the area-period level, with overdispersion handled where the variance
-          inflation justified it.
-        </li>
-        <li>
-          <strong>Panel fixed-effects models</strong> exploiting within-unit variation across
-          time, controlling for unobserved area-level confounders that would otherwise bias
-          naive cross-sectional estimates.
-        </li>
-        <li>
-          Traffic-scenario counterfactuals translated into pollutant exposure shifts via the
-          institute&apos;s atmospheric dispersion outputs, then propagated through the
-          attributable-fraction machinery.
-        </li>
-      </ul>
-
-      <h3>Causal methods on the perception survey</h3>
-      <p>
-        Beyond the mortality work, the institute had a large-scale air-quality{" "}
-        <strong>perception survey</strong> — what citizens believed about local air quality and
-        how that belief drove behaviour. Naively regressing perception on measured pollutant
-        levels conflates the genuine effect with confounders like media exposure, socioeconomic
-        status, and area-level priors. I applied:
-      </p>
-      <ul>
-        <li>
-          <strong>Causal forests</strong> to recover heterogeneous treatment effects across
-          respondent subgroups — surfacing where the link between objective pollution and
-          perceived pollution diverged most strongly.
-        </li>
-        <li>
-          <strong>Double/debiased Machine Learning (Double ML)</strong> for the average treatment
-          effect under high-dimensional confounding controls — the orthogonalisation step
-          letting flexible nuisance models (gradient boosting on both treatment and outcome
-          residuals) coexist with valid inference on the effect of interest.
-        </li>
-      </ul>
 
       <h2>Outcome</h2>
       <p>
-        The HIA delivered a defensible, scenario-conditional mortality burden estimate that
-        the institute could put in front of policy stakeholders. The causal analysis of the
-        perception survey added a complementary picture — how citizens read the air around
-        them — that the mortality numbers alone did not capture.
-      </p>
-
-      <h2>Stack</h2>
-      <p>
-        <strong>Python · statsmodels · linearmodels (panel FE) · econml (causal forest,
-        DoubleML) · R for HIA-specific tooling · spatial joins on dispersion outputs.</strong>
+        Scenario-conditional mortality-burden estimates, plus the 3D game that lets people
+        explore the city on the map instead of only reading a table.
       </p>
     </ExperienceLayout>
   );

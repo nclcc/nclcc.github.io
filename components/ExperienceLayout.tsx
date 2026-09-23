@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 interface ExperienceLayoutProps {
-  client: string;
   sector: string;
   title: string;
   role: string;
@@ -11,7 +10,6 @@ interface ExperienceLayoutProps {
 }
 
 export default function ExperienceLayout({
-  client,
   sector,
   title,
   role,
@@ -32,7 +30,7 @@ export default function ExperienceLayout({
         className="text-[10px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] font-mono mb-3 break-words"
         style={{ color: "var(--bk-ink-lt)" }}
       >
-        {sector} · {client}
+        {sector}
       </div>
       <h1
         className="font-serif text-2xl sm:text-4xl font-semibold leading-tight"

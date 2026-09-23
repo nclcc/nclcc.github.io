@@ -4,19 +4,19 @@ import FractalTreeHero from "@/components/FractalTreeHero";
 
 const proofs = [
   {
-    href: "/experience/staffing-cltv-nbp/",
-    eyebrow: "€3B+ staffing group",
-    title: "Next-best product recommender",
+    href: "/experience/time2fill/",
+    eyebrow: "Staffing · 2027",
+    title: "Time2Fill vacancy forecasts",
   },
   {
-    href: "/experience/macro-scenario-simulation/",
-    eyebrow: "Financial consultancy",
-    title: "500+ variable scenario engine",
+    href: "/experience/labourlens/",
+    eyebrow: "Labour market · 2027",
+    title: "LabourLens market dynamics",
   },
   {
-    href: "/experience/air-pollution-hia/",
-    eyebrow: "National research institute",
-    title: "Air-pollution mortality burden",
+    href: "/experience/climpact/",
+    eyebrow: "Climate litigation · 2027",
+    title: "Open-weight climate-trial expert",
   },
 ];
 
@@ -25,7 +25,7 @@ const explore = [
     href: "/experience/",
     eyebrow: "Work",
     title: "Selected engagements",
-    desc: "Quantitative modelling and data engineering for enterprise clients across four sectors.",
+    desc: "Quantitative modelling and data engineering across staffing, labour markets, research, and enterprise.",
   },
   {
     href: "/philosophy/",
