@@ -10,16 +10,16 @@ export default function Page() {
       sector="Public research"
       title="Air-pollution mortality Health Impact Assessment"
       role="Quantitative researcher"
-      period="2025 – present"
+      period="2025 – 2026"
     >
-      <figure className="mb-8 -mt-2">
+      <figure className="mb-8 -mt-1">
         <div
-          className="overflow-hidden rounded-md border"
+          className="overflow-hidden rounded-lg border"
           style={{ borderColor: "var(--bk-rule)" }}
         >
           <img
-            src="/experience/air-pollution-3d.png?v=2"
-            alt="Screenshot from the Aria Pulita 3D game: neighbourhoods on the map, coloured by how much the air needs help"
+            src="/experience/air-pollution-3d.png?v=5"
+            alt="Screenshot from the Aria Pulita 3D game: a greened city map with trees, parks and bike paths"
             className="block w-full h-auto"
           />
         </div>
@@ -27,7 +27,8 @@ export default function Page() {
           className="mt-3 text-sm font-mono leading-relaxed"
           style={{ color: "var(--bk-eyebrow)" }}
         >
-          From the 3D game built for this work — a playable map of the city, not a mock.
+          From the 3D game built for this work — the city after the clean-air
+          missions, trees and all.
         </figcaption>
       </figure>
 

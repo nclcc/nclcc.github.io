@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, type CSSProperties } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 
 /**
  * Landing symbol for the homepage and post pages — a single centred fractal
@@ -220,9 +220,14 @@ interface FractalTreeHeroProps {
 }
 
 export default function FractalTreeHero({ quote = false }: FractalTreeHeroProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const tree = useMemo(
-    () => buildTree(300, 290, 0, 90, HERO_DEPTH, HERO_DEPTH, 26, 0.72),
-    [],
+    () => (mounted ? buildTree(300, 290, 0, 90, HERO_DEPTH, HERO_DEPTH, 26, 0.72) : null),
+    [mounted],
   );
 
   // Pick a sparse, evenly-spread set of tips to sprout micro-trees from.
@@ -233,8 +238,6 @@ export default function FractalTreeHero({ quote = false }: FractalTreeHeroProps)
     for (let i = 0; i < leaves.length; i += 9) set.add(key(leaves[i]));
     return set;
   }, [tree]);
-
-  if (!tree) return null;
 
   return (
     <div className="w-full flex flex-col items-center mb-6 sm:mb-8">
@@ -249,7 +252,7 @@ export default function FractalTreeHero({ quote = false }: FractalTreeHeroProps)
         }}
       >
       <svg
-        aria-hidden
+        aria-hidden="true"
         viewBox="0 0 600 300"
         width="100%"
         height="auto"
@@ -292,7 +295,8 @@ export default function FractalTreeHero({ quote = false }: FractalTreeHeroProps)
 
         {/* Faint full tree from the first paint so the hero is never an empty
             card while the draw-in animation plays. */}
-        {flatten(tree).map((n) => (
+        {tree &&
+          flatten(tree).map((n) => (
           <line
             key={`ghost-${key(n)}`}
             x1={n.x1} y1={n.y1}
@@ -303,7 +307,7 @@ export default function FractalTreeHero({ quote = false }: FractalTreeHeroProps)
             strokeLinecap="round"
           />
         ))}
-        <Branch node={tree} sproutKeys={sproutKeys} />
+        {tree && <Branch node={tree} sproutKeys={sproutKeys} />}
       </svg>
       </div>
 

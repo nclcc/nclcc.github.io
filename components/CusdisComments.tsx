@@ -45,10 +45,7 @@ export default function CusdisComments({ title }: { title: string }) {
   // set at build time, the full thread renders below.
   if (!appId) return null;
 
-  const pageUrl =
-    typeof window !== "undefined"
-      ? window.location.origin + pathname
-      : `https://nclcc.github.io${pathname}`;
+  const pageUrl = `https://nclcc.github.io${pathname}`;
 
   return (
     <section className="mt-14 cusdis-section">

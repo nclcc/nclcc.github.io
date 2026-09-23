@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 /**
  * Fractal-tree backdrop (port of the AnimatedTree visual from the Complexa
@@ -75,6 +75,12 @@ function renderBranches(branches: Branch[]) {
 }
 
 export default function FractalTreeBackground() {
+  // Paint after mount so SSR HTML and the first client render are identical.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Desktop / tablet: wide layout with corner sprouts
   const desktopBranches = useMemo(() => {
     const main  = buildBranches(600, 790, 0,    200, MAX_DEPTH,    MAX_DEPTH,    36, 0.66, []);
@@ -99,8 +105,10 @@ export default function FractalTreeBackground() {
     overflow: "hidden",
   };
 
+  if (!mounted) return null;
+
   return (
-    <div aria-hidden style={wrapStyle}>
+    <div aria-hidden="true" style={wrapStyle}>
       {/* Desktop / tablet (>=640px) */}
       <svg
         viewBox="0 0 1200 800"
@@ -108,7 +116,7 @@ export default function FractalTreeBackground() {
         width="100%"
         height="100%"
         className="hidden sm:block"
-        style={{ display: undefined, opacity: 0.7 }}
+        style={{ opacity: 0.7 }}
       >
         {renderBranches(desktopBranches)}
       </svg>

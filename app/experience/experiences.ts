@@ -76,7 +76,7 @@ export const experiences: Experience[] = [
   {
     slug: "air-pollution-hia",
     sector: "Public research",
-    period: "2025 – present",
+    period: "2025 – 2026",
     title: "Air-pollution mortality Health Impact Assessment",
     summary:
       "Epidemiological assessment of mortality burden from urban air pollution under alternative traffic scenarios.",
