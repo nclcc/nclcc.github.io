@@ -22,6 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
+  referrer: "no-referrer",
   openGraph: {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${firaCode.variable} ${sourceSerif.variable}`}>
       <body className="antialiased min-h-screen flex flex-col relative">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <FractalTreeBackground />
         <header
           className="border-b relative"
@@ -69,7 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 style={{ objectFit: "contain", filter: "brightness(1.15) contrast(1.05)" }}
               />
             </Link>
-            <nav className="text-[11px] sm:text-sm flex gap-2.5 sm:gap-5 min-w-0" style={{ color: "var(--bk-ink-mid)" }}>
+            <nav aria-label="Main navigation" className="text-[11px] sm:text-sm flex gap-2.5 sm:gap-5 min-w-0" style={{ color: "var(--bk-ink-mid)" }}>
               <Link href="/philosophy/" className="hover:opacity-80">Philosophy</Link>
               <Link href="/experience/" className="hover:opacity-80">Experience</Link>
               <Link href="/posts/" className="hover:opacity-80">Posts</Link>
@@ -77,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </nav>
           </div>
         </header>
-        <main className="flex-1 relative" style={{ zIndex: 1 }}>{children}</main>
+        <main id="main-content" tabIndex={-1} className="flex-1 relative" style={{ zIndex: 1 }}>{children}</main>
         <footer
           className="border-t mt-16 relative"
           style={{ borderColor: "var(--bk-rule)", zIndex: 1, background: "var(--bk-cream)" }}
@@ -87,7 +89,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{ color: "var(--bk-ink-lt)" }}
           >
             <span>© {new Date().getFullYear()} Nicolò Ciccarone · Complexa Labs · P.IVA IT09082330722</span>
-            <span className="font-mono text-xs">v1.0 · built with Next.js</span>
+            <nav aria-label="Legal information" className="flex flex-wrap gap-x-4 gap-y-2">
+              <Link href="/privacy/" className="underline underline-offset-4">Privacy</Link>
+              <Link href="/cookies/" className="underline underline-offset-4">Cookie</Link>
+              <Link href="/legal/" className="underline underline-offset-4">Note legali</Link>
+            </nav>
           </div>
         </footer>
       </body>

@@ -1,0 +1,38 @@
+% Section rules from Application.pdf: Cabin Bold headings, TikZ axis bar.
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=0.9cm]{geometry}
+\usepackage{cabin}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+\definecolor{rulecolor}{rgb}{0.72,0.8047,0.42589}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Title baseline is 4.33pt above the bar bottom (2.5pt bar).
+% inner xsep=1.2pt matches the English heading origin.
+\newcommand{\cvsection}[1]{%
+  \par\vspace{12pt}%
+  \noindent\begin{tikzpicture}[line width=0pt]
+    \shade[left color=rulecolor, right color=white]
+      (0,0) rectangle (\textwidth,2.5pt);
+    \node[anchor=base west, inner xsep=1.2pt, inner ysep=0pt, outer sep=0pt,
+          font=\sffamily\bfseries\Large] at (0,4.33pt) {#1};
+  \end{tikzpicture}\par
+}
+\newcommand{\cvsub}[1]{%
+  \par\vspace{8pt}%
+  \noindent{\sffamily\bfseries\large #1}\par
+}
+
+\begin{document}
+\cvsection{Esperienza professionale}
+\cvsection{Formazione}
+\cvsection{Competenze}
+\cvsection{Esperienze rilevanti}
+\cvsub{Certificazioni e corsi}
+\cvsub{Riconoscimenti}
+\end{document}

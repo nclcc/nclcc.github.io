@@ -1,0 +1,44 @@
+% Competenze — blocco autonomo, stesso impianto di Application.pdf.
+% Etichetta a destra, \faBookmark bordeaux, valore.
+% Nomi in Cochineal Bold, livelli in Cochineal Italic,
+% parentesi e virgole in tondo. Il logo è \LaTeX, non la parola LATEX.
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=0.9cm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\fi
+\usepackage[italian]{babel}
+\usepackage[proportional]{cochineal}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\usepackage{tabularx}
+
+\definecolor{accent}{rgb}{0.57098,0.02196,0.19766}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\arraystretch}{1.25}
+
+% Nome in grassetto, livello in corsivo, parentesi in tondo.
+% Lo spazio prima di «(» è fuori da \textit, così resta in tondo.
+\newcommand{\sk}[2]{\textbf{#1} \textup{(}\textit{#2}\textup{)}}
+
+% Stessi vuoti di 09-awards.tex, in big point: 21.285bp fra etichetta e icona,
+% 16.148bp dall'origine dell'icona all'origine del testo. Icona a 9pt.
+% L'icona sta nel separatore, così le righe a capo restano allineate al testo.
+\newcommand{\sepmark}{\makebox[16.148bp][l]{\textcolor{accent}{\small\faBookmark}}}
+
+\begin{document}
+\noindent
+\begin{tabularx}{\textwidth}{@{}>{\raggedleft\arraybackslash}r@{\hspace{21.285bp}\sepmark}>{\hyphenpenalty=10000 \exhyphenpenalty=10000 \tolerance=2500 \emergencystretch=2em \arraybackslash}X@{}}
+Lingue & \sk{Italiano}{madrelingua}, \sk{Inglese}{C1/C2}, \sk{Francese}{B1}, \sk{Tedesco}{A2}.\tabularnewline
+IT e programmazione & \sk{Python}{esperto}, \sk{R}{esperto}, \sk{\LaTeX}{esperto}, \sk{Microsoft Office}{avanzato}, \sk{strumenti GIS}{avanzato}, \sk{Docker}{avanzato}, \sk{Kubernetes}{intermedio}, \sk{SQL}{avanzato}, \sk{MongoDB}{intermedio}, \sk{AWS}{avanzato}, \sk{Databricks}{intermedio}, \sk{PyTorch}{intermedio}, \sk{GCP}{intermedio}, \sk{Microsoft Azure}{intermedio}, \sk{Grafana}{intermedio}, \sk{Celery}{intermedio}, \sk{FastAPI}{intermedio}, \sk{Spark}{intermedio}, \sk{Julia}{base}\tabularnewline
+Servizi cloud & \textbf{AWS}: SageMaker, ECS, EKS, ECR, CloudWatch --- \textbf{Azure}: Pipelines, ML, AKS, ACI, ACR, Monitor,\newline
+Fabric --- \textbf{GCP}:\newline
+Vertex AI Workbench, Colab Enterprise\tabularnewline
+\end{tabularx}
+\end{document}

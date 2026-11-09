@@ -64,27 +64,34 @@ is invisible in the URL — a post at `app/posts/(post)/welcome/page.mdx` is ser
    [`welcome/page.mdx`](app/posts/(post)/welcome/page.mdx) as a template.
 2. Append an entry to [`app/posts/posts.ts`](app/posts/posts.ts) with the same `slug`, a
    `title`, an ISO `date`, an `excerpt`, and optional `tags`.
-3. Each post imports and renders `<CusdisComments title="..." />` at the bottom for the
-   comment thread.
+3. Each post imports and renders `<CusdisComments title="..." />` at the bottom for
+   a private email discussion link.
 
-### Enabling comments (Cusdis)
+### Privacy and legal notices
 
-Comments are powered by [Cusdis](https://cusdis.com) — privacy-friendly, no account required for
-commenters, free tier handles ~1K views/mo. To enable:
+- `/privacy/`: Italian and English privacy notice for browsing and email enquiries.
+- `/cookies/`: Italian and English cookie/browser-storage notice.
+- `/legal/`: Italian and English operator, public business address, VAT and contact information.
+- Every page links to the notices in the footer; the contact section links to privacy before sending an email.
 
-1. Sign up at https://cusdis.com and create a new site for `https://nclcc.github.io`.
-2. Copy the **App ID** (UUID) from the dashboard.
-3. Add a GitHub Actions secret named `NEXT_PUBLIC_CUSDIS_APP_ID` to this repo:
-   *Settings → Secrets and variables → Actions → New repository secret*.
-4. Update the deploy workflow to forward it as a build-time env var (see
-   [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)).
-5. Push — comments go live on the next deploy.
+Cusdis is disabled. `CusdisComments` now renders a private email discussion link and never loads a third-party script, even if an old `NEXT_PUBLIC_CUSDIS_APP_ID` secret remains configured. Do not restore an embed or add analytics without first checking its data processing, contracts, international transfers, retention and consent requirements. No cookie consent banner is needed for the current code, which sets no cookies/localStorage/sessionStorage and loads no tracking services. Fonts from `next/font` are self-hosted at build time; the accessory social-card HTML uses system fallbacks.
 
-For local development, create a `.env.local` file at the repo root containing:
+Owner-confirmed on 9 November 2026: Gmail contact mailbox; delete enquiries that do not become client work within 12 months of the last contact; public address Piazza Caduti del Terrorismo, 10, Bitonto, Bari, Italy. This retention rule requires actual mailbox housekeeping: delete expired messages/attachments and any local copies; a website change cannot delete mail automatically.
 
-```
-NEXT_PUBLIC_CUSDIS_APP_ID=<your-uuid>
-```
+Before treating the entire business as compliant:
 
-Comments are moderated from the Cusdis dashboard (you receive an email when a new comment is
-submitted; you approve/reject from there).
+- Confirm the VAT holder/legal form and whether company/REA or regulated-profession registration disclosures apply. Add those details to `/legal/` where applicable; no registration or exemption is assumed.
+- Review the actual GitHub/Gmail account terms, provider roles, any required processing agreement and transfer safeguards. The notice describes provider policies; it does not certify an account-specific contract or transfer assessment.
+- Assess applicable accessibility obligations for the actual business and services (D.Lgs. 82/2022 and Law 4/2004). Keyboard focus, a skip link and reduced-motion support are included; no formal accessibility conformity is claimed. Include the downloadable CV and accessory HTML in any full accessibility audit.
+- Provide any additional privacy/contract information needed for client engagements, invoicing, recruitment or future services outside this site's current browsing/enquiry scope.
+- Deploy the changes and verify production cookies, network requests, HTTPS and footer links. GitHub Pages publishes on a push to `main`; local edits/builds do not update the live site.
+
+Reference sources reviewed for this change:
+
+- [Garante: cookie and tracking guidelines](https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9677876)
+- [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj)
+- [D.Lgs. 70/2003, Article 7](https://www.wipo.int/wipolex/en/legislation/details/13291)
+- [GitHub Pages connection data](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)
+- [GitHub privacy](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
+- [Google privacy](https://policies.google.com/privacy?hl=it)
+- [AgID accessibility scope](https://accessibilita.agid.gov.it/faqs/a-chi-si-applica-il-decreto/)

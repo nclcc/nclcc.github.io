@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  /* Use system font fallbacks; no third-party font requests. */
+
+  :root {
+    --bg:      #0A2018;
+    --bg2:     #0d2a1f;
+    --card:    #143D2B;
+    --gold:    #C9A84C;
+    --gold-hi: #E2BE70;
+    --ink:     #F2EDD6;
+    --muted:   #7EA890;
+    --rule:    #2D6B50;
+    --sienna:  #D17157;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; }
+  body {
+    width: 1200px; height: 630px;
+    background:
+      radial-gradient(1100px 700px at 78% 18%, #12372735 0%, transparent 60%),
+      radial-gradient(900px 600px at 12% 95%, #1A4A3640 0%, transparent 55%),
+      linear-gradient(135deg, var(--bg) 0%, var(--bg2) 100%);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* subtle corner glow */
+  .glow {
+    position: absolute; inset: 0;
+    background: radial-gradient(640px 360px at 88% 8%, #C9A84C18 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .frame {
+    position: absolute; inset: 0;
+    padding: 64px 72px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+
+  .kicker {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 19px; font-weight: 600; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .kicker .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 14px 2px #C9A84C88; }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600; font-size: 74px; line-height: 0.98;
+    letter-spacing: -0.01em; color: var(--gold-hi);
+    margin-top: 18px; max-width: 660px;
+    text-wrap: balance;
+  }
+  .sub {
+    margin-top: 22px; font-size: 25px; line-height: 1.45;
+    color: var(--ink); max-width: 600px; font-weight: 400;
+  }
+  .sub em { color: var(--gold); font-style: italic; }
+
+  .foot {
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid var(--rule); padding-top: 24px;
+  }
+  .who { display: flex; align-items: baseline; gap: 14px; }
+  .who .name { font-family:'Fraunces',serif; font-size: 26px; font-weight: 600; color: var(--ink); }
+  .who .site { font-size: 19px; color: var(--muted); }
+  .paper { font-size: 19px; color: var(--muted); }
+  .paper b { color: var(--gold); font-weight: 600; }
+
+  /* ── diagram ── */
+  .diagram { position: absolute; right: 40px; top: 232px; width: 470px; height: 300px; }
+  svg { width: 100%; height: 100%; overflow: visible; }
+  .src-lbl { font-family:'Inter',sans-serif; font-size: 23px; font-weight: 600; fill: var(--gold); }
+  .nlbl { font-family:'Inter',sans-serif; font-size: 17px; font-weight: 600; fill: var(--ink); }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+
+  <!-- converging selection diagrams -->
+  <div class="diagram">
+    <svg viewBox="0 0 470 300">
+      <defs>
+        <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#7EA890"/>
+        </marker>
+        <marker id="arrG" markerWidth="11" markerHeight="11" refX="8" refY="3.5" orient="auto">
+          <path d="M0,0 L8,3.5 L0,7 Z" fill="#C9A84C"/>
+        </marker>
+        <radialGradient id="tg" cx="50%" cy="40%" r="70%">
+          <stop offset="0%" stop-color="#1d5a40"/>
+          <stop offset="100%" stop-color="#143D2B"/>
+        </radialGradient>
+      </defs>
+
+      <!-- converging flow lines from sources to target -->
+      <path d="M192,50  C 276,50 256,150 330,150"  stroke="#C9A84C" stroke-width="2.4" fill="none" opacity="0.5"  marker-end="url(#arrG)"/>
+      <path d="M192,150 C 276,150 256,150 330,150" stroke="#C9A84C" stroke-width="2.4" fill="none" opacity="0.72" marker-end="url(#arrG)"/>
+      <path d="M192,250 C 276,250 256,150 330,150" stroke="#C9A84C" stroke-width="2.4" fill="none" opacity="0.5"  marker-end="url(#arrG)"/>
+
+      <!-- ── source mini-diagrams: X → Y with an S-node marking where the mechanism differs ── -->
+
+      <!-- source 1 — S over X -->
+      <text class="src-lbl" x="46" y="56" text-anchor="end">&#960;&#8321;</text>
+      <line x1="88" y1="50" x2="160" y2="50" stroke="#7EA890" stroke-width="2.2" marker-end="url(#arr)"/>
+      <rect x="65" y="12" width="14" height="14" fill="#D17157"/>
+      <line x1="72" y1="26" x2="72" y2="36" stroke="#D17157" stroke-width="1.8" stroke-dasharray="3.5 2.5"/>
+      <circle cx="72"  cy="50" r="14" fill="#143D2B" stroke="#7EA890" stroke-width="1.8"/>
+      <circle cx="176" cy="50" r="14" fill="#143D2B" stroke="#7EA890" stroke-width="1.8"/>
+      <text class="nlbl" x="72"  y="56" text-anchor="middle">X</text>
+      <text class="nlbl" x="176" y="56" text-anchor="middle">Y</text>
+
+      <!-- source 2 — S over Y -->
+      <text class="src-lbl" x="46" y="156" text-anchor="end">&#960;&#8322;</text>
+      <line x1="88" y1="150" x2="160" y2="150" stroke="#7EA890" stroke-width="2.2" marker-end="url(#arr)"/>
+      <rect x="169" y="112" width="14" height="14" fill="#D17157"/>
+      <line x1="176" y1="126" x2="176" y2="136" stroke="#D17157" stroke-width="1.8" stroke-dasharray="3.5 2.5"/>
+      <circle cx="72"  cy="150" r="14" fill="#143D2B" stroke="#7EA890" stroke-width="1.8"/>
+      <circle cx="176" cy="150" r="14" fill="#143D2B" stroke="#7EA890" stroke-width="1.8"/>
+      <text class="nlbl" x="72"  y="156" text-anchor="middle">X</text>
+      <text class="nlbl" x="176" y="156" text-anchor="middle">Y</text>
+
+      <!-- source n — S over X -->
+      <text class="src-lbl" x="46" y="256" text-anchor="end">&#960;&#8345;</text>
+      <line x1="88" y1="250" x2="160" y2="250" stroke="#7EA890" stroke-width="2.2" marker-end="url(#arr)"/>
+      <rect x="65" y="212" width="14" height="14" fill="#D17157"/>
+      <line x1="72" y1="226" x2="72" y2="236" stroke="#D17157" stroke-width="1.8" stroke-dasharray="3.5 2.5"/>
+      <circle cx="72"  cy="250" r="14" fill="#143D2B" stroke="#7EA890" stroke-width="1.8"/>
+      <circle cx="176" cy="250" r="14" fill="#143D2B" stroke="#7EA890" stroke-width="1.8"/>
+      <text class="nlbl" x="72"  y="256" text-anchor="middle">X</text>
+      <text class="nlbl" x="176" y="256" text-anchor="middle">Y</text>
+
+      <!-- ── target node (fused answer) ── -->
+      <circle cx="392" cy="150" r="62" fill="url(#tg)" stroke="#C9A84C" stroke-width="2.5"/>
+      <circle cx="392" cy="150" r="62" fill="none" stroke="#C9A84C" stroke-width="10" opacity="0.12"/>
+      <text x="392" y="131" text-anchor="middle" fill="#E2BE70" style="font-family:'Inter';font-size:25px;font-weight:700">&#960;*</text>
+      <text x="392" y="164" text-anchor="middle" style="font-family:'Inter';font-size:17px;font-weight:600;fill:#F2EDD6">P*(y|do(x))</text>
+      <text x="392" y="186" text-anchor="middle" style="font-family:'Inter';font-size:13px;fill:#7EA890">target effect</text>
+    </svg>
+  </div>
+
+  <div class="frame">
+    <div>
+      <span class="kicker"><span class="dot"></span>Causal Inference</span>
+      <h1>When no single study has the answer</h1>
+      <p class="sub">Fusing randomized experiments across populations &mdash; when the right answer lives <em>only in the combination</em>.</p>
+    </div>
+
+    <div class="foot">
+      <div class="who">
+        <span class="name">Nicol&ograve; Ciccarone</span>
+        <span class="site">nicolociccarone.com</span>
+      </div>
+      <span class="paper">on Bareinboim &amp; Pearl, <b>Meta-Transportability</b> (2013)</span>
+    </div>
+  </div>
+</body>
+</html>

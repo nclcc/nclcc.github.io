@@ -53,6 +53,23 @@
 
 * { box-sizing: border-box; }
 
+:focus-visible {
+  outline: 2px solid var(--bk-green-dk);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--bk-cream-lt);
+  color: var(--bk-sienna);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+
 html, body {
   background: var(--bk-cream);
   color: var(--bk-ink);
@@ -144,6 +161,20 @@ html, body {
   to   { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-up { animation: fadeUp 0.5s ease both; }
+
+/* Honour motion preferences, including inline animation styles on the hero. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-fade-up,
+  figure[style*="animation"],
+  svg g[style*="animation"],
+  svg ellipse[style*="animation"] { opacity: 1 !important; }
+  svg line[style*="animation"] { stroke-dashoffset: 0 !important; }
+}
 
 /* Self-drawing stroke for the fractal-tree landing symbol.
    Each <line> sets its own stroke-dasharray = length and animates

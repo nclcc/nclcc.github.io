@@ -1,0 +1,58 @@
+% Bottom of the Italian CV: subsections and four entries.
+% Cabin before Cochineal: the other order segfaults Tectonic 0.17 at \begin{document}.
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=0.9cm]{geometry}
+\usepackage{cabin}
+\usepackage[proportional]{cochineal}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+
+\definecolor{accent}{rgb}{0.57098,0.02196,0.19766}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\lineskip}{0pt}
+\setlength{\lineskiplimit}{-\maxdimen}
+
+% Baseline gaps measured in Application.pdf (PDF points).
+\newlength{\subtoentry}
+\newlength{\entrygap}
+\setlength{\subtoentry}{17.933bp}
+\setlength{\entrygap}{14.943bp}
+
+\newlength{\yearcol}
+\newlength{\yeartmp}
+
+\newcommand{\cvsub}[1]{%
+  \par
+  {\sffamily\bfseries\large\setlength{\baselineskip}{\entrygap}#1\par}%
+}
+\newcommand{\cventry}[3]{%
+  \par
+  \setlength{\baselineskip}{#1}%
+  \noindent
+  \makebox[\yearcol][r]{#2}%
+  \hspace{21.285bp}%
+  \makebox[16.148bp][l]{\textcolor{accent}{\small\faBookmark}}%
+  #3\par
+}
+
+\begin{document}
+\settowidth{\yearcol}{2016}%
+\settowidth{\yeartmp}{2018}%
+\ifdim\yeartmp>\yearcol \setlength{\yearcol}{\yeartmp}\fi
+\settowidth{\yeartmp}{2019}%
+\ifdim\yeartmp>\yearcol \setlength{\yearcol}{\yeartmp}\fi
+\settowidth{\yeartmp}{2021}%
+\ifdim\yeartmp>\yearcol \setlength{\yearcol}{\yeartmp}\fi
+
+\cvsub{Certificazioni e corsi}
+\cventry{\subtoentry}{2021}{\textbf{TOEFL}. Punteggio complessivo: 107/120, livello C1 (QCER).}
+\cventry{\entrygap}{2016}{\textbf{Livello A1, corso estivo intensivo di tedesco}, presso lo Sprachzentrum di Göttingen (DE).}
+
+\cvsub{Riconoscimenti}
+\cventry{\subtoentry}{2019}{\textbf{INPS (Istituto Nazionale della Previdenza Sociale)}, borsa di studio per merito, edizione 2019.}
+\cventry{\entrygap}{2018}{\textbf{Premi dell'Università di Trento}, borsa di studio per merito, edizione 2018.}
+\end{document}

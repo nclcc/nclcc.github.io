@@ -1,0 +1,19 @@
+A propensity model that aces its backtest can still fall apart in production — and not because the data drifted or the code broke.
+
+It breaks because someone started using it.
+
+The moment a "next best product" recommender shapes what your sales team pitches, it becomes part of the data it was trained on. The correlations it learned came from the old way of selling. Deployment quietly replaces that — and a score built on correlation has no reason to survive the swap.
+
+Working in B2B staffing, I keep seeing the same four ways a standard propensity score fails:
+
+• It's stateless — two clients that look identical today but have very different histories get the same score.
+• It has no sense of direction — it sees that temporary staffing and permanent recruitment go together, but not that one leads to the other.
+• It confuses correlation with causation — regional and sales-team patterns masquerade as genuine cross-sell effects.
+• It fails as an intervention — the deepest failure, and the one no held-out metric can catch.
+
+The fix isn't a fancier classifier. It's tracking each client's evolving need across services, and pinning down the real cross-sell directions from how demand actually moves — independently of your own recommendations. Get that right and the model keeps working once it starts shaping decisions.
+
+New essay on the why, and the honest limits:
+https://nclcc.github.io/posts/recommender-is-an-intervention/
+
+#CausalInference #MachineLearning #Recommenders #DataScience #B2B

@@ -1,0 +1,159 @@
+% Nicolò Ciccarone — Curriculum (italiano)
+% Stesso impianto del PDF inglese: Cabin, Cochineal, Inconsolata, Font Awesome 5.
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=0.9cm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\fi
+\usepackage[italian]{babel}
+\usepackage[scale=.95]{cabin}
+\usepackage{cochineal}
+\ifPDFTeX\else
+\setmonofont{Inconsolatazi4}[
+  Scale=0.9,
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold]
+\fi
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{hyperref}
+
+\definecolor{accent}{rgb}{0.57098,0.02196,0.19766}
+\definecolor{rulecolor}{rgb}{0.72,0.8047,0.42589}
+
+\hypersetup{
+  hidelinks,
+  pdftitle={Nicolò Ciccarone},
+  pdfauthor={Nicolò Ciccarone}
+}
+\urlstyle{tt}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1em}
+\setlist[itemize]{
+  leftmargin=1em,
+  itemsep=2pt,
+  topsep=3pt,
+  parsep=0pt,
+  partopsep=0pt,
+  label=\textbullet,
+  before=\footnotesize
+}
+
+\newcommand{\cvsection}[1]{%
+  \par\vspace{9pt}%
+  \noindent\begin{tikzpicture}[line width=0pt]
+    \shade[left color=rulecolor, right color=white]
+      (0,0) rectangle (\textwidth,2.5pt);
+    \node[anchor=base west, inner xsep=1.2pt, inner ysep=0pt, outer sep=0pt,
+          font=\sffamily\bfseries\Large] at (0,4.33pt) {#1};
+  \end{tikzpicture}\par\vspace{5pt}%
+}
+\newcommand{\cvsub}[1]{%
+  \par\vspace{2pt}%
+  {\sffamily\bfseries\large #1\par}\vspace{3pt}%
+}
+
+% Layout a colonne condiviso da tutte le sezioni: data | icona | contenuto
+\newlength{\datecol}
+\newlength{\colgap}
+\newlength{\iconw}
+\newlength{\contentw}
+\settowidth{\datecol}{\small Novembre 2022 -- dicembre 2023}
+\setlength{\colgap}{0.45cm}
+\setlength{\iconw}{16pt}
+\setlength{\contentw}{\dimexpr\textwidth-\datecol-\colgap-\iconw\relax}
+
+\newcommand{\cvicon}{\textcolor{accent}{\small\faBookmark}}
+\newcommand{\cvitem}[3][6pt]{%
+  \par\noindent
+  \makebox[\datecol][r]{\small #2}\hspace{\colgap}%
+  \makebox[\iconw][l]{\cvicon}%
+  \parbox[t]{\contentw}{#3}\par
+  \vspace{#1}%
+}
+\newcommand{\edudesc}[1]{\\{\footnotesize #1\par}}
+
+\newcommand{\role}[1]{\textbf{#1}}
+\newcommand{\org}[1]{\textbf{\textit{#1}}}
+
+\begin{document}
+{\sffamily\bfseries\LARGE Nicolò Ciccarone\par}
+\vspace{1.5pt}
+{\small
+\textcolor{accent}{\faPhone}\hspace{0.45em}+39 3663221036%
+\hspace{1.55em}%
+\textcolor{accent}{\faEnvelope[regular]}\hspace{0.45em}\texttt{niciccarone@gmail.com}\par
+\vspace{1.2pt}
+\textcolor{accent}{\faLinkedin}\hspace{0.4em}\href{https://www.linkedin.com/in/nicolociccarone1997/}{\texttt{https://www.linkedin.com/in/nicolociccarone1997/}}%
+\hspace{1.35em}%
+\textcolor{accent}{\faGithub}\hspace{0.4em}\href{https://github.com/nclcc}{\texttt{https://github.com/nclcc}}\par
+}
+
+\cvsection{Esperienza professionale}
+
+\cvitem[8pt]{Gennaio 2025 -- in corso}{%
+  \role{Data Scientist / Data Engineer, \org{Complexa Labs}, Bari (IT)}
+  \begin{itemize}
+    \item Realizzazione di soluzioni di analytics come consulente freelance per clienti enterprise (fatturato superiore a 1 milione di euro).
+    \item Sviluppo di un motore ATS di time-to-fill: modello di sopravvivenza a tempo discreto score-driven (GAS) su un pannello giornaliero a livello di posizione vacante, con posizioni aperte censurate a destra e covariate giornaliere del funnel di selezione, in Polars, messo in produzione su SageMaker.
+    \item Reingegnerizzazione delle pipeline in operazioni Spark-native (PySpark): join nativi, funzioni finestra e broadcast hints, per ottimizzare le prestazioni.
+    \item Sviluppo di un simulatore di scenari macroeconomici, con orchestrazione distribuita delle pipeline, per prevedere gli impatti sul business al variare delle condizioni di mercato.
+    \item Sviluppo di un modello di Customer Lifetime Value (CLTV) che combina analisi di sopravvivenza mixture-cure, regressione del margine con gradient boosting e segmentazione calibrata, per la previsione dei ricavi e il targeting del Next Best Product.
+    \item Sviluppo di algoritmi NLP per l'automazione dell'elaborazione documentale, messi in produzione come microservizi FastAPI in Python.
+  \end{itemize}}
+\cvitem[8pt]{Gennaio 2024 -- novembre 2024}{%
+  \role{Data Scientist, \org{acmetric B.V.}, Amsterdam (NL)}
+  \begin{itemize}
+    \item Sviluppo e manutenzione di un motore di pricing e previsione della domanda per Adidas International B.V., basato su modelli di Causal AI.
+    \item Progettazione e messa in produzione di un modello di previsione di churn e contenzioso per LATAM Airlines, con Gradient Boosting (GBM).
+  \end{itemize}}
+\cvitem[0pt]{Novembre 2022 -- dicembre 2023}{%
+  \role{Data Scientist, \org{MOOS Solutions B.V.}, Amsterdam (NL)}
+  \begin{itemize}
+    \item Sviluppo e manutenzione di un motore di intelligenza artificiale per gli insight in tempo reale sull'inventario, basato su tecniche di Mixture of Experts (MoE).
+  \end{itemize}}
+
+\cvsection{Formazione}
+
+\cvitem{Luglio 2023}{%
+  \textbf{Summer School in Deep Learning, Tinbergen Institute, Amsterdam}
+  \edudesc{Scuola estiva intensiva di livello dottorale, tenuta da Eran Raviv, PhD, sul deep learning, con un focus sull'\textbf{intelligenza artificiale generativa}.}}
+\cvitem{2021 -- 2022}{%
+  \textbf{M.Sc.\ in Econometria e Ricerca Operativa, Vrije Universiteit Amsterdam}
+  \edudesc{Tesi: \textit{Volatilità dei prezzi ed estremi climatici: distinguere il segnale dal rumore} (\textit{Price volatility and climatic extremes: distinguishing signal from noise}). Discussa il 18 luglio 2022. \textit{Voto finale}: 8,0/10.}}
+\cvitem{2019 -- 2021}{%
+  \textbf{Laurea magistrale in Economia, Università di Bologna, curriculum Econometria}
+  \edudesc{Tesi: \textit{Copertura contro il cambiamento climatico: un approccio con processi di Hawkes} (\textit{Hedging against climate change: A Hawkes process approach}). Discussa il 23 luglio 2021. \textit{Voto finale}: 110/110 e lode.}}
+\cvitem[0pt]{2015 -- 2018}{%
+  \textbf{Laurea triennale in Economia e Management, Università di Trento}
+  \edudesc{Ammissione all'\textit{Honours Programme} del Dipartimento di Economia (riservato agli studenti particolarmente meritevoli). \textit{Voto finale}: 110/110 e lode.}}
+
+\cvsection{Competenze}
+
+\cvitem[3pt]{Lingue}{\raggedright
+  \role{Italiano} (\textit{madrelingua}), \role{Inglese} (\textit{C1/C2}), \role{Francese} (\textit{B1}), \role{Tedesco} (\textit{A2})}
+\cvitem[3pt]{IT e programmazione}{\raggedright
+  \role{Python} (\textit{esperto}), \role{R} (\textit{esperto}), \textbf{\LaTeX{}} (\textit{esperto}), \role{SQL} (\textit{avanzato}), \role{AWS} (\textit{avanzato}), \role{Docker} (\textit{avanzato}), \role{Microsoft Office} (\textit{avanzato}), \role{strumenti GIS} (\textit{avanzato}), \role{Kubernetes} (\textit{intermedio}), \role{Spark} (\textit{intermedio}), \role{Databricks} (\textit{intermedio}), \role{PyTorch} (\textit{intermedio}), \role{FastAPI} (\textit{intermedio}), \role{Celery} (\textit{intermedio}), \role{MongoDB} (\textit{intermedio}), \role{GCP} (\textit{intermedio}), \role{Microsoft Azure} (\textit{intermedio}), \role{Grafana} (\textit{intermedio}), \role{Julia} (\textit{base})}
+\cvitem[0pt]{Servizi cloud}{\raggedright
+  \role{AWS}: SageMaker, ECS, EKS, ECR, CloudWatch\enspace---\enspace\role{Azure}: Pipelines, ML, AKS, ACI, ACR, Monitor, Fabric\enspace---\enspace\role{GCP}: Vertex AI Workbench, Colab Enterprise}
+
+\cvsection{Esperienze rilevanti}
+
+\cvsub{Certificazioni e corsi}
+\cvitem[3pt]{2021}{\role{TOEFL}. Punteggio complessivo: 107/120, livello C1 (QCER).}
+\cvitem[0pt]{2016}{\role{Livello A1, corso estivo intensivo di tedesco}, presso lo Sprachzentrum di Göttingen (DE).}
+
+\cvsub{Riconoscimenti}
+\cvitem[3pt]{2019}{\role{INPS (Istituto Nazionale della Previdenza Sociale)}, borsa di studio per merito, edizione 2019.}
+\cvitem[0pt]{2018}{\role{Premi dell'Università di Trento}, borsa di studio per merito, edizione 2018.}
+
+\end{document}

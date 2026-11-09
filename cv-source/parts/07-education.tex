@@ -1,0 +1,50 @@
+% Formazione — frammento autonomo, stesso impianto del PDF inglese.
+% Date a destra, segnalibro bordeaux, titolo Cochineal Bold,
+% descrizione \footnotesize con baseline ~9.5pt sotto il titolo.
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=0.9cm]{geometry}
+\usepackage[italian]{babel}
+\usepackage[proportional]{cochineal}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\usepackage{tabularx}
+
+\definecolor{accent}{rgb}{0.57098,0.02196,0.19766}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+
+% Dal bordo destro del segnalibro all'inizio del titolo: 9.46pt (9.43pt nel PDF).
+\newlength{\iconsep}
+\setlength{\iconsep}{9.46pt}
+\newlength{\eduindent}
+
+% #1 spazio extra dopo la voce  #2 data  #3 titolo  #4 descrizione
+\newcommand{\edu}[4][0pt]{%
+  #2 &
+  \parbox[t]{\linewidth}{%
+    \rightskip=0pt plus 1fil
+    \parfillskip=0pt
+    \baselineskip=9.5pt
+    \lineskiplimit=0pt
+    \settowidth{\eduindent}{\small\faBookmark\hspace{\iconsep}}%
+    \hangindent=\eduindent
+    \hangafter=1
+    \textcolor{accent}{\small\faBookmark}\hspace{\iconsep}\textbf{#3}\\
+    \footnotesize #4%
+  }\tabularnewline
+  \noalign{\vskip #1}%
+}
+
+\begin{document}
+\noindent
+\begin{tabularx}{\textwidth}{@{}>{\raggedleft\arraybackslash}r@{\hspace{0.75cm}}X@{}}
+\edu[14.33pt]{Luglio 2023}{Summer School in Deep Learning, Tinbergen Institute, Amsterdam}{Scuola estiva intensiva di livello dottorale, tenuta da Eran Raviv, PhD, sul deep learning, con focus sull'\textbf{intelligenza artificiale generativa.}}
+\edu[4.70pt]{2021 -- 2022}{M.Sc.\ in Econometria e Ricerca Operativa, Vrije Universiteit Amsterdam}{-- Titolo della tesi: \textit{Volatilità dei prezzi ed estremi climatici: distinguere il segnale dal rumore.} Discussa il 18 luglio 2022. -- \textit{Voto finale}: 8,0/10.}
+\edu[4.70pt]{2019 -- 2021}{Laurea magistrale in Economia, Università di Bologna, curriculum Econometria}{-- Titolo della tesi: \textit{Copertura dal cambiamento climatico: un approccio con processi di Hawkes.} Discussa il 23 luglio 2021. -- \textit{Voto finale}: 110/110 e lode.}
+\edu{2015 -- 2018}{Laurea triennale in Economia e Management, Università di Trento.}{-- \textit{Ammissione all'\underline{Honours Programme} del Dipartimento di Economia} (riservato agli studenti particolarmente meritevoli). -- \textit{Voto finale}: 110/110 e lode.}
+\end{tabularx}
+\end{document}

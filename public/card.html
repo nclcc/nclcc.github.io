@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LinkedIn card</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1200px;
+    height: 1200px;
+    overflow: hidden;
+    font-family: "Inter", "Helvetica Neue", "Helvetica", sans-serif;
+    background: radial-gradient(120% 90% at 50% 18%, #143D2B 0%, #0A2018 62%, #061511 100%);
+    color: #F2EDD6;
+    position: relative;
+  }
+  #tree-wrap { position: absolute; inset: 0; z-index: 0; }
+  /* Bottom scrim so the text panel reads cleanly over the canopy */
+  .scrim {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(6,21,17,0) 38%,
+      rgba(6,21,17,0.55) 62%,
+      rgba(6,21,17,0.92) 84%,
+      rgba(6,21,17,0.98) 100%
+    );
+  }
+  .frame {
+    position: absolute; inset: 40px;
+    border: 1px solid rgba(201,168,76,0.30);
+    border-radius: 6px; z-index: 2;
+  }
+  .panel {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 0 96px 104px; z-index: 3;
+    text-align: center;
+  }
+  .eyebrow {
+    font-family: "Fira Code", "Menlo", monospace;
+    font-size: 17px; letter-spacing: 0.30em; text-transform: uppercase;
+    color: #D17157; margin-bottom: 26px;
+  }
+  .title {
+    font-family: "Iowan Old Style", "Source Serif Pro", Georgia, serif;
+    font-size: 84px; font-weight: 600; letter-spacing: -0.02em;
+    line-height: 1.02; color: #F2EDD6; margin-bottom: 28px;
+  }
+  .title em { font-style: italic; color: #E2BE70; }
+  .rule { width: 88px; height: 2px; background: #C9A84C; margin: 0 auto 30px; opacity: 0.85; }
+  .tagline {
+    font-size: 27px; line-height: 1.5; color: #C8E4D8;
+    max-width: 880px; margin: 0 auto 0;
+  }
+  .tagline strong { color: #E2BE70; font-weight: 600; }
+  .footer {
+    position: absolute; left: 0; right: 0; bottom: 48px; z-index: 3;
+    display: flex; align-items: center; justify-content: center; gap: 18px;
+    font-family: "Fira Code", "Menlo", monospace;
+  }
+  .footer .url { color: #E2BE70; font-size: 18px; font-weight: 600; letter-spacing: -0.005em; }
+  .footer .dot { color: #2D6B50; }
+  .footer .who { color: #7EA890; font-size: 16px; letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+
+<div id="tree-wrap"></div>
+<div class="scrim"></div>
+<div class="frame"></div>
+
+<div class="panel">
+  <div class="eyebrow">Essay · Causal inference</div>
+  <div class="title">A recommender<br>is an <em>intervention</em></div>
+  <div class="rule"></div>
+  <div class="tagline">
+    A propensity score that works in backtest can break the moment you deploy it —
+    because the model becomes <strong>part of the data it was trained on</strong>.
+  </div>
+</div>
+
+<div class="footer">
+  <span class="who">Nicolò Ciccarone</span>
+  <span class="dot">·</span>
+  <span class="url">nclcc.github.io</span>
+  <span class="dot">·</span>
+  <span class="who">Complexa Labs</span>
+</div>
+
+<script>
+  // ── Fractal tree (adapted from the site's hero motif) ────────────────
+  function build(x, y, angle, length, depth, maxDepth, spread, scale, acc) {
+    if (depth === 0 || length < 2) return acc;
+    const rad = (angle * Math.PI) / 180;
+    const x2 = x + length * Math.sin(rad);
+    const y2 = y - length * Math.cos(rad);
+    acc.push({ x1: x, y1: y, x2, y2, depth, maxDepth });
+    const sp = spread + depth * 3.4;
+    build(x2, y2, angle - sp, length * scale, depth - 1, maxDepth, spread, scale, acc);
+    build(x2, y2, angle + sp, length * scale, depth - 1, maxDepth, spread, scale, acc);
+    return acc;
+  }
+
+  const MAX = 7;
+  const main = build(600, 1000, 0, 232, MAX, MAX, 24, 0.71, []);
+  const tl   = build(70,  40,  150, 96, 4, 4, 26, 0.70, []);
+  const tr   = build(1130, 40, -150, 96, 4, 4, 26, 0.70, []);
+  const all = [...main, ...tl, ...tr];
+
+  const ns = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(ns, "svg");
+  svg.setAttribute("viewBox", "0 0 1200 1200");
+  svg.setAttribute("width", "1200");
+  svg.setAttribute("height", "1200");
+
+  for (const b of all) {
+    const t = b.depth / b.maxDepth;
+    // trunk (deep) → teal-green; mid → muted; tips → gold
+    const color = t > 0.7 ? "#3E8C63" : t > 0.4 ? "#6FA88E" : "#E2BE70";
+    const opacity = (0.30 + t * 0.42);
+    const w = Math.max(1.1, b.depth * 1.25);
+    const line = document.createElementNS(ns, "line");
+    line.setAttribute("x1", b.x1); line.setAttribute("y1", b.y1);
+    line.setAttribute("x2", b.x2); line.setAttribute("y2", b.y2);
+    line.setAttribute("stroke", color);
+    line.setAttribute("stroke-width", w);
+    line.setAttribute("stroke-opacity", opacity);
+    line.setAttribute("stroke-linecap", "round");
+    svg.appendChild(line);
+  }
+  document.getElementById("tree-wrap").appendChild(svg);
+</script>
+</body>
+</html>

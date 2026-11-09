@@ -1,0 +1,36 @@
+% Header only — Nicolò Ciccarone
+% Tectonic 0.17 (XeTeX) segfaults (exit 139) at \begin{document} if
+% cochineal is loaded before cabin. Cabin is loaded first; that order compiles.
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=0.9cm]{geometry}
+\usepackage{cabin}
+\usepackage[proportional]{cochineal}
+\usepackage[scale=0.9]{inconsolata}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\definecolor{accent}{rgb}{0.57098,0.02196,0.19766}
+
+\hypersetup{hidelinks}
+% XeTeX is TU-encoded, so \texttt's TU/zi4 shape does not exist and
+% falls back to Latin Modern. T1/zi4 is the Inconsolata the package sets up.
+\DeclareTextFontCommand{\texttt}{\fontencoding{T1}\fontfamily{zi4}\selectfont}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\begin{document}
+{\sffamily\bfseries\LARGE Nicolò Ciccarone\par}
+{\small\setlength{\baselineskip}{16pt}\setlength{\lineskiplimit}{-\maxdimen}%
+\textcolor{accent}{\faPhone}\hspace{0.45em}+39 3663221036\hspace{3.25em}%
+\textcolor{accent}{\faEnvelope[regular]}\hspace{0.45em}\texttt{niciccarone@gmail.com}\par}
+{\small\setlength{\baselineskip}{13.35pt}\setlength{\lineskiplimit}{-\maxdimen}%
+\textcolor{accent}{\faLinkedin}\hspace{0.4em}%
+\href{https://www.linkedin.com/in/nicolociccarone1997/}{\texttt{https://www.linkedin.com/in/nicolociccarone1997/}}%
+\hspace{3.25em}%
+\textcolor{accent}{\faGithub}\hspace{0.4em}%
+\href{https://github.com/nclcc}{\texttt{https://github.com/nclcc}}\par}
+\end{document}

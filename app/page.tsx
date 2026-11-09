@@ -203,6 +203,14 @@ export default function Home() {
           </a>
           .
         </p>
+        <p className="mt-3 text-sm" style={{ color: "var(--bk-ink-lt)" }}>
+          Your email is used to respond to your enquiry. Enquiries that do not become client work
+          are deleted after 12 months from the last contact. Read the{" "}
+          <Link href="/privacy/" className="underline underline-offset-4" style={{ color: "var(--bk-sienna)" }}>
+            privacy notice / informativa privacy
+          </Link>{" "}
+          before sending personal information.
+        </p>
       </section>
     </div>
   );
