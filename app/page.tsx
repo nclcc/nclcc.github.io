@@ -37,11 +37,11 @@ const explore = [
 
 export default function Home() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-8 pb-6 sm:pt-12 sm:pb-8 animate-fade-up">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-8 pb-6 sm:pt-16 sm:pb-8 animate-fade-up">
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section id="about" className="mb-14">
         <h1
-          className="font-serif text-3xl sm:text-4xl md:text-[2.75rem] font-semibold leading-[1.15] max-w-3xl"
+          className="font-serif text-3xl sm:text-4xl md:text-[3.5rem] font-medium leading-[1.08] max-w-3xl"
           style={{ color: "var(--bk-green-dk)", letterSpacing: "-0.02em" }}
         >
           Models that take the inconvenient case seriously.
@@ -62,7 +62,7 @@ export default function Home() {
             <Link
               key={p.href}
               href={p.href}
-              className="group block border rounded-md px-4 py-3.5 transition hover:shadow-sm"
+              className="group block border rounded-md px-4 py-3.5 transition-colors hover:border-[var(--brass)]"
               style={{ borderColor: "var(--bk-rule)", background: "var(--bk-cream-lt)" }}
             >
               <div className="flex items-start justify-between gap-2">
@@ -106,7 +106,7 @@ export default function Home() {
         <div className="mt-7 flex flex-wrap gap-3">
           <a
             href="mailto:niciccarone@gmail.com"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition"
+            className="primary-action inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition"
             style={{ background: "var(--bk-green)", color: "var(--bk-cream)" }}
           >
             <Mail size={16} /> Email
@@ -148,7 +148,7 @@ export default function Home() {
           <Link
             key={e.href}
             href={e.href}
-            className="group block border rounded-md p-5 transition hover:shadow-sm"
+            className="group block border rounded-md p-5 transition-colors hover:border-[var(--brass)]"
             style={{ borderColor: "var(--bk-rule)", background: "var(--bk-cream-lt)" }}
           >
             <div className="flex items-start justify-between gap-4">

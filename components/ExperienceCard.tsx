@@ -14,7 +14,7 @@ export default function ExperienceCard({ slug, sector, title, summary, tags, per
   return (
     <Link
       href={`/experience/${slug}/`}
-      className="group block border rounded-md p-5 transition hover:shadow-sm"
+      className="group block border rounded-md p-5 transition-colors hover:border-[var(--brass)]"
       style={{
         borderColor: "var(--bk-rule)",
         background: "var(--bk-cream-lt)",

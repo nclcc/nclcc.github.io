@@ -49,8 +49,8 @@ The site will be available at https://nclcc.github.io.
 - Experience pages: [`app/experience/*/page.tsx`](app/experience/)
 - Posts: see "Posts & comments" below
 - CV PDF: [`public/cv.pdf`](public/cv.pdf) — replace to update the download link.
-- Styling: [`app/globals.css`](app/globals.css) — adapted from the Complexa Labs brand kit
-  (manuscript cream + forest green + sienna).
+- Styling: [`app/globals.css`](app/globals.css) — Jardin Parisien: warm ivory and linen, deep Bordeaux actions,
+  sage, antique brass details, espresso text and editorial serif headings.
 
 ## Posts & comments
 

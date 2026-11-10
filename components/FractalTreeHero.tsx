@@ -79,10 +79,10 @@ function flatten(node: TreeNode, acc: TreeNode[] = []): TreeNode[] {
 // makes the self-similar structure legible — the same gradient repeats inside
 // every sub-tree, since each sub-tree spans the same depth range.
 const GRADIENT: [number, string][] = [
-  [0.0,  "#2F7F5C"], // trunk — deep teal-green
-  [0.45, "#6FA06B"], // inner — sage
-  [0.75, "#B7A85A"], // upper — olive-gold
-  [1.0,  "#E2BE70"], // tips  — warm gold
+  [0.0,  "#697B60"], // trunk — deep teal-green
+  [0.45, "#8F9D7E"], // inner — sage
+  [0.75, "#A5A584"], // upper — olive-gold
+  [1.0,  "#AE945F"], // tips  — warm gold
 ];
 
 function lerpHex(a: string, b: string, t: number): string {
@@ -116,7 +116,7 @@ function Sprout({ node, phaseMs }: { node: TreeNode; phaseMs: number }) {
   const lines = useMemo(() => (micro ? flatten(micro) : []), [micro]);
   const CYCLE = 9; // seconds per bloom→recede loop
   return (
-    <g filter="url(#tip-glow)">
+    <g >
       {lines.map((m, i) => {
         const dash = m.length + 0.5;
         return (
@@ -124,7 +124,7 @@ function Sprout({ node, phaseMs }: { node: TreeNode; phaseMs: number }) {
             key={i}
             x1={m.x1} y1={m.y1}
             x2={m.x2} y2={m.y2}
-            stroke="#E2BE70"
+            stroke="#AE945F"
             strokeWidth={Math.max(0.8, m.depth * 0.7)}
             strokeLinecap="round"
             style={{
@@ -178,7 +178,7 @@ function Branch({ node, sproutKeys }: { node: TreeNode; sproutKeys: Set<string> 
         strokeWidth={strokeW}
         strokeOpacity={opacity}
         strokeLinecap="round"
-        filter={isTip ? "url(#tip-glow)" : undefined}
+
         style={{
           strokeDasharray: dash,
           strokeDashoffset: dash,
@@ -190,12 +190,12 @@ function Branch({ node, sproutKeys }: { node: TreeNode; sproutKeys: Set<string> 
           once; inner <circle> twinkles forever (SVG opacity multiplies so the
           two never fight over the same property). */}
       {isTip && (
-        <g filter="url(#tip-glow)" style={{ opacity: 0, animation: `fadeUp 0.7s ease ${drawDone}ms forwards` }}>
+        <g  style={{ opacity: 0, animation: `fadeUp 0.7s ease ${drawDone}ms forwards` }}>
           <circle
             cx={x2}
             cy={y2}
             r={2.1}
-            fill="#E2BE70"
+            fill="#AE945F"
             style={{ animation: `tree-twinkle ${q(2.6 + (Math.round(x2) % 5) * 0.45)}s ease-in-out ${drawDone}ms infinite` }}
           />
         </g>
@@ -245,7 +245,7 @@ export default function FractalTreeHero({ quote = false }: FractalTreeHeroProps)
           *behind* the hero so the self-drawing animation reads cleanly,
           without the destination state being partly visible through it. */}
       <div
-        className="w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl rounded-xl px-4 py-6 sm:px-8 sm:py-8 border"
+        className="w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl rounded-md px-4 py-6 sm:px-8 sm:py-8 border"
         style={{
           background: "var(--bk-cream-lt)",
           borderColor: "var(--bk-rule)",
@@ -277,9 +277,9 @@ export default function FractalTreeHero({ quote = false }: FractalTreeHeroProps)
           </filter>
           {/* Warm radial backlight behind the canopy for depth. */}
           <radialGradient id="tree-backlight" cx="50%" cy="42%" r="55%">
-            <stop offset="0%" stopColor="#C9A84C" stopOpacity="0.22" />
-            <stop offset="55%" stopColor="#C9A84C" stopOpacity="0.06" />
-            <stop offset="100%" stopColor="#C9A84C" stopOpacity="0" />
+            <stop offset="0%" stopColor="#C4AF82" stopOpacity="0.08" />
+            <stop offset="55%" stopColor="#C4AF82" stopOpacity="0.02" />
+            <stop offset="100%" stopColor="#C4AF82" stopOpacity="0" />
           </radialGradient>
         </defs>
 

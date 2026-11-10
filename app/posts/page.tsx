@@ -38,7 +38,7 @@ export default function PostsIndex() {
           <li key={p.slug}>
             <Link
               href={`/posts/${p.slug}/`}
-              className="group block rounded-md border p-4 sm:p-5 transition hover:shadow-sm"
+              className="group block rounded-md border p-4 sm:p-5 transition-colors hover:border-[var(--brass)]"
               style={{
                 borderColor: "var(--bk-rule)",
                 background: "var(--bk-cream-lt)",

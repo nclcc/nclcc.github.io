@@ -50,9 +50,9 @@ function buildBranches(
 
 function colorFor(b: Branch): string {
   const t = b.depth / b.maxDepth;
-  if (t > 0.7) return "#4D9B70";   // soft teal — trunk / inner
-  if (t > 0.4) return "#7EA890";   // muted teal — mid
-  return "#C9A84C";                 // gold — tips
+  if (t > 0.7) return "#75836A";   // soft teal — trunk / inner
+  if (t > 0.4) return "#9AA58B";   // muted teal — mid
+  return "#A58B56";                 // gold — tips
 }
 
 function renderBranches(branches: Branch[]) {
@@ -116,7 +116,7 @@ export default function FractalTreeBackground() {
         width="100%"
         height="100%"
         className="hidden sm:block"
-        style={{ opacity: 0.7 }}
+        style={{ opacity: 0.12 }}
       >
         {renderBranches(desktopBranches)}
       </svg>
@@ -128,7 +128,7 @@ export default function FractalTreeBackground() {
         width="100%"
         height="100%"
         className="block sm:hidden"
-        style={{ opacity: 0.4 }}
+        style={{ opacity: 0.08 }}
       >
         {renderBranches(mobileBranches)}
       </svg>
