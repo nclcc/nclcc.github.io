@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               />
             </Link>
-            <nav aria-label="Main navigation" className="site-nav order-3 basis-full justify-between sm:order-none sm:basis-auto sm:ml-auto text-xs sm:text-sm flex gap-2.5 sm:gap-6 min-w-0" style={{ color: "var(--hero-accent)" }}>
+            <nav aria-label="Main navigation" className="site-nav order-3 basis-full justify-between sm:order-none sm:basis-auto sm:ml-auto text-xs sm:text-sm flex gap-2.5 sm:gap-6 min-w-0">
               <Link href="/philosophy/" className="hover:opacity-80">Philosophy</Link>
               <Link href="/experience/" className="hover:opacity-80">Experience</Link>
               <Link href="/posts/" className="hover:opacity-80">Posts</Link>

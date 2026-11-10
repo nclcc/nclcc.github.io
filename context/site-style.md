@@ -29,3 +29,5 @@ Voice: precise, concrete, affirmative. No hype. Complexa Labs is the brand; Nico
 The fractal hero panel is borderless. Card and structural borders elsewhere remain thin. Primary Bordeaux buttons are deep enough for pale-yellow labels.
 
 Complexa Labs wordmark must be white, with no yellow/gold tint, in both themes.
+
+Header navigation links and the light/dark toggle icon are white to match the white wordmark; this overrides the general pale-yellow rule for non-body text.

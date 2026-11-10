@@ -76,7 +76,7 @@
   border: 1px solid var(--bk-rule);
   border-radius: 50%;
   background: transparent;
-  color: var(--hero-accent);
+  color: #FFFFFF;
   cursor: pointer;
   transition: background-color 160ms ease;
 }
@@ -138,8 +138,8 @@ a, button { -webkit-tap-highlight-color: rgb(100 47 61 / 12%); }
   mix-blend-mode: screen;
   opacity: 1;
 }
-.site-nav a { transition: color 160ms ease; }
-.site-nav a:hover { color: var(--bk-sienna); }
+.site-nav a { color: #FFFFFF; transition: opacity 160ms ease; }
+.site-nav a:hover { color: #FFFFFF; }
 .primary-action { transition: background-color 160ms ease; }
 .primary-action:hover { background-color: var(--action-bordeaux-hover) !important; }
 
