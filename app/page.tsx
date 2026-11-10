@@ -80,7 +80,7 @@ export default function Home() {
               </div>
               <div
                 className="mt-1.5 font-serif text-[15px] font-semibold leading-snug"
-                style={{ color: "var(--bk-green-dk)" }}
+                style={{ color: "#FFFFFF" }}
               >
                 {p.title}
               </div>
