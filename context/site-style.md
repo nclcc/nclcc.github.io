@@ -31,3 +31,5 @@ The fractal hero panel is borderless. Card and structural borders elsewhere rema
 Complexa Labs wordmark must be white, with no yellow/gold tint, in both themes.
 
 Header navigation links and the light/dark toggle icon are white to match the white wordmark; this overrides the general pale-yellow rule for non-body text.
+
+Footer copyright, VAT details and legal navigation are white, matching the header.

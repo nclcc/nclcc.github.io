@@ -99,6 +99,7 @@
 
 /* The home contact section already provides spacing above the footer. */
 main:has(#contact) + .site-footer { margin-top: 0; }
+.site-footer a { color: #FFFFFF; }
 
 :focus-visible {
   outline: 2px solid var(--focus-ring);
