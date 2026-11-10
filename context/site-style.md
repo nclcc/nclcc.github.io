@@ -27,3 +27,5 @@ Current direction, selected 10 November 2026: a colourful luxury product with ri
 Voice: precise, concrete, affirmative. No hype. Complexa Labs is the brand; Nicolò Ciccarone is the person.
 
 The fractal hero panel is borderless. Card and structural borders elsewhere remain thin. Primary Bordeaux buttons are deep enough for pale-yellow labels.
+
+Complexa Labs wordmark must be white, with no yellow/gold tint, in both themes.

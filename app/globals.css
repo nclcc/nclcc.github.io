@@ -85,7 +85,7 @@
 :root[data-theme="dark"] .theme-icon-sun { display: block; }
 :root[data-theme="dark"] .theme-icon-moon { display: none; }
 :root[data-theme="dark"] .site-wordmark {
-  filter: grayscale(1) contrast(4) sepia(1) saturate(5) brightness(.85);
+  filter: grayscale(1) contrast(4);
   mix-blend-mode: screen;
 }
 
@@ -134,9 +134,9 @@ p { text-wrap: pretty; }
 a, button { -webkit-tap-highlight-color: rgb(100 47 61 / 12%); }
 .site-wordmark {
   object-fit: contain;
-  filter: grayscale(1) invert(1) contrast(4);
-  mix-blend-mode: multiply;
-  opacity: .85;
+  filter: grayscale(1) contrast(4);
+  mix-blend-mode: screen;
+  opacity: 1;
 }
 .site-nav a { transition: color 160ms ease; }
 .site-nav a:hover { color: var(--bk-sienna); }
