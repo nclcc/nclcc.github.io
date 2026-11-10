@@ -42,7 +42,7 @@ export default function Home() {
       <section id="about" className="mb-14">
         <h1
           className="font-serif text-3xl sm:text-4xl md:text-[3.5rem] font-medium leading-[1.08] max-w-3xl"
-          style={{ color: "var(--bk-green-dk)", letterSpacing: "-0.02em" }}
+          style={{ color: "var(--hero-accent)", letterSpacing: "-0.02em" }}
         >
           Models that take the inconvenient case seriously.
         </h1>
@@ -107,7 +107,7 @@ export default function Home() {
           <a
             href="mailto:niciccarone@gmail.com"
             className="primary-action inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition"
-            style={{ background: "var(--bk-green)", color: "var(--bk-cream)" }}
+            style={{ background: "var(--bk-green)", color: "var(--action-foreground)" }}
           >
             <Mail size={16} /> Email
           </a>

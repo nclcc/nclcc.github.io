@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 
 export default function Cookies() {
   return (
-    <LegalPage title="Informativa cookie">
+    <LegalPage title="Informativa cookie" updatedAt="2026-11-10">
       <h2>Cookie e memoria del browser</h2>
       <p>
-        Il codice di questo sito non imposta cookie e non utilizza localStorage o sessionStorage.
+        Il sito non imposta cookie e non utilizza sessionStorage. Usa localStorage esclusivamente per ricordare la scelta del tema chiaro o scuro.
         Non sono integrati strumenti di analisi delle visite, pubblicità, profilazione,
         pixel di tracciamento o fingerprinting.
       </p>
@@ -20,6 +20,15 @@ export default function Cookies() {
         Non vengono caricati widget social o commenti di terze parti. I caratteri tipografici
         delle pagine principali sono distribuiti insieme al sito; non sono richiesti ai server
         di Google durante la visita. I file HTML accessori usano caratteri di sistema.
+      </p>
+      <h2>Preferenza del tema</h2>
+      <p>
+        La chiave <code>complexa-theme</code> contiene soltanto il valore <code>light</code> o <code>dark</code>,
+        salvato quando usi il selettore del tema. È una preferenza funzionale: non contiene un identificativo,
+        non viene trasmessa dal codice del sito a server e non serve al tracciamento. Resta nel browser
+        finché cancelli i dati del sito o cambi la scelta. Senza una scelta salvata viene usata
+        la preferenza chiaro/scuro del dispositivo. Se la memoria del browser non è disponibile,
+        il selettore continua a funzionare durante la visita senza salvare il valore.
       </p>
       <h2>Perché non compare un banner</h2>
       <p>
@@ -50,10 +59,10 @@ export default function Cookies() {
       <p>Per domande: <a href="mailto:niciccarone@gmail.com">niciccarone@gmail.com</a>.</p>
       <section id="english" lang="en" className="scroll-mt-8">
         <h2>Cookie notice</h2>
-        <p>Last updated: <time dateTime="2026-11-09">9 November 2026</time>.</p>
+        <p>Last updated: <time dateTime="2026-11-10">10 November 2026</time>.</p>
         <h3>Cookies and browser storage</h3>
         <p>
-          The website code sets no cookies and does not use localStorage or sessionStorage.
+          The website sets no cookies and does not use sessionStorage. It uses localStorage only to remember your light or dark theme choice.
           It includes no visitor analytics, advertising, profiling, tracking pixels or
           fingerprinting tools.
         </p>
@@ -61,6 +70,14 @@ export default function Cookies() {
           No third-party social widgets or comment embeds are loaded. Fonts on the main
           pages are distributed with the website and are not requested from Google’s
           servers during your visit. Accessory HTML files use system fonts.
+        </p>
+        <h3>Theme preference</h3>
+        <p>
+          The <code>complexa-theme</code> key stores only <code>light</code> or <code>dark</code> when you
+          use the theme toggle. This functional preference contains no identifier and is not transmitted
+          to servers by the website code or used for tracking. It stays in your browser until you clear
+          site data or change the choice. Without a saved choice, the device’s colour-scheme preference
+          is used. If browser storage is unavailable, the toggle works for the current visit without saving.
         </p>
         <h3>Why there is no consent banner</h3>
         <p>

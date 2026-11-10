@@ -321,14 +321,14 @@ export default function FractalTreeHero({ quote = false }: FractalTreeHeroProps)
         >
           <blockquote
             className="font-serif italic text-base sm:text-lg leading-snug"
-            style={{ color: "var(--bk-green-dk)" }}
+            style={{ color: "var(--hero-accent)" }}
           >
             &ldquo;Bottomless wonders spring from simple rules, which are
             repeated without end.&rdquo;
           </blockquote>
           <figcaption
             className="mt-2 text-[10px] sm:text-xs uppercase tracking-[0.18em] font-mono"
-            style={{ color: "var(--bk-green-dk)" }}
+            style={{ color: "var(--hero-accent)" }}
           >
             — Benoît Mandelbrot
           </figcaption>

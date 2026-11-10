@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Fira_Code, Cormorant_Garamond } from "next/font/google";
 import Link from "next/link";
+import ThemeToggle from "@/components/ThemeToggle";
+import { themeInitializationScript } from "@/lib/theme";
 import FractalTreeBackground from "@/components/FractalTreeBackground";
 import "./globals.css";
 
@@ -48,7 +50,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${firaCode.variable} ${editorialSerif.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${firaCode.variable} ${editorialSerif.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitializationScript }} />
+      </head>
       <body className="antialiased min-h-screen flex flex-col relative">
         <a href="#main-content" className="skip-link">Skip to content</a>
         <FractalTreeBackground />
@@ -56,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           className="border-b relative"
           style={{ borderColor: "var(--bk-rule)", zIndex: 1, background: "var(--bk-cream)" }}
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-2 sm:gap-3">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 sm:gap-3">
             <Link
               href="/"
               className="shrink-0 inline-flex items-center"
@@ -71,12 +76,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               />
             </Link>
-            <nav aria-label="Main navigation" className="site-nav text-[11px] sm:text-sm flex gap-2.5 sm:gap-6 min-w-0" style={{ color: "var(--bk-ink-mid)" }}>
+            <nav aria-label="Main navigation" className="site-nav order-3 basis-full justify-between sm:order-none sm:basis-auto sm:ml-auto text-xs sm:text-sm flex gap-2.5 sm:gap-6 min-w-0" style={{ color: "var(--bk-ink-mid)" }}>
               <Link href="/philosophy/" className="hover:opacity-80">Philosophy</Link>
               <Link href="/experience/" className="hover:opacity-80">Experience</Link>
               <Link href="/posts/" className="hover:opacity-80">Posts</Link>
               <Link href="/#contact" className="hover:opacity-80">Contact</Link>
             </nav>
+            <ThemeToggle />
           </div>
         </header>
         <main id="main-content" tabIndex={-1} className="flex-1 relative" style={{ zIndex: 1 }}>{children}</main>
