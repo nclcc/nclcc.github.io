@@ -40,12 +40,6 @@ export default function Home() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 animate-fade-up">
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section id="about" className="mb-14">
-        <p
-          className="text-[10px] sm:text-xs uppercase tracking-[0.18em] font-mono mb-3"
-          style={{ color: "var(--bk-eyebrow)" }}
-        >
-          Nicolò Ciccarone · Complexa Labs
-        </p>
         <h1
           className="font-serif text-3xl sm:text-4xl md:text-[2.75rem] font-semibold leading-[1.15] max-w-3xl"
           style={{ color: "var(--bk-green-dk)", letterSpacing: "-0.02em" }}
