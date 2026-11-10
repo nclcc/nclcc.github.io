@@ -138,7 +138,7 @@ a, button { -webkit-tap-highlight-color: rgb(100 47 61 / 12%); }
   opacity: .85;
 }
 .site-nav a { transition: color 160ms ease; }
-.site-nav a:hover { color: var(--action-bordeaux); }
+.site-nav a:hover { color: var(--bk-sienna); }
 .primary-action { transition: background-color 160ms ease; }
 .primary-action:hover { background-color: var(--action-bordeaux-hover) !important; }
 
