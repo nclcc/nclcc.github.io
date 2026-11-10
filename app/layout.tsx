@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           className="border-b relative"
           style={{ borderColor: "var(--bk-rule)", zIndex: 1, background: "var(--bk-cream)" }}
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 sm:gap-3">
+          <div className="site-header-inner max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 sm:gap-3">
             <Link
               href="/"
               className="shrink-0 inline-flex items-center"

@@ -151,6 +151,22 @@ main { min-width: 0; overflow-wrap: anywhere; }
 .prose-bk table { display: block; }
 .prose-bk img, .prose-bk svg { max-width: 100%; height: auto; }
 @media (max-width: 639px) {
+  .site-header-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    column-gap: 12px;
+    row-gap: 4px;
+    padding: 12px 20px 8px;
+  }
+  .site-header-inner > .theme-toggle {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .site-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+  }
   .site-nav a { justify-content: center; }
   .site-nav a:first-child { justify-content: flex-start; }
   .site-nav a:last-child { justify-content: flex-end; }
