@@ -28,8 +28,10 @@ Voice: precise, concrete, affirmative. No hype. Complexa Labs is the brand; Nico
 
 The fractal hero panel is borderless. Card and structural borders elsewhere remain thin. Primary Bordeaux buttons are deep enough for pale-yellow labels.
 
-Complexa Labs wordmark must be white, with no yellow/gold tint, in both themes.
+Use one consistent creamy white (#F0EBD5, --text-cream) for the Complexa Labs wordmark, header navigation, theme icon, footer and homepage proof-card titles in both themes. Do not use pure white for these elements.
 
-Header navigation links and the light/dark toggle icon are white to match the white wordmark; this overrides the general pale-yellow rule for non-body text.
+Header navigation links and the light/dark toggle icon match the creamy wordmark; this overrides the general pale-yellow rule for non-body text.
 
-Footer copyright, VAT details and legal navigation are white, matching the header.
+Footer copyright, VAT details and legal navigation use the same cream as the header.
+
+Mobile: 44px navigation and action targets, two-column homepage actions, larger proof-card titles, compact section spacing and wrapping footer. Validate at 320px and 375px as well as tablet/desktop widths.

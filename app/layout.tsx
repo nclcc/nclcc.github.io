@@ -57,6 +57,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased min-h-screen flex flex-col relative">
         <a href="#main-content" className="skip-link">Skip to content</a>
         <FractalTreeBackground />
+        <svg aria-hidden="true" width="0" height="0" className="absolute pointer-events-none">
+          <defs>
+            <filter id="wordmark-cream" colorInterpolationFilters="sRGB">
+              {/* Convert the monochrome mark to the same cream as the text,
+                  using its luminance as alpha to remove the old backdrop. */}
+              <feColorMatrix type="matrix" values="0 0 0 0 0.941176  0 0 0 0 0.921569  0 0 0 0 0.835294  1 0 0 0 0" />
+            </filter>
+          </defs>
+        </svg>
         <header
           className="border-b relative"
           style={{ borderColor: "var(--bk-rule)", zIndex: 1, background: "var(--bk-cream)" }}
@@ -67,16 +76,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               className="shrink-0 inline-flex items-center"
               aria-label="Complexa Labs — home"
             >
-              {/* Full horizontal wordmark at every breakpoint — sized smaller on
-                  mobile so it shares the header with the nav cleanly. */}
-              <img
-                src="/complexa-logo.png"
-                alt="Complexa Labs"
-                className="site-wordmark h-10 sm:h-14 lg:h-16"
-
-              />
+              {/* Crop the asset's built-in margins so the actual wordmark,
+                  rather than its empty canvas, determines the header size. */}
+              <svg
+                viewBox="70 70 860 260"
+                role="img"
+                aria-label="Complexa Labs"
+                className="site-wordmark h-14 sm:h-16 w-auto"
+              >
+                <image href="/complexa-logo.png" width="1200" height="400" />
+              </svg>
             </Link>
-            <nav aria-label="Main navigation" className="site-nav order-3 basis-full justify-between sm:order-none sm:basis-auto sm:ml-auto text-xs sm:text-sm flex gap-2.5 sm:gap-6 min-w-0">
+            <nav aria-label="Main navigation" className="site-nav order-3 basis-full justify-between sm:order-none sm:basis-auto sm:ml-auto text-sm flex gap-2 sm:gap-6 min-w-0">
               <Link href="/philosophy/" className="hover:opacity-80">Philosophy</Link>
               <Link href="/experience/" className="hover:opacity-80">Experience</Link>
               <Link href="/posts/" className="hover:opacity-80">Posts</Link>
@@ -91,11 +102,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           style={{ borderColor: "var(--bk-rule)", zIndex: 1, background: "var(--bk-cream)" }}
         >
           <div
-            className="max-w-4xl mx-auto px-6 py-6 text-sm flex flex-col sm:flex-row justify-between gap-2"
-            style={{ color: "#FFFFFF" }}
+            className="max-w-4xl mx-auto px-4 sm:px-6 py-5 sm:py-6 text-sm flex flex-col md:flex-row justify-between gap-3 md:gap-6"
+            style={{ color: "var(--text-cream)" }}
           >
-            <span>© {new Date().getFullYear()} Nicolò Ciccarone · Complexa Labs · P.IVA IT09082330722</span>
-            <nav aria-label="Legal information" className="flex flex-wrap gap-x-4 gap-y-2">
+            <span className="min-w-0 leading-relaxed">© {new Date().getFullYear()} Nicolò Ciccarone · Complexa Labs · P.IVA IT09082330722</span>
+            <nav aria-label="Legal information" className="flex shrink-0 flex-wrap gap-x-4 gap-y-2">
               <Link href="/privacy/" className="underline underline-offset-4">Privacy</Link>
               <Link href="/cookies/" className="underline underline-offset-4">Cookie</Link>
               <Link href="/legal/" className="underline underline-offset-4">Note legali</Link>

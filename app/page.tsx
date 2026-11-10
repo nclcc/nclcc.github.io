@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-8 pb-6 sm:pt-16 sm:pb-8 animate-fade-up">
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section id="about" className="mb-14">
+      <section id="about" className="mb-9 sm:mb-14">
         <h1
           className="font-serif text-3xl sm:text-4xl md:text-[3.5rem] font-medium leading-[1.08] max-w-3xl"
           style={{ color: "var(--hero-accent)", letterSpacing: "-0.02em" }}
@@ -67,7 +67,7 @@ export default function Home() {
             >
               <div className="flex items-start justify-between gap-2">
                 <div
-                  className="text-[10px] uppercase tracking-wider font-mono"
+                  className="text-xs sm:text-[10px] uppercase tracking-wider font-mono"
                   style={{ color: "var(--bk-eyebrow)" }}
                 >
                   {p.eyebrow}
@@ -79,8 +79,8 @@ export default function Home() {
                 />
               </div>
               <div
-                className="mt-1.5 font-serif text-[15px] font-semibold leading-snug"
-                style={{ color: "#FFFFFF" }}
+                className="mt-1.5 font-serif text-xl sm:text-[17px] font-semibold leading-snug"
+                style={{ color: "var(--text-cream)" }}
               >
                 {p.title}
               </div>
@@ -103,7 +103,7 @@ export default function Home() {
           .
         </p>
 
-        <div className="mt-7 flex flex-wrap gap-3">
+        <div className="home-actions mt-7 grid grid-cols-2 sm:flex sm:flex-wrap gap-3">
           <a
             href="mailto:niciccarone@gmail.com"
             className="primary-action inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition"
@@ -143,7 +143,7 @@ export default function Home() {
       <hr className="hr-bk" />
 
       {/* ── Explore — pathways to the philosophy & experience pages ──── */}
-      <section className="mt-12 grid gap-4 sm:grid-cols-2">
+      <section className="mt-8 sm:mt-12 grid gap-4 sm:grid-cols-2">
         {explore.map((e) => (
           <Link
             key={e.href}
@@ -178,7 +178,7 @@ export default function Home() {
       </section>
 
       {/* ── Contact ────────────────────────────────────────────────── */}
-      <section id="contact" className="mt-16">
+      <section id="contact" className="mt-10 sm:mt-16">
         <hr className="hr-bk mb-6" />
         <h2
           className="font-serif text-2xl font-semibold mb-3"
@@ -197,7 +197,7 @@ export default function Home() {
           </a>
           .
         </p>
-        <p className="mt-2 text-xs leading-relaxed" style={{ color: "var(--bk-ink-lt)" }}>
+        <p className="mt-2 text-sm sm:text-xs leading-relaxed" style={{ color: "var(--bk-ink-lt)" }}>
           Email is used to handle your enquiry. Non-client enquiries are deleted within 12 months of the last contact. Read the{" "}
           <Link href="/privacy/" className="underline underline-offset-4" style={{ color: "var(--bk-sienna)" }}>
             privacy notice / informativa privacy
