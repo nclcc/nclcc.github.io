@@ -37,7 +37,7 @@ const explore = [
 
 export default function Home() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 animate-fade-up">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-8 pb-6 sm:pt-12 sm:pb-8 animate-fade-up">
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section id="about" className="mb-14">
         <h1
@@ -179,15 +179,15 @@ export default function Home() {
 
       {/* ── Contact ────────────────────────────────────────────────── */}
       <section id="contact" className="mt-16">
-        <hr className="hr-bk mb-8" />
+        <hr className="hr-bk mb-6" />
         <h2
           className="font-serif text-2xl font-semibold mb-3"
           style={{ color: "var(--bk-green-dk)" }}
         >
           Get in touch
         </h2>
-        <p style={{ color: "var(--bk-ink-mid)" }}>
-          For consulting enquiries, research collaboration, or to discuss any of the engagements:{" "}
+        <p className="text-sm leading-relaxed" style={{ color: "var(--bk-ink-mid)" }}>
+          For consulting, research collaboration, or questions about the work:{" "}
           <a
             href="mailto:niciccarone@gmail.com"
             className="underline decoration-1 underline-offset-2"
@@ -197,13 +197,12 @@ export default function Home() {
           </a>
           .
         </p>
-        <p className="mt-3 text-sm" style={{ color: "var(--bk-ink-lt)" }}>
-          Your email is used to respond to your enquiry. Enquiries that do not become client work
-          are deleted after 12 months from the last contact. Read the{" "}
+        <p className="mt-2 text-xs leading-relaxed" style={{ color: "var(--bk-ink-lt)" }}>
+          Email is used to handle your enquiry. Non-client enquiries are deleted within 12 months of the last contact. Read the{" "}
           <Link href="/privacy/" className="underline underline-offset-4" style={{ color: "var(--bk-sienna)" }}>
             privacy notice / informativa privacy
           </Link>{" "}
-          before sending personal information.
+          before writing.
         </p>
       </section>
     </div>

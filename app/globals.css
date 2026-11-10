@@ -53,6 +53,9 @@
 
 * { box-sizing: border-box; }
 
+/* The home contact section already provides spacing above the footer. */
+main:has(#contact) + .site-footer { margin-top: 0; }
+
 :focus-visible {
   outline: 2px solid var(--bk-green-dk);
   outline-offset: 4px;
