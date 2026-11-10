@@ -79,10 +79,10 @@ function flatten(node: TreeNode, acc: TreeNode[] = []): TreeNode[] {
 // makes the self-similar structure legible — the same gradient repeats inside
 // every sub-tree, since each sub-tree spans the same depth range.
 const GRADIENT: [number, string][] = [
-  [0.0,  "#697B60"], // trunk — deep teal-green
-  [0.45, "#8F9D7E"], // inner — sage
-  [0.75, "#A5A584"], // upper — olive-gold
-  [1.0,  "#AE945F"], // tips  — warm gold
+  [0.0,  "#527B4E"], // trunk — deep teal-green
+  [0.45, "#89A864"], // inner — sage
+  [0.75, "#B5B66F"], // upper — olive-gold
+  [1.0,  "#E1BD64"], // tips  — warm gold
 ];
 
 function lerpHex(a: string, b: string, t: number): string {
@@ -124,7 +124,7 @@ function Sprout({ node, phaseMs }: { node: TreeNode; phaseMs: number }) {
             key={i}
             x1={m.x1} y1={m.y1}
             x2={m.x2} y2={m.y2}
-            stroke="#AE945F"
+            stroke="#E1BD64"
             strokeWidth={Math.max(0.8, m.depth * 0.7)}
             strokeLinecap="round"
             style={{
@@ -195,7 +195,7 @@ function Branch({ node, sproutKeys }: { node: TreeNode; sproutKeys: Set<string> 
             cx={x2}
             cy={y2}
             r={2.1}
-            fill="#AE945F"
+            fill="#E1BD64"
             style={{ animation: `tree-twinkle ${q(2.6 + (Math.round(x2) % 5) * 0.45)}s ease-in-out ${drawDone}ms infinite` }}
           />
         </g>
@@ -247,8 +247,8 @@ export default function FractalTreeHero({ quote = false }: FractalTreeHeroProps)
       <div
         className="w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl rounded-md px-4 py-6 sm:px-8 sm:py-8 border"
         style={{
-          background: "var(--bk-cream-lt)",
-          borderColor: "var(--bk-rule)",
+          background: "var(--hero-surface)",
+          borderColor: "var(--hero-rule)",
         }}
       >
       <svg

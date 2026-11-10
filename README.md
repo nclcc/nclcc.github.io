@@ -49,8 +49,8 @@ The site will be available at https://nclcc.github.io.
 - Experience pages: [`app/experience/*/page.tsx`](app/experience/)
 - Posts: see "Posts & comments" below
 - CV PDF: [`public/cv.pdf`](public/cv.pdf) — replace to update the download link.
-- Styling: [`app/globals.css`](app/globals.css) — Jardin Parisien: warm ivory and linen, deep Bordeaux actions,
-  sage, antique brass details, espresso text and editorial serif headings.
+- Styling: [`app/globals.css`](app/globals.css) — Jardin Parisien: rich sage and emerald, deep Bordeaux actions,
+  warm gold details, espresso/linen text and editorial serif headings, with a saved light/dark toggle.
 
 ## Posts & comments
 

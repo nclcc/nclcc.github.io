@@ -2,21 +2,26 @@
 
 Site: https://nclcc.github.io. Next.js static export; content width max-w-4xl.
 
-Current design, selected 10 November 2026: muted sage, linen and antique brass. Soft and minimalist. This supersedes the former dark forest theme and the older cream manuscript palette.
+Current direction, selected 10 November 2026: a colourful luxury product with rich emerald, sage, deep Bordeaux and warm gold. Editorial serif typography, measured whitespace, thin borders and minimal shadows. This supersedes all former dark/light palettes.
 
-- Sage #DFE7D7 page and #D2DEC7 surfaces; no pure-white backgrounds. Dark mode uses deep forest #14221C and #1E3328 surfaces.
-- Deep espresso #352B28 text and headings; #584D46 secondary text and #6C6257 muted text.
-- Bordeaux #642F3D primary actions, links and observed chart series. Hover #4E2330.
-- Muted sage #7B8B70 counterfactual series; transparent sage at 16% for uncertainty bands.
-- Antique brass #A58B56 and champagne #C4AF82 for restrained details, never small body text.
-- Thin linen borders #D8D1C2, generous whitespace, minimal shadows.
-- Cormorant Garamond editorial serif headings, Inter body and controls, Fira Code for small metadata.
-- Keep the existing fractal identity: sage/brass hero and a very faint background tree. No liquid scroll effects have been added.
-- Existing bk-* CSS tokens are semantic aliases for this palette; chart tokens explicitly distinguish observed/counterfactual/uncertainty.
-- Keep homepage contact compact and legal links visible. Respect reduced motion and keyboard focus.
+| Role | Light | Dark |
+| --- | --- | --- |
+| Page | #CEDDBF | #0E3025 |
+| Surfaces | #BFD2AB | #184534 |
+| Primary action | #7A3049 | #9C445D |
+| Text | #293426 | #F0EBD5 |
+| Secondary text | #3F4B36 | #D1DCC6 |
+| Muted text | #435139 | #B4C7A2 |
+| Homepage headline and Mandelbrot quote | #6D501A | #E8C776 |
+| Hero panel | #143D2C | #0A241B |
+| Brass details | #9B7836 | #C9A650 |
 
-Voice: precise, concrete, affirmative. No hype. Complexa Labs is the brand; Nicolò Ciccarone is the person. Preserve substantive copy, legal notices, CV download and navigation when making visual changes.
+- The hero tree sits on an emerald panel in both themes, with brass edging and sage/gold branches. Keep background trees very faint.
+- Cormorant Garamond editorial headings, Inter body and controls, Fira Code metadata.
+- Other headings use espresso/linen. The main homepage headline, Mandelbrot quote and attribution use the warm gold accent.
+- Explicit chart tokens: Bordeaux observed, sage counterfactual, transparent sage uncertainty bands. No chart has been added solely to display these tokens.
+- The accessible header toggle remembers light/dark choice in localStorage as complexa-theme; without a saved choice, follow the device preference. Document this functional storage in the cookie notice.
+- Keep the homepage contact compact and legal links visible. Respect reduced motion and keyboard focus.
+- Preserve substantive copy, legal notices, CV download and navigation during visual changes. No liquid scroll effects have been added.
 
-The header has an accessible light/dark toggle. Theme choice is stored locally under complexa-theme; without a choice, follow the device preference. Keep action foreground and link colours legible in both themes.
-
-Main homepage headline, Mandelbrot quote and attribution use --hero-accent: antique gold #6D5B20 in light mode and soft champagne yellow #DFCF8B in dark mode. Other headings remain espresso/linen.
+Voice: precise, concrete, affirmative. No hype. Complexa Labs is the brand; Nicolò Ciccarone is the person.

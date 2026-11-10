@@ -4,22 +4,24 @@
    Existing bk-* aliases keep all pages on the same semantic palette. */
 :root {
   color-scheme: light;
-  --surface-page: #DFE7D7;
-  --surface-linen: #D2DEC7;
-  --surface-hover: #C4D3B8;
-  --text-espresso: #352B28;
-  --text-secondary: #584D46;
-  --text-muted: #61594F;
-  --action-bordeaux: #642F3D;
+  --surface-page: #CEDDBF;
+  --surface-linen: #BFD2AB;
+  --surface-hover: #ACC494;
+  --text-espresso: #293426;
+  --text-secondary: #3F4B36;
+  --text-muted: #435139;
+  --action-bordeaux: #7A3049;
   --action-foreground: #F7F3EA;
   --focus-ring: #642F3D;
-  --action-bordeaux-hover: #4E2330;
+  --action-bordeaux-hover: #602237;
   --sage: #7B8B70;
-  --sage-text: #53634F;
-  --brass: #A58B56;
-  --champagne: #C4AF82;
-  --hero-accent: #6D5B20;
-  --border-linen: #B4C2A9;
+  --sage-text: #3D5033;
+  --brass: #9B7836;
+  --champagne: #B8964E;
+  --hero-accent: #6D501A;
+  --hero-surface: #143D2C;
+  --hero-rule: #8D7540;
+  --border-linen: #99AE85;
   --chart-observed: var(--action-bordeaux);
   --chart-counterfactual: var(--sage);
   --chart-uncertainty: rgb(123 139 112 / 16%);
@@ -41,20 +43,22 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --surface-page: #14221C;
-  --surface-linen: #1E3328;
-  --surface-hover: #2B4434;
-  --text-espresso: #E9EBDD;
-  --text-secondary: #C9D2C0;
-  --text-muted: #ADBAA3;
-  --action-bordeaux: #824254;
-  --action-bordeaux-hover: #974E62;
-  --sage: #9AAE89;
-  --sage-text: #B0C2A0;
-  --brass: #BDA879;
-  --champagne: #CDBB8E;
-  --hero-accent: #DFCF8B;
-  --border-linen: #40543D;
+  --surface-page: #0E3025;
+  --surface-linen: #184534;
+  --surface-hover: #245D43;
+  --text-espresso: #F0EBD5;
+  --text-secondary: #D1DCC6;
+  --text-muted: #B4C7A2;
+  --action-bordeaux: #9C445D;
+  --action-bordeaux-hover: #B0526D;
+  --sage: #ACC58B;
+  --sage-text: #B9D29C;
+  --brass: #C9A650;
+  --champagne: #DEC27D;
+  --hero-accent: #E8C776;
+  --hero-surface: #0A241B;
+  --hero-rule: #8D7540;
+  --border-linen: #416448;
   --focus-ring: #CDBB8E;
   --bk-sienna: #E2B1BD;
   --bk-sienna-lt: #F0C9D2;
@@ -81,7 +85,7 @@
 :root[data-theme="dark"] .theme-icon-sun { display: block; }
 :root[data-theme="dark"] .theme-icon-moon { display: none; }
 :root[data-theme="dark"] .site-wordmark {
-  filter: grayscale(1) contrast(4);
+  filter: grayscale(1) contrast(4) sepia(1) saturate(5) brightness(.85);
   mix-blend-mode: screen;
 }
 
