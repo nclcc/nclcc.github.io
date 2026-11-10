@@ -24,7 +24,7 @@ export default function ExperienceCard({ slug, sector, title, summary, tags, per
         <div className="flex-1">
           <div
             className="text-[10px] sm:text-xs uppercase tracking-wider font-mono mb-1 break-words"
-            style={{ color: "var(--bk-ink-lt)" }}
+            style={{ color: "var(--bk-eyebrow)" }}
           >
             {sector}
             {period ? ` · ${period}` : ""}

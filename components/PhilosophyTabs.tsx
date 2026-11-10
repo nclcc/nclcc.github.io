@@ -63,7 +63,7 @@ export default function PhilosophyTabs() {
               onClick={() => setActive(i)}
               className="px-2.5 sm:px-3 py-2 text-xs sm:text-sm font-mono tracking-wide transition border-b-2 -mb-px shrink-0"
               style={{
-                color: isActive ? "var(--bk-green-dk)" : "var(--bk-ink-lt)",
+                color: "var(--hero-accent)",
                 borderBottomColor: isActive ? "var(--bk-sienna)" : "transparent",
                 fontWeight: isActive ? 600 : 400,
               }}

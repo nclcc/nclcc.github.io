@@ -28,7 +28,7 @@ export default function ExperienceLayout({
 
       <div
         className="text-[10px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] font-mono mb-3 break-words"
-        style={{ color: "var(--bk-ink-lt)" }}
+        style={{ color: "var(--bk-eyebrow)" }}
       >
         {sector}
       </div>
@@ -40,7 +40,7 @@ export default function ExperienceLayout({
       </h1>
       <div
         className="mt-3 text-sm font-mono"
-        style={{ color: "var(--bk-ink-mid)" }}
+        style={{ color: "var(--bk-eyebrow)" }}
       >
         {role} · {period}
       </div>

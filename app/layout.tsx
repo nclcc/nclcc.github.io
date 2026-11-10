@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               />
             </Link>
-            <nav aria-label="Main navigation" className="site-nav order-3 basis-full justify-between sm:order-none sm:basis-auto sm:ml-auto text-xs sm:text-sm flex gap-2.5 sm:gap-6 min-w-0" style={{ color: "var(--bk-ink-mid)" }}>
+            <nav aria-label="Main navigation" className="site-nav order-3 basis-full justify-between sm:order-none sm:basis-auto sm:ml-auto text-xs sm:text-sm flex gap-2.5 sm:gap-6 min-w-0" style={{ color: "var(--hero-accent)" }}>
               <Link href="/philosophy/" className="hover:opacity-80">Philosophy</Link>
               <Link href="/experience/" className="hover:opacity-80">Experience</Link>
               <Link href="/posts/" className="hover:opacity-80">Posts</Link>
@@ -92,7 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <div
             className="max-w-4xl mx-auto px-6 py-6 text-sm flex flex-col sm:flex-row justify-between gap-2"
-            style={{ color: "var(--bk-ink-lt)" }}
+            style={{ color: "var(--hero-accent)" }}
           >
             <span>© {new Date().getFullYear()} Nicolò Ciccarone · Complexa Labs · P.IVA IT09082330722</span>
             <nav aria-label="Legal information" className="flex flex-wrap gap-x-4 gap-y-2">

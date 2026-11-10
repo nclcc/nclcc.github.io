@@ -115,7 +115,7 @@ export default function Home() {
             href="/cv.pdf"
             download
             className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium border transition hover:bg-[var(--bk-cream-dk)]"
-            style={{ borderColor: "var(--bk-rule)", color: "var(--bk-ink)" }}
+            style={{ borderColor: "var(--bk-rule)", color: "var(--hero-accent)" }}
           >
             <Download size={16} /> Download CV
           </a>
@@ -124,7 +124,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium border transition hover:bg-[var(--bk-cream-dk)]"
-            style={{ borderColor: "var(--bk-rule)", color: "var(--bk-ink)" }}
+            style={{ borderColor: "var(--bk-rule)", color: "var(--hero-accent)" }}
           >
             <Linkedin size={16} /> LinkedIn
           </a>
@@ -133,7 +133,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium border transition hover:bg-[var(--bk-cream-dk)]"
-            style={{ borderColor: "var(--bk-rule)", color: "var(--bk-ink)" }}
+            style={{ borderColor: "var(--bk-rule)", color: "var(--hero-accent)" }}
           >
             <Github size={16} /> GitHub
           </a>

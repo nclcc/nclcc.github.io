@@ -16,12 +16,14 @@ Current direction, selected 10 November 2026: a colourful luxury product with ri
 | Hero panel | #143D2C | #0A241B |
 | Brass details | #9B7836 | #C9A650 |
 
-- The hero tree sits on an emerald panel in both themes, with brass edging and sage/gold branches. Keep background trees very faint.
+- The hero tree sits on an emerald panel in both themes, without an outline, with sage/gold branches. Keep background trees very faint.
 - Cormorant Garamond editorial headings, Inter body and controls, Fira Code metadata.
-- Other headings use espresso/linen. The main homepage headline, Mandelbrot quote and attribution use the warm gold accent.
+- All non-body text uses the gold/yellow accent: headings, labels, metadata, navigation, links, controls and footer. Body paragraphs retain espresso/linen colouring. Light mode uses the deeper antique-gold counterpart for contrast.
 - Explicit chart tokens: Bordeaux observed, sage counterfactual, transparent sage uncertainty bands. No chart has been added solely to display these tokens.
 - The accessible header toggle remembers light/dark choice in localStorage as complexa-theme; without a saved choice, follow the device preference. Document this functional storage in the cookie notice.
 - Keep the homepage contact compact and legal links visible. Respect reduced motion and keyboard focus.
 - Preserve substantive copy, legal notices, CV download and navigation during visual changes. No liquid scroll effects have been added.
 
 Voice: precise, concrete, affirmative. No hype. Complexa Labs is the brand; Nicolò Ciccarone is the person.
+
+The fractal hero panel is borderless. Card and structural borders elsewhere remain thin. Primary Bordeaux buttons are deep enough for pale-yellow labels.

@@ -11,7 +11,7 @@
   --text-secondary: #3F4B36;
   --text-muted: #435139;
   --action-bordeaux: #7A3049;
-  --action-foreground: #F7F3EA;
+  --action-foreground: #E8C776;
   --focus-ring: #642F3D;
   --action-bordeaux-hover: #602237;
   --sage: #7B8B70;
@@ -30,11 +30,11 @@
   --bk-cream-lt: var(--surface-linen);
   --bk-cream-dk: var(--surface-hover);
   --bk-green: var(--action-bordeaux);
-  --bk-green-dk: var(--text-espresso);
+  --bk-green-dk: var(--hero-accent);
   --bk-green-lt: var(--brass);
-  --bk-eyebrow: var(--sage-text);
-  --bk-sienna: var(--action-bordeaux);
-  --bk-sienna-lt: var(--action-bordeaux-hover);
+  --bk-eyebrow: var(--hero-accent);
+  --bk-sienna: var(--hero-accent);
+  --bk-sienna-lt: var(--hero-accent);
   --bk-ink: var(--text-espresso);
   --bk-ink-mid: var(--text-secondary);
   --bk-ink-lt: var(--text-muted);
@@ -49,8 +49,8 @@
   --text-espresso: #F0EBD5;
   --text-secondary: #D1DCC6;
   --text-muted: #B4C7A2;
-  --action-bordeaux: #9C445D;
-  --action-bordeaux-hover: #B0526D;
+  --action-bordeaux: #7A3049;
+  --action-bordeaux-hover: #81304A;
   --sage: #ACC58B;
   --sage-text: #B9D29C;
   --brass: #C9A650;
@@ -60,8 +60,8 @@
   --hero-rule: #8D7540;
   --border-linen: #416448;
   --focus-ring: #CDBB8E;
-  --bk-sienna: #E2B1BD;
-  --bk-sienna-lt: #F0C9D2;
+  --bk-sienna: var(--hero-accent);
+  --bk-sienna-lt: var(--hero-accent);
   --chart-observed: #C48496;
   --chart-uncertainty: rgb(154 174 137 / 18%);
 }
@@ -76,7 +76,7 @@
   border: 1px solid var(--bk-rule);
   border-radius: 50%;
   background: transparent;
-  color: var(--bk-ink);
+  color: var(--hero-accent);
   cursor: pointer;
   transition: background-color 160ms ease;
 }
@@ -129,6 +129,7 @@ html, body {
 
 /* Editorial typography with quiet, consistent interface details. */
 h1, h2, h3 { text-wrap: balance; }
+a { color: var(--hero-accent); }
 p { text-wrap: pretty; }
 a, button { -webkit-tap-highlight-color: rgb(100 47 61 / 12%); }
 .site-wordmark {
@@ -152,6 +153,7 @@ a, button { -webkit-tap-highlight-color: rgb(100 47 61 / 12%); }
 ::-webkit-scrollbar-thumb:hover { background: var(--bk-green-lt); }
 
 /* Long-form prose styling for experience pages */
+.prose-bk :is(h1, h2, h3, h4, h5, h6) { color: var(--hero-accent); }
 .prose-bk {
   color: var(--bk-ink);
   line-height: 1.7;
@@ -169,7 +171,7 @@ a, button { -webkit-tap-highlight-color: rgb(100 47 61 / 12%); }
   font-family: var(--font-serif);
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--bk-green);
+  color: var(--hero-accent);
   margin: 2rem 0 0.75rem;
 }
 .prose-bk p { margin: 0.9rem 0; }

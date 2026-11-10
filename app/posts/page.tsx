@@ -48,7 +48,7 @@ export default function PostsIndex() {
                 <div className="flex-1 min-w-0">
                   <div
                     className="text-[10px] sm:text-xs uppercase tracking-wider font-mono mb-1"
-                    style={{ color: "var(--bk-ink-lt)" }}
+                    style={{ color: "var(--bk-eyebrow)" }}
                   >
                     {formatDate(p.date)}
                   </div>

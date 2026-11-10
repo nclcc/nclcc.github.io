@@ -12,7 +12,7 @@ export default function LegalPage({ title, children, updatedAt = "2026-11-09" }:
       <h1 className="font-serif text-3xl sm:text-4xl font-semibold" style={{ color: "var(--bk-green-dk)" }}>
         {title}
       </h1>
-      <p className="mt-3 text-sm" style={{ color: "var(--bk-ink-lt)" }}>
+      <p className="mt-3 text-sm" style={{ color: "var(--hero-accent)" }}>
         Ultimo aggiornamento: <time dateTime={updatedAt}>{legalDateFormat.format(new Date(`${updatedAt}T12:00:00Z`))}</time>
       </p>
       <nav aria-label="Informazioni legali" className="mt-6 flex flex-wrap gap-4 text-sm">

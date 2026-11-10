@@ -245,10 +245,9 @@ export default function FractalTreeHero({ quote = false }: FractalTreeHeroProps)
           *behind* the hero so the self-drawing animation reads cleanly,
           without the destination state being partly visible through it. */}
       <div
-        className="w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl rounded-md px-4 py-6 sm:px-8 sm:py-8 border"
+        className="w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl rounded-md px-4 py-6 sm:px-8 sm:py-8"
         style={{
           background: "var(--hero-surface)",
-          borderColor: "var(--hero-rule)",
         }}
       >
       <svg
