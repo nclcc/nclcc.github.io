@@ -8,12 +8,13 @@ interface ExperienceCardProps {
   summary: string;
   tags: string[];
   period?: string;
+  italian?: boolean;
 }
 
-export default function ExperienceCard({ slug, sector, title, summary, tags, period }: ExperienceCardProps) {
+export default function ExperienceCard({ slug, sector, title, summary, tags, period, italian = false }: ExperienceCardProps) {
   return (
     <Link
-      href={`/experience/${slug}/`}
+      href={`${italian ? "/it" : ""}/experience/${slug}/`}
       className="group block border rounded-md p-5 transition-colors hover:border-[var(--brass)]"
       style={{
         borderColor: "var(--bk-rule)",

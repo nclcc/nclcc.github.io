@@ -217,9 +217,10 @@ function Branch({ node, sproutKeys }: { node: TreeNode; sproutKeys: Set<string> 
 interface FractalTreeHeroProps {
   /** Show the Mandelbrot pull-quote below the tree. Off by default. */
   quote?: boolean;
+  italian?: boolean;
 }
 
-export default function FractalTreeHero({ quote = false }: FractalTreeHeroProps) {
+export default function FractalTreeHero({ quote = false, italian = false }: FractalTreeHeroProps) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
@@ -322,8 +323,9 @@ export default function FractalTreeHero({ quote = false }: FractalTreeHeroProps)
             className="font-serif italic text-base sm:text-lg leading-snug"
             style={{ color: "var(--hero-accent)" }}
           >
-            &ldquo;Bottomless wonders spring from simple rules, which are
-            repeated without end.&rdquo;
+            {italian
+              ? "“Meraviglie senza fine nascono da regole semplici, ripetute all’infinito.”"
+              : "“Bottomless wonders spring from simple rules, which are repeated without end.”"}
           </blockquote>
           <figcaption
             className="mt-2 text-[10px] sm:text-xs uppercase tracking-[0.18em] font-mono"

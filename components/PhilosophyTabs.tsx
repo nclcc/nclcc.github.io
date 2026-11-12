@@ -38,20 +38,24 @@ const TABS = [
 const CLOSING =
   "These principles were not derived from theory alone. They were forged in enterprise-scale practice — in the persistent gap between what convenient models predict and what complex systems actually do.";
 
-export default function PhilosophyTabs() {
+export default function PhilosophyTabs({ tabs = TABS, closing = CLOSING, label = "Philosophy tabs" }: {
+  tabs?: { title: string; body: string }[];
+  closing?: string;
+  label?: string;
+}) {
   const [active, setActive] = useState(0);
-  const tab = TABS[active];
+  const tab = tabs[active];
 
   return (
     <div>
       {/* Tab strip — horizontally scrollable on narrow screens, wraps on wider */}
       <div
         role="tablist"
-        aria-label="Philosophy tabs"
+        aria-label={label}
         className="flex sm:flex-wrap gap-1 border-b mb-6 -mx-1 overflow-x-auto sm:overflow-visible whitespace-nowrap sm:whitespace-normal scrollbar-thin"
         style={{ borderColor: "var(--bk-rule)" }}
       >
-        {TABS.map((t, i) => {
+        {tabs.map((t, i) => {
           const isActive = i === active;
           return (
             <button
@@ -99,7 +103,7 @@ export default function PhilosophyTabs() {
         className="mt-10 pl-4 border-l-2 italic text-sm leading-relaxed"
         style={{ borderColor: "var(--bk-sienna)", color: "var(--bk-ink-mid)" }}
       >
-        “{CLOSING}”
+        “{closing}”
       </blockquote>
     </div>
   );

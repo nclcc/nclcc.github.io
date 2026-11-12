@@ -45,12 +45,24 @@ The site will be available at https://nclcc.github.io.
 
 ## Content
 
-- Landing page: [`app/page.tsx`](app/page.tsx)
+- Landing page: [`components/HomePage.tsx`](components/HomePage.tsx), shared by both languages.
 - Experience pages: [`app/experience/*/page.tsx`](app/experience/)
 - Posts: see "Posts & comments" below
 - CV PDF: [`public/cv.pdf`](public/cv.pdf) — replace to update the download link.
 - Styling: [`app/globals.css`](app/globals.css) — Jardin Parisien: rich sage and emerald, deep Bordeaux actions,
   warm gold details, espresso/linen text and editorial serif headings, with a saved light/dark toggle.
+
+### Languages
+
+English is the default at `/`; Italian pages live under `/it/`. The header shows only the
+destination language (`IT` or `EN`) beside the theme toggle. Switching keeps the current page,
+query string and fragment. Language is selected by URL, with no browser-language redirect or
+additional stored preference. English uses `VAT`; Italian uses `P.IVA`.
+
+Keep the matching pages in `app/` and `app/it/` in sync when editing content or adding routes.
+Translate post manifests and MDX articles together. Shared homepage, experience-card,
+experience-layout and philosophy-tab components keep the layouts consistent; Italian text
+and small adapters live in `components/it/`. CV downloads use the existing PDF in both languages.
 
 ## Posts & comments
 
@@ -69,9 +81,9 @@ is invisible in the URL — a post at `app/posts/(post)/welcome/page.mdx` is ser
 
 ### Privacy and legal notices
 
-- `/privacy/`: Italian and English privacy notice for browsing and email enquiries.
-- `/cookies/`: Italian and English cookie/browser-storage notice.
-- `/legal/`: Italian and English operator, public business address, VAT and contact information.
+- `/privacy/` and `/it/privacy/`: English and Italian privacy notices for browsing and email enquiries.
+- `/cookies/` and `/it/cookies/`: English and Italian cookie/browser-storage notices.
+- `/legal/` and `/it/legal/`: English and Italian operator, public business address, VAT and contact information.
 - Every page links to the notices in the footer; the contact section links to privacy before sending an email.
 
 Cusdis is disabled. `CusdisComments` now renders a private email discussion link and never loads a third-party script, even if an old `NEXT_PUBLIC_CUSDIS_APP_ID` secret remains configured. Do not restore an embed or add analytics without first checking its data processing, contracts, international transfers, retention and consent requirements. No cookie consent banner is needed for the current code, which sets no cookies or sessionStorage and loads no tracking services. The functional `complexa-theme` localStorage key saves only an explicitly chosen light/dark preference; it is documented in both cookie notices. The initial theme follows the device preference when no choice is saved. Fonts from `next/font` are self-hosted at build time; the accessory social-card HTML uses system fallbacks.

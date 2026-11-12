@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Fira_Code, Cormorant_Garamond } from "next/font/google";
-import Link from "next/link";
-import ThemeToggle from "@/components/ThemeToggle";
+import { SiteBrandLink, SiteHeaderControls, SiteFooterLinks, SiteSkipLink, TaxLabel } from "@/components/SiteNavigation";
 import { themeInitializationScript } from "@/lib/theme";
 import FractalTreeBackground from "@/components/FractalTreeBackground";
 import "./globals.css";
@@ -53,9 +52,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${firaCode.variable} ${editorialSerif.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitializationScript }} />
+        <script dangerouslySetInnerHTML={{ __html: 'document.documentElement.lang = /^\\/it(?:\\/|$)/.test(location.pathname) ? "it" : "en";' }} />
       </head>
       <body className="antialiased min-h-screen flex flex-col relative">
-        <a href="#main-content" className="skip-link">Skip to content</a>
+        <SiteSkipLink />
         <FractalTreeBackground />
         <svg aria-hidden="true" width="0" height="0" className="absolute pointer-events-none">
           <defs>
@@ -71,11 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           style={{ borderColor: "var(--bk-rule)", zIndex: 1, background: "var(--bk-cream)" }}
         >
           <div className="site-header-inner max-w-4xl mx-auto">
-            <Link
-              href="/"
-              className="site-brand"
-              aria-label="Complexa Labs — home"
-            >
+            <SiteBrandLink>
               {/* Crop the asset's built-in margins so the actual wordmark,
                   rather than its empty canvas, determines the header size. */}
               <svg
@@ -86,14 +82,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               >
                 <image href="/complexa-logo.png" width="1200" height="400" />
               </svg>
-            </Link>
-            <nav aria-label="Main navigation" className="site-nav">
-              <Link href="/philosophy/" className="hover:opacity-80">Philosophy</Link>
-              <Link href="/experience/" className="hover:opacity-80">Experience</Link>
-              <Link href="/posts/" className="hover:opacity-80">Posts</Link>
-              <Link href="/#contact" className="hover:opacity-80">Contact</Link>
-            </nav>
-            <ThemeToggle />
+            </SiteBrandLink>
+            <SiteHeaderControls />
           </div>
         </header>
         <main id="main-content" tabIndex={-1} className="flex-1 relative" style={{ zIndex: 1 }}>{children}</main>
@@ -105,12 +95,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             className="max-w-4xl mx-auto px-4 sm:px-6 py-5 sm:py-6 text-sm flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-6"
             style={{ color: "var(--text-cream)" }}
           >
-            <span className="min-w-0 leading-relaxed">© {new Date().getFullYear()} Nicolò Ciccarone · Complexa Labs · P.IVA IT09082330722</span>
-            <nav aria-label="Legal information" className="flex shrink-0 flex-wrap gap-x-4 gap-y-2">
-              <Link href="/privacy/" className="underline underline-offset-4">Privacy</Link>
-              <Link href="/cookies/" className="underline underline-offset-4">Cookie</Link>
-              <Link href="/legal/" className="underline underline-offset-4">Note legali</Link>
-            </nav>
+            <span className="min-w-0 leading-relaxed">© {new Date().getFullYear()} Nicolò Ciccarone · Complexa Labs · <TaxLabel /> IT09082330722</span>
+            <SiteFooterLinks />
           </div>
         </footer>
       </body>

@@ -7,6 +7,7 @@ interface ExperienceLayoutProps {
   role: string;
   period: string;
   children: React.ReactNode;
+  italian?: boolean;
 }
 
 export default function ExperienceLayout({
@@ -15,15 +16,16 @@ export default function ExperienceLayout({
   role,
   period,
   children,
+  italian = false,
 }: ExperienceLayoutProps) {
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 animate-fade-up">
       <Link
-        href="/experience/"
+        href={italian ? "/it/experience/" : "/experience/"}
         className="inline-flex items-center gap-1.5 text-sm mb-8 hover:opacity-80"
         style={{ color: "var(--bk-sienna)" }}
       >
-        <ArrowLeft size={14} /> Back to experience
+        <ArrowLeft size={14} /> {italian ? "Torna alle esperienze" : "Back to experience"}
       </Link>
 
       <div

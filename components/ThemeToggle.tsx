@@ -25,7 +25,7 @@ function subscribe(onChange: () => void) {
   };
 }
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ italian = false }: { italian?: boolean }) {
   const dark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   function toggle() {
     const next = getSnapshot() ? "light" : "dark";
@@ -38,9 +38,9 @@ export default function ThemeToggle() {
       type="button"
       className="theme-toggle"
       onClick={toggle}
-      aria-label="Dark theme"
+      aria-label={italian ? "Tema scuro" : "Dark theme"}
       aria-pressed={dark}
-      title={dark ? "Switch to light theme" : "Switch to dark theme"}
+      title={italian ? (dark ? "Passa al tema chiaro" : "Passa al tema scuro") : (dark ? "Switch to light theme" : "Switch to dark theme")}
     >
       <Moon className="theme-icon-moon" size={17} aria-hidden="true" />
       <Sun className="theme-icon-sun" size={17} aria-hidden="true" />

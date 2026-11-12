@@ -1,0 +1,58 @@
+import CusdisComments from "@/components/it/CusdisComments";
+
+export const metadata = {
+  title: "Un sistema di raccomandazione è un intervento · Nicolò Ciccarone",
+};
+
+# Un sistema di raccomandazione è un intervento
+
+Un propensity score è il modo consueto di rispondere alla domanda «che cosa dovremmo proporre a questo cliente?». Si addestra un modello sugli acquisti passati, si ordinano i prodotti per probabilità prevista e si consegna la cima della lista ai commerciali. Nei test funziona bene. Va in produzione.
+
+Poi peggiora. Non perché i dati siano cambiati o il codice si sia rotto: peggiora perché le persone hanno iniziato a usarlo.
+
+## Perché si rompe
+
+Un propensity score risponde a una domanda: dato ciò che vedo oggi di questo cliente, quanto è probabile che acquisti? Una volta che il modello è operativo, questa domanda mostra quattro limiti.
+
+**Non ha memoria.** Due clienti possono apparire identici oggi ma avere storie molto diverse. Un’impresa che acquista somministrazione da tre anni è vicina ad aver bisogno di selezione permanente. Un’impresa che ha iniziato lo scorso trimestre no. Un modello basato su un’istantanea assegna loro lo stesso punteggio.
+
+**Non ha un senso della direzione.** La somministrazione tende a precedere la selezione permanente, non il contrario. Un modello che guarda un’istantanea impara che le due cose si presentano insieme, ma non quale venga prima.
+
+**Confonde correlazione e causalità.** Se una regione commerciale vende sia outsourcing sia formazione, il modello lo interpreta come un effetto di cross-selling. Proponendo formazione altrove, l’effetto scompare. Il segnale era la regione, non il prodotto.
+
+**È esso stesso un intervento.** Questo è il punto più importante. Nel momento in cui il modello decide che cosa i commerciali propongono, modifica i dati su cui è stato addestrato. Gli schemi appresi provenivano dal vecchio modo di vendere. La messa in produzione lo sostituisce. Un modello costruito su quegli schemi non ha motivo di continuare a funzionare.
+
+Quest’ultimo limite è quello che i test non possono cogliere. Il punteggio offline viene misurato sui dati del vecchio modo di vendere. Dopo il rilascio, il modello *è* il nuovo modo.
+
+## La soluzione
+
+La soluzione non è un classificatore migliore. Sono due idee.
+
+Primo: seguire come cambiano nel tempo i bisogni di ogni cliente, oltre a dove si trovano oggi. L’offerta successiva dovrebbe dipendere dalla direzione della domanda.
+
+Secondo: ricavare le direzioni reali di cross-selling da come si muove effettivamente la domanda, separatamente dalle proprie raccomandazioni. Mantenere una direzione solo quando le evidenze sono solide ed eliminarla quando non lo sono.
+
+Poiché il modello si basa su cause ed effetti, anziché su schemi che il rilascio cancella, continua a funzionare quando inizia a orientare le decisioni.
+
+## Come appaiono le direzioni
+
+Il quadro aziendale è semplice e la direzione conta più di qualsiasi numero:
+
+- La somministrazione conduce alla selezione permanente quando il portafoglio del cliente matura. È il caso più chiaro.
+- Le assunzioni permanenti portano bisogni di inserimento e orientamento professionale.
+- La crescita della forza lavoro crea anche bisogni di orientamento.
+- La crescita dell’organico permanente porta in seguito all’esternalizzazione di funzioni adiacenti.
+
+Ciascuna è una direzione: acquistare una cosa aumenta il bisogno futuro reale di un’altra. Non tutte le ipotesi reggono: alcune direzioni si rivelano rumore e vengono eliminate.
+
+## Che cosa non può fare
+
+Può verificare soltanto le direzioni proposte. Non ne scopre di nuove autonomamente. Il rischio maggiore è quindi scegliere male l’insieme iniziale: per questo le direzioni vengono definite con il team commerciale, anziché lasciate al modello.
+
+## Il punto
+
+Un sistema di raccomandazione cambia il mondo che prevede. I modelli che sopravvivono a questo cambiamento sono quelli costruiti su cause ed effetti. Prima di rilasciare un propensity score, chiediti: che cosa succede ai suoi schemi quando inizia a determinare ciò che viene venduto? Se la risposta è «scompaiono», non hai un modello. Hai un’istantanea di una politica che stai per sostituire.
+
+Il contesto applicativo è nella sezione [Esperienze](/it/experience/staffing-cltv-nbp/).
+
+<CusdisComments title="Un sistema di raccomandazione è un intervento" />

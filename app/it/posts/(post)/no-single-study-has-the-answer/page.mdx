@@ -1,0 +1,61 @@
+import CusdisComments from "@/components/it/CusdisComments";
+
+export const metadata = {
+  title: "Quando nessuno studio, da solo, ha la risposta · Nicolò Ciccarone",
+};
+
+# Quando nessuno studio, da solo, ha la risposta
+
+Vuoi sapere se un trattamento funziona in una popolazione sulla quale non puoi sperimentare. Hai invece una serie di studi randomizzati svolti altrove: una sperimentazione farmacologica in un Paese, un esperimento sui prezzi in un mercato, un progetto pilota di politica pubblica in una città. Nessuno riguarda le persone che ti interessano davvero, e quelle persone puoi soltanto osservarle, senza intervenire.
+
+L’istinto è riunire gli studi e calcolare una media. È ciò che fa la meta-analisi. Quando le popolazioni differiscono davvero, è anche la cosa sbagliata da fare. L’aspetto interessante è che la risposta *corretta* a volte non si trova in nessuno studio preso da solo: esiste soltanto nella loro combinazione.
+
+È il problema formalizzato da Bareinboim e Pearl in [Meta-Transportability of Causal Effects](http://proceedings.mlr.press/v31/bareinboim13a.pdf) (AISTATS 2013). Questa nota racconta che cosa dimostrano e perché conta anche fuori dalle aule accademiche.
+
+## L’impostazione
+
+Chiamiamo *dominio* ogni contesto per il quale disponiamo di dati. Esistono diversi domini sorgente in cui sono stati condotti esperimenti — `π₁, …, πₙ` — e un dominio obiettivo `π*` nel quale è possibile soltanto l’osservazione passiva. La quantità di interesse è un effetto causale nel dominio obiettivo: la distribuzione di un esito `Y` sotto un intervento `do(X = x)`, scritta `P*(y | do(x))`.
+
+Se nulla collegasse le sorgenti all’obiettivo, trasferire conoscenza sarebbe impossibile: sapere qualcosa su una popolazione non direbbe nulla sulle altre. Ma la scienza non opera in questo mondo. Conduciamo studi in un luogo proprio perché pensiamo che una parte del meccanismo si trasferisca. La domanda è *quali* parti si trasferiscano e quali dipendano invece dalle circostanze locali dello studio.
+
+## Disegnare le differenze tra domini
+
+Lo strumento dell’articolo è il **diagramma di selezione**: un normale grafo causale, con nodi quadrati — le variabili `S` — collegati esattamente alle variabili il cui meccanismo potrebbe differire tra domini. Una `S` che punta a una variabile significa «qui potrebbe essere generata in modo diverso». L’*assenza* di una `S` è l’affermazione forte: il meccanismo è identico nei domini considerati.
+
+L’esempio classico rende l’idea concreta. Conduci uno studio randomizzato a Los Angeles e misuri l’effetto del trattamento `X` sull’esito `Y` in ogni fascia di età `Z`, ottenendo `P(y | do(x), z)`. Vuoi lo stesso effetto per gli Stati Uniti, la cui popolazione è mediamente più anziana. L’unica differenza tra le popolazioni è la distribuzione dell’età; si assume che gli effetti specifici per età siano uguali. Nel diagramma compare quindi una sola `S`, diretta verso `Z`.
+
+L’effetto nel dominio obiettivo è:
+
+`R = Σ_z P(y | do(x), z) · P*(z)`
+
+Gli effetti per età di Los Angeles vengono *ripesati* con la distribuzione dell’età degli Stati Uniti. Questa formula è il risultato cercato. Fonde una quantità sperimentale di un dominio — `P(y | do(x), z)` da Los Angeles — con una quantità osservazionale di un altro — `P*(z)`, il profilo demografico statunitense — in una stima non distorta di qualcosa che nessuno dei due domini può fornire da solo. Bareinboim e Pearl la chiamano *formula di trasporto*. La teoria deve stabilire quando ne esista una e come scriverla.
+
+## Perché riunire gli studi non basta
+
+Ecco il risultato che rende il caso con più sorgenti qualcosa di più di una nota a margine del caso con due domini.
+
+Si potrebbe pensare che, se un effetto non è trasportabile da nessuna sorgente individualmente, l’intero tentativo sia destinato a fallire: combinare studi senza soluzione non dovrebbe produrre una soluzione. Non è così. L’articolo mostra grafi nei quali l’effetto non è trasportabile da *nessuna singola sorgente*, ma un’analisi più articolata lo recupera prendendo parti diverse da domini diversi e combinandole. Una sorgente fornisce un fattore della formula, un’altra quello successivo, l’obiettivo un termine osservazionale. Il prodotto è non distorto, benché nessuno studio contenga da solo la risposta.
+
+La trasportabilità a coppie — confrontare una sorgente alla volta con l’obiettivo — è quindi insufficiente. La meta-trasportabilità non è l’unione dei casi semplici. Esistono risposte soltanto congiunte, e un metodo che chieda esclusivamente «posso ricavarla dallo studio A? dallo studio B?» dichiarerà insolubili problemi che in realtà hanno una soluzione.
+
+## Quando la risposta non esiste
+
+La teoria è onesta sui propri limiti: è la parte che trovo più utile. Non tutti gli effetti obiettivo sono recuperabili, e l’articolo fornisce una ragione grafica precisa.
+
+Esiste una struttura, chiamata *μs-hedge*: una particolare configurazione di componenti con confondimento condivise tra i diagrammi di selezione. Il teorema principale afferma che l’effetto è meta-trasportabile **se e solo se** questa struttura non compare nei diagrammi. Senza hedge esiste una formula di trasporto. Con l’hedge non esiste alcuna formula, e nessuna ingegnosità sui dati disponibili può crearne una. Gli autori dimostrano anche che il do-calculus è *completo* per questo problema: se le sue regole non permettono di derivare una formula, nessun altro mezzo può farlo.
+
+Questo trasforma «non abbiamo trovato un modo» in «è dimostrabile che non esiste un modo». Sono messaggi molto diversi da riportare a chi finanzia uno studio. Il primo invita ad altre analisi. Il secondo dice che servono dati diversi e indica esattamente quale ipotesi — quale nodo `S` assente, quale confondente non misurato — impedisce di rispondere.
+
+Il risultato è anche costruttivo. L’algoritmo `μsID` non restituisce soltanto sì o no. Quando l’effetto è trasportabile restituisce la formula: quali misure prendere da ciascun dominio e come combinarle. In caso di fallimento, la chiamata che fallisce restituisce l’hedge responsabile come certificato d’impossibilità.
+
+## Su che cosa si fonda
+
+Tutto il meccanismo si regge su un’ipotesi che nessun algoritmo può fornire: aver disegnato correttamente il diagramma di selezione. Ogni nodo `S` inserito afferma che un meccanismo *potrebbe* differire; ogni nodo omesso afferma, in modo più forte, che *non differisce*. La matematica è esatta, ma lo è rispetto al grafo fornito.
+
+Gli autori lo dicono chiaramente nella conclusione: nella pratica, la conoscenza di contesto è disponibile solo in parte. Il vantaggio dell’analisi consiste soprattutto nel capire quale conoscenza serva per riuscire nel compito e quanto le conclusioni dipendano da ciò che non sappiamo. La formula dipende dal diagramma, e il diagramma dalla comprensione dei domini. Il contributo non elimina il giudizio: indica esattamente dove sia necessario e rifiuta di fingere una risposta quando mancano le basi per sostenerla.
+
+## Il punto
+
+La meta-analisi risponde a «qual è l’effetto medio tra questi studi?». È la domanda sbagliata quando le popolazioni studiate differiscono da quella che ti interessa. La domanda corretta è: «dati esperimenti qui e là e osservazioni altrove, qual è l’effetto nel contesto in cui mi serve davvero?». La risposta onesta può essere una formula costruita con più domini, un singolo numero da uno studio oppure una dimostrazione che i dati disponibili non consentono affatto di arrivarci. Sapere in quale dei tre casi ci si trova, prima di consegnare la stima, è il punto centrale.
+
+<CusdisComments title="Quando nessuno studio, da solo, ha la risposta" />
