@@ -181,14 +181,14 @@ export default function Home() {
       {/* ── Contact ────────────────────────────────────────────────── */}
       <section id="contact" className="mt-10 sm:mt-16">
         <hr className="hr-bk mb-6" />
-        <div className="grid grid-cols-[minmax(0,1fr)_6rem] sm:grid-cols-[8rem_minmax(0,1fr)] items-start gap-x-5 sm:gap-x-6 gap-y-3">
+        <div className="grid grid-cols-[minmax(0,1fr)_9rem] sm:grid-cols-[8rem_minmax(0,1fr)] items-start gap-x-5 sm:gap-x-6 gap-y-3">
           <Image
             src="/nicolo-contact.webp"
             alt="Nicolò Ciccarone"
             width={640}
             height={585}
-            sizes="(min-width: 640px) 128px, 96px"
-            className="col-start-2 row-start-1 sm:col-start-1 sm:row-span-2 w-24 sm:w-32 h-auto rounded-lg"
+            sizes="(min-width: 640px) 128px, 144px"
+            className="col-start-2 row-start-1 sm:col-start-1 sm:row-span-2 w-36 sm:w-32 h-auto rounded-lg"
           />
           <h2
             className="col-start-1 row-start-1 sm:col-start-2 self-center sm:self-start font-serif text-2xl font-semibold"
