@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${firaCode.variable} ${editorialSerif.variable}`}>
+    <html lang="en" data-theme="dark" suppressHydrationWarning className={`${inter.variable} ${firaCode.variable} ${editorialSerif.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitializationScript }} />
         <script dangerouslySetInnerHTML={{ __html: 'document.documentElement.lang = /^\\/it(?:\\/|$)/.test(location.pathname) ? "it" : "en";' }} />
@@ -63,6 +63,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {/* Convert the monochrome mark to the same cream as the text,
                   using its luminance as alpha to remove the old backdrop. */}
               <feColorMatrix type="matrix" values="0 0 0 0 0.941176  0 0 0 0 0.921569  0 0 0 0 0.835294  1 0 0 0 0" />
+            </filter>
+            <filter id="wordmark-espresso" colorInterpolationFilters="sRGB">
+              <feColorMatrix type="matrix" values="0 0 0 0 0.160784  0 0 0 0 0.203922  0 0 0 0 0.149020  1 0 0 0 0" />
             </filter>
           </defs>
         </svg>
@@ -93,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <div
             className="max-w-4xl mx-auto px-4 sm:px-6 py-5 sm:py-6 text-sm flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-6"
-            style={{ color: "var(--text-cream)" }}
+            style={{ color: "var(--text-espresso)" }}
           >
             <span className="min-w-0 leading-relaxed">© {new Date().getFullYear()} Nicolò Ciccarone · Complexa Labs · <TaxLabel /> IT09082330722</span>
             <SiteFooterLinks />

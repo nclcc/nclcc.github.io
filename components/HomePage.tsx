@@ -146,7 +146,7 @@ export default function HomePage({ italian = false }: { italian?: boolean }) {
               </div>
               <div
                 className="mt-1.5 font-serif text-xl sm:text-[17px] font-semibold leading-snug"
-                style={{ color: "var(--text-cream)" }}
+                style={{ color: "var(--text-espresso)" }}
               >
                 {p.title}
               </div>

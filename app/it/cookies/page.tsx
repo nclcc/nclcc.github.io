@@ -26,8 +26,8 @@ export default function Cookies() {
         La chiave <code>complexa-theme</code> contiene soltanto il valore <code>light</code> o <code>dark</code>,
         salvato quando usi il selettore del tema. È una preferenza funzionale: non contiene un identificativo,
         non viene trasmessa dal codice del sito a server e non serve al tracciamento. Resta nel browser
-        finché cancelli i dati del sito o cambi la scelta. Senza una scelta salvata viene usata
-        la preferenza chiaro/scuro del dispositivo. Se la memoria del browser non è disponibile,
+        finché cancelli i dati del sito o cambi la scelta. Senza una scelta salvata viene usato
+        il tema scuro. Se la memoria del browser non è disponibile,
         il selettore continua a funzionare durante la visita senza salvare il valore.
       </p>
       <h2>Perché non compare un banner</h2>

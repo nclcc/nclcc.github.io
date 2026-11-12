@@ -6,14 +6,14 @@ import { THEME_STORAGE_KEY } from "@/lib/theme";
 
 const eventName = "complexa-theme-change";
 const getSnapshot = () => document.documentElement.dataset.theme === "dark";
-const getServerSnapshot = () => false;
+const getServerSnapshot = () => true;
 
 function subscribe(onChange: () => void) {
   const onStorage = (event: StorageEvent) => {
     if (event.key !== THEME_STORAGE_KEY && event.key !== null) return;
     const theme = event.newValue === "dark" || event.newValue === "light"
       ? event.newValue
-      : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      : "dark";
     document.documentElement.dataset.theme = theme;
     onChange();
   };

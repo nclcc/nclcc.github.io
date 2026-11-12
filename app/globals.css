@@ -9,6 +9,7 @@
   --surface-hover: #ACC494;
   --text-espresso: #293426;
   --text-cream: #F0EBD5;
+  --wordmark-color-filter: url(#wordmark-espresso);
   --text-secondary: #3F4B36;
   --text-muted: #435139;
   --action-bordeaux: #7A3049;
@@ -42,12 +43,13 @@
   --bk-rule: var(--border-linen);
 }
 
-:root[data-theme="dark"] {
+:root:not([data-theme="light"]) {
   color-scheme: dark;
   --surface-page: #0E3025;
   --surface-linen: #184534;
   --surface-hover: #245D43;
   --text-espresso: var(--text-cream);
+  --wordmark-color-filter: url(#wordmark-cream);
   --text-secondary: #D1DCC6;
   --text-muted: #B4C7A2;
   --action-bordeaux: #7A3049;
@@ -77,14 +79,14 @@
   border: 1px solid var(--bk-rule);
   border-radius: 50%;
   background: transparent;
-  color: var(--text-cream);
+  color: var(--text-espresso);
   cursor: pointer;
   transition: background-color 160ms ease;
 }
 .theme-toggle:hover { background: var(--surface-hover); }
 .theme-icon-sun { display: none; }
-:root[data-theme="dark"] .theme-icon-sun { display: block; }
-:root[data-theme="dark"] .theme-icon-moon { display: none; }
+:root:not([data-theme="light"]) .theme-icon-sun { display: block; }
+:root:not([data-theme="light"]) .theme-icon-moon { display: none; }
 
 @theme {
   --font-sans: ui-sans-serif, "Inter", system-ui, -apple-system, sans-serif;
@@ -96,7 +98,7 @@
 
 /* The home contact section already provides spacing above the footer. */
 main:has(#contact) + .site-footer { margin-top: 0; }
-.site-footer a { color: var(--text-cream); }
+.site-footer a { color: var(--text-espresso); }
 
 :focus-visible {
   outline: 2px solid var(--focus-ring);
@@ -136,7 +138,7 @@ a, button { -webkit-tap-highlight-color: rgb(100 47 61 / 12%); }
   height: auto;
   aspect-ratio: 860 / 260;
   object-fit: contain;
-  filter: grayscale(1) contrast(4) url(#wordmark-cream);
+  filter: grayscale(1) contrast(4) var(--wordmark-color-filter);
   opacity: 1;
 }
 .site-header-controls { display: flex; align-items: center; gap: 4px; }
@@ -146,7 +148,7 @@ a, button { -webkit-tap-highlight-color: rgb(100 47 61 / 12%); }
   justify-content: center;
   width: 44px;
   height: 44px;
-  color: var(--text-cream);
+  color: var(--text-espresso);
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -184,8 +186,8 @@ a, button { -webkit-tap-highlight-color: rgb(100 47 61 / 12%); }
   font-size: 0.8125rem;
   line-height: 1.5;
 }
-.site-nav a { color: var(--text-cream); transition: opacity 160ms ease; }
-.site-nav a:hover { color: var(--text-cream); }
+.site-nav a { color: var(--text-espresso); transition: opacity 160ms ease; }
+.site-nav a:hover { color: var(--text-espresso); }
 .site-nav a, .site-footer nav a {
   display: inline-flex;
   align-items: center;

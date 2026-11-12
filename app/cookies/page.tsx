@@ -26,8 +26,8 @@ export default function Cookies() {
           The <code>complexa-theme</code> key stores only <code>light</code> or <code>dark</code> when you
           use the theme toggle. This functional preference contains no identifier and is not transmitted
           to servers by the website code or used for tracking. It stays in your browser until you clear
-          site data or change the choice. Without a saved choice, the device’s colour-scheme preference
-          is used. If browser storage is unavailable, the toggle works for the current visit without saving.
+          site data or change the choice. Without a saved choice, the site uses the dark theme.
+          If browser storage is unavailable, the toggle works for the current visit without saving.
         </p>
         <h3>Why there is no consent banner</h3>
         <p>
