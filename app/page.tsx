@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Download, Mail, Github, Linkedin, ArrowUpRight } from "lucide-react";
 import FractalTreeHero from "@/components/FractalTreeHero";
 
@@ -180,30 +181,42 @@ export default function Home() {
       {/* ── Contact ────────────────────────────────────────────────── */}
       <section id="contact" className="mt-10 sm:mt-16">
         <hr className="hr-bk mb-6" />
-        <h2
-          className="font-serif text-2xl font-semibold mb-3"
-          style={{ color: "var(--bk-green-dk)" }}
-        >
-          Get in touch
-        </h2>
-        <p className="text-sm leading-relaxed" style={{ color: "var(--bk-ink-mid)" }}>
-          For consulting, research collaboration, or questions about the work:{" "}
-          <a
-            href="mailto:niciccarone@gmail.com"
-            className="underline decoration-1 underline-offset-2"
-            style={{ color: "var(--bk-sienna)" }}
-          >
-            niciccarone@gmail.com
-          </a>
-          .
-        </p>
-        <p className="mt-2 text-sm sm:text-xs leading-relaxed" style={{ color: "var(--bk-ink-lt)" }}>
-          Email is used to handle your enquiry. Non-client enquiries are deleted within 12 months of the last contact. Read the{" "}
-          <Link href="/privacy/" className="underline underline-offset-4" style={{ color: "var(--bk-sienna)" }}>
-            privacy notice / informativa privacy
-          </Link>{" "}
-          before writing.
-        </p>
+        <div className="flex flex-col sm:flex-row items-start gap-5 sm:gap-6">
+          <Image
+            src="/nicolo-contact.webp"
+            alt="Nicolò Ciccarone"
+            width={640}
+            height={585}
+            sizes="(min-width: 640px) 128px, 96px"
+            className="w-24 sm:w-32 h-auto shrink-0 rounded-lg"
+          />
+          <div className="min-w-0 flex-1">
+            <h2
+              className="font-serif text-2xl font-semibold mb-3"
+              style={{ color: "var(--bk-green-dk)" }}
+            >
+              Get in touch
+            </h2>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--bk-ink-mid)" }}>
+              For consulting, research collaboration, or questions about the work:{" "}
+              <a
+                href="mailto:niciccarone@gmail.com"
+                className="underline decoration-1 underline-offset-2"
+                style={{ color: "var(--bk-sienna)" }}
+              >
+                niciccarone@gmail.com
+              </a>
+              .
+            </p>
+            <p className="mt-2 text-sm sm:text-xs leading-relaxed" style={{ color: "var(--bk-ink-lt)" }}>
+              Email is used to handle your enquiry. Non-client enquiries are deleted within 12 months of the last contact. Read the{" "}
+              <Link href="/privacy/" className="underline underline-offset-4" style={{ color: "var(--bk-sienna)" }}>
+                privacy notice / informativa privacy
+              </Link>{" "}
+              before writing.
+            </p>
+          </div>
+        </div>
       </section>
     </div>
   );
