@@ -11,6 +11,15 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    slug: "partyclick",
+    sector: "Events marketplace",
+    period: "Ongoing",
+    title: "PartyClick — marketplace for parties",
+    summary:
+      "Technical lead and end-to-end developer of PartyClick, a marketplace for parties, with responsibility for technical direction and product development.",
+    tags: ["Technical leadership", "End-to-end development"],
+  },
+  {
     slug: "time2fill",
     sector: "Staffing",
     period: "2027",
