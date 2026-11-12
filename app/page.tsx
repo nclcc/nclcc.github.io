@@ -181,22 +181,22 @@ export default function Home() {
       {/* ── Contact ────────────────────────────────────────────────── */}
       <section id="contact" className="mt-10 sm:mt-16">
         <hr className="hr-bk mb-6" />
-        <div className="flex flex-col sm:flex-row items-start gap-5 sm:gap-6">
+        <div className="grid grid-cols-[minmax(0,1fr)_6rem] sm:grid-cols-[8rem_minmax(0,1fr)] items-start gap-x-5 sm:gap-x-6 gap-y-3">
           <Image
             src="/nicolo-contact.webp"
             alt="Nicolò Ciccarone"
             width={640}
             height={585}
             sizes="(min-width: 640px) 128px, 96px"
-            className="w-24 sm:w-32 h-auto shrink-0 rounded-lg"
+            className="col-start-2 row-start-1 sm:col-start-1 sm:row-span-2 w-24 sm:w-32 h-auto rounded-lg"
           />
-          <div className="min-w-0 flex-1">
-            <h2
-              className="font-serif text-2xl font-semibold mb-3"
-              style={{ color: "var(--bk-green-dk)" }}
-            >
-              Get in touch
-            </h2>
+          <h2
+            className="col-start-1 row-start-1 sm:col-start-2 self-center sm:self-start font-serif text-2xl font-semibold"
+            style={{ color: "var(--bk-green-dk)" }}
+          >
+            Get in touch
+          </h2>
+          <div className="col-span-2 sm:col-span-1 sm:col-start-2 min-w-0">
             <p className="text-sm leading-relaxed" style={{ color: "var(--bk-ink-mid)" }}>
               For consulting, research collaboration, or questions about the work:{" "}
               <a
