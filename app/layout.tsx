@@ -70,10 +70,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           className="border-b relative"
           style={{ borderColor: "var(--bk-rule)", zIndex: 1, background: "var(--bk-cream)" }}
         >
-          <div className="site-header-inner max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 sm:gap-3">
+          <div className="site-header-inner max-w-4xl mx-auto">
             <Link
               href="/"
-              className="shrink-0 inline-flex items-center"
+              className="site-brand"
               aria-label="Complexa Labs — home"
             >
               {/* Crop the asset's built-in margins so the actual wordmark,
@@ -82,12 +82,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 viewBox="70 70 860 260"
                 role="img"
                 aria-label="Complexa Labs"
-                className="site-wordmark h-14 sm:h-16 w-auto"
+                className="site-wordmark"
               >
                 <image href="/complexa-logo.png" width="1200" height="400" />
               </svg>
             </Link>
-            <nav aria-label="Main navigation" className="site-nav order-3 basis-full justify-between sm:order-none sm:basis-auto sm:ml-auto text-sm flex gap-2 sm:gap-6 min-w-0">
+            <nav aria-label="Main navigation" className="site-nav">
               <Link href="/philosophy/" className="hover:opacity-80">Philosophy</Link>
               <Link href="/experience/" className="hover:opacity-80">Experience</Link>
               <Link href="/posts/" className="hover:opacity-80">Posts</Link>
