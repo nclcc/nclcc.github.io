@@ -98,6 +98,20 @@ for rect in doc[1].search_for('(MAPE).'):
 for pi, page in enumerate(doc):
     page.apply_redactions(images=0, graphics=0)
     writers[pi].write_text(page)
+
+# Keep the visible business domain and the personal-site destination distinct.
+website = 'complexalabs.com'
+website_size = 9.86247
+website_font = fonts['regular']
+website_width = website_font.text_length(website, fontsize=website_size)
+website_x = (doc[0].rect.width - website_width) / 2
+website_writer = fitz.TextWriter(doc[0].rect)
+website_writer.append((website_x, 98), website, font=website_font,
+                      fontsize=website_size)
+website_writer.write_text(doc[0])
+doc[0].insert_link({'kind': fitz.LINK_URI,
+                    'from': fitz.Rect(website_x, 88, website_x + website_width, 101),
+                    'uri': 'https://nclcc.github.io'})
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 doc.save(OUTPUT, garbage=4, deflate=True)
 doc.close()

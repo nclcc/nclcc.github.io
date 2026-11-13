@@ -48,7 +48,7 @@ The site will be available at https://nclcc.github.io.
 - Landing page: [`components/HomePage.tsx`](components/HomePage.tsx), shared by both languages.
 - Experience pages: [`app/experience/*/page.tsx`](app/experience/)
 - Posts: see "Posts & comments" below
-- CV PDF: [`public/cv.pdf`](public/cv.pdf) — replace to update the download link.
+- CV PDFs: English [`public/cv.pdf`](public/cv.pdf), Italian [`public/cv-it.pdf`](public/cv-it.pdf).
 - Styling: [`app/globals.css`](app/globals.css) — Jardin Parisien: rich sage and emerald, deep Bordeaux actions,
   warm gold details, espresso/linen text and editorial serif headings, with a saved light/dark toggle.
 
@@ -62,7 +62,7 @@ additional stored preference. English uses `VAT`; Italian uses `P.IVA`.
 Keep the matching pages in `app/` and `app/it/` in sync when editing content or adding routes.
 Translate post manifests and MDX articles together. Shared homepage, experience-card,
 experience-layout and philosophy-tab components keep the layouts consistent; Italian text
-and small adapters live in `components/it/`. CV downloads use the existing PDF in both languages.
+and small adapters live in `components/it/`. CV downloads use `/cv.pdf` in English and `/cv-it.pdf` in Italian.
 
 ## Posts & comments
 

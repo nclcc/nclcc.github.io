@@ -2,7 +2,7 @@
             Senior Data Scientist & Applied Statistician | Machine Learning & MLOps
 
 Bari, Italy  | +39 366 322 1036  | niciccarone@gmail.com  | linkedin.com/in/nicolociccarone1997  | github.com/nclcc
-
+                                             complexalabs.com
 PROFESSIONAL SUMMARY
 Senior data scientist and applied statistician with an econometrics background, building predictive
 models and production machine  learning systems. Applies  causal  inference,  survival  analysis and

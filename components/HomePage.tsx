@@ -177,7 +177,7 @@ export default function HomePage({ italian = false }: { italian?: boolean }) {
             <Mail size={16} /> Email
           </a>
           <a
-            href="/cv.pdf"
+            href={italian ? "/cv-it.pdf" : "/cv.pdf"}
             download
             className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium border transition hover:bg-[var(--bk-cream-dk)]"
             style={{ borderColor: "var(--bk-rule)", color: "var(--hero-accent)" }}

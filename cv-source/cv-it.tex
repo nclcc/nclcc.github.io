@@ -1,0 +1,81 @@
+% Versione italiana del CV ESCO/ATS pubblicato in public/cv.pdf.
+% Compilazione: tectonic -o output/pdf cv-source/cv-it.tex
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.55cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\usepackage[italian]{babel}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\hypersetup{hidelinks,pdftitle={Nicolò Ciccarone - Curriculum vitae},pdfauthor={Nicolò Ciccarone},pdflang={it-IT}}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{5pt}
+\setlist[itemize]{leftmargin=14pt,itemsep=2pt,topsep=3pt,parsep=0pt}
+\newcommand{\job}[4]{\textbf{#1}\hfill #2\\\textit{#3}\hfill #4\par}
+\newcommand{\education}[4]{\textbf{#1}\hfill #2\\\textit{#3}\\#4\par\vspace{10pt}}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries NICOLÒ CICCARONE}\\[3pt]
+{\large Senior Data Scientist e statistico applicato | Machine Learning e MLOps}\\[6pt]
+{\small Bari, Italia\enspace |\enspace +39 366 322 1036\enspace |\enspace\href{mailto:niciccarone@gmail.com}{niciccarone@gmail.com}\\[2pt]
+\href{https://www.linkedin.com/in/nicolociccarone1997/}{linkedin.com/in/nicolociccarone1997}\enspace |\enspace\href{https://github.com/nclcc}{github.com/nclcc}\enspace |\enspace\href{https://nclcc.github.io}{complexalabs.com}}
+\end{center}
+\vspace{-7pt}
+\section*{PROFILO PROFESSIONALE}
+Senior data scientist e statistico applicato con formazione in econometria, specializzato nello sviluppo di modelli predittivi e sistemi di machine learning in produzione. Applico inferenza causale, analisi di sopravvivenza e previsione di serie storiche al rischio climatico e finanziario e alle decisioni aziendali. Sviluppo applicazioni di elaborazione dati con Python, SQL, Spark e AWS, integrando API, orchestrazione cloud e monitoraggio. Realizzo soluzioni analitiche per i settori delle risorse umane, del commercio al dettaglio, dell'aviazione e dei servizi finanziari.
+
+\section*{COMPETENZE TECNICHE}
+\begin{itemize}
+\item \textbf{Modellistica statistica:} statistica, econometria, inferenza causale, modelli di sopravvivenza e mixture-cure, modelli score-driven (GAS), previsione di serie storiche, processi di Hawkes, rischio climatico, gradient boosting.
+\item \textbf{Programmazione e dati:} Python, R, SQL, Polars, PySpark / Apache Spark, Julia (base), GIS, dati spaziali, MongoDB; gestione di dati quantitativi.
+\item \textbf{Machine Learning:} PyTorch, mixture-of-experts (MoE), elaborazione del linguaggio naturale (NLP), modelli predittivi per il customer lifetime value (CLTV), l'abbandono dei clienti e la previsione della domanda.
+\item \textbf{MLOps, cloud e distribuzione:} AWS SageMaker, ECS, EKS, ECR, CloudWatch; Docker, Kubernetes, FastAPI, Celery, Grafana; rilascio di modelli, inferenza in produzione e flussi di lavoro distribuiti.
+\item \textbf{Altre piattaforme:} Databricks; Microsoft Azure ML, Pipelines e Fabric; Google Cloud Platform (GCP) Vertex AI Workbench e Colab Enterprise.
+\end{itemize}
+
+\section*{ESPERIENZA PROFESSIONALE}
+\job{Complexa Labs}{Bari, Italia}{Data Science quantitativa e Data Engineering}{01/2025 - in corso}
+\begin{itemize}
+\item Modellistica statistica e soluzioni analitiche in produzione per clienti enterprise con fatturato superiore a 1 miliardo di euro.
+\item Sviluppo e rilascio su AWS SageMaker di un motore di previsione del tempo di copertura delle posizioni vacanti, basato su modelli di sopravvivenza a tempo discreto score-driven (GAS), pannelli giornalieri con censura a destra e dati del processo di selezione variabili nel tempo.
+\item Sviluppo di modelli CLTV con sopravvivenza mixture-cure, regressione del margine tramite gradient boosting e segmentazione calibrata, per prevedere i ricavi e individuare il prodotto successivo da proporre.
+\item Progettazione e rilascio di un simulatore di scenari macroeconomici per prevedere gli impatti aziendali al variare delle condizioni di mercato, con orchestrazione distribuita dei flussi di lavoro.
+\item Ottimizzazione delle pipeline distribuite con join, funzioni finestra e broadcast in PySpark, \textbf{riducendo del 70\% i tempi di esecuzione}; rilascio di applicazioni NLP come microservizi Python con FastAPI.
+\end{itemize}
+\vspace{5pt}
+\job{acmetric B.V.}{Amsterdam, Paesi Bassi}{Data Scientist}{01/2024 - 11/2024}
+\begin{itemize}
+\item Sviluppo e rilascio di modelli di intelligenza artificiale causale per l'ottimizzazione dei prezzi e la previsione della domanda presso Adidas International B.V.; l'algoritmo di pricing è tuttora in produzione.
+\item Sviluppo e manutenzione di modelli gradient boosting (GBM) per prevedere l'abbandono dei clienti e il contenzioso per LATAM Airlines.
+\end{itemize}
+
+\newpage
+\job{MOOS Solutions B.V.}{Amsterdam, Paesi Bassi}{Data Scientist}{10/2022 - 12/2023}
+\begin{itemize}
+\item Progettazione e rilascio di un motore proprietario mixture-of-experts (MoE) per l'ottimizzazione dell'inventario in tempo reale, con instradamento dei dati spaziali di sensori Internet of Things (IoT) verso modelli specializzati; utilizzato da una startup. Valutazione delle previsioni tramite errore percentuale assoluto medio (MAPE).
+\end{itemize}
+\vspace{6pt}
+\job{UBS}{Cracovia, Polonia}{Specialista in modellistica e analisi del rischio}{04/2022 - 09/2022}
+\begin{itemize}
+\item Sviluppo e rilascio di un primo modello di rischio climatico per un portafoglio immobiliare commerciale, con stress test basati su scenari coerenti con le traiettorie NGFS / IPCC.
+\end{itemize}
+
+\section*{ISTRUZIONE E FORMAZIONE SPECIALISTICA}
+\education{Università Cattolica del Sacro Cuore}{04/2026 - 07/2026}{Corso di formazione specialistica in epidemiologia statistica}{Metodi di attribuzione causale delle esposizioni ambientali a esiti di salute pubblica cardiovascolari, respiratori e immunomediati.}
+\education{Tinbergen Institute, Amsterdam}{07/2023}{Scuola estiva di livello dottorale in Deep Learning e IA generativa}{Formazione intensiva con Eran Raviv, PhD.}
+\education{Vrije Universiteit Amsterdam}{2021 - 2022}{M.Sc. in Econometria e Ricerca Operativa}{Voto: 8,0/10. Tesi: \textit{Price volatility and climatic extremes: distinguishing signal from noise} (Volatilità dei prezzi ed estremi climatici: distinguere il segnale dal rumore).}
+\education{Università di Bologna}{2019 - 2021}{Laurea magistrale in Economia, curriculum Econometria}{Voto: 110/110 e lode. Tesi: \textit{Hedging against climate change: A Hawkes process approach} (Copertura contro il cambiamento climatico: un approccio con processi di Hawkes).}
+\education{Università di Trento}{2015 - 2018}{Laurea triennale in Economia e Management}{Voto: 110/110 e lode. Honours Programme del Dipartimento di Economia.}
+
+\section*{LINGUE E RICONOSCIMENTI}
+\begin{itemize}
+\item \textbf{Lingue:} italiano (madrelingua), inglese (C1/C2), francese (B1), tedesco (A2).
+\item \textbf{Riconoscimenti:} borsa di studio per merito INPS (2019); borsa di studio per merito dell'Università di Trento (2018).
+\item \textbf{Certificazione:} TOEFL 107/120 (2021).
+\end{itemize}
+\end{document}
