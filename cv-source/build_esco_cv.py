@@ -124,12 +124,14 @@ doc[1].show_pdf_page(section_clip + (0, 52, 0, 52), section_source, 1,
                      clip=section_clip)
 section_source.close()
 education_writer = fitz.TextWriter(doc[1].rect)
-education_writer.append((43.937, 443), 'Classical High School (Liceo Classico)',
+education_writer.append((43.937, 443), 'Liceo Classico C. Sylos',
                         font=fonts['bold'], fontsize=10.9091)
 education_writer.append((43.937, 457),
                         'Diploma di maturità classica (Classical Studies Diploma)',
                         font=fonts['regular'], fontsize=10.9091)
 education_writer.append((43.937, 471), 'Grade: 100/100.',
+                        font=fonts['regular'], fontsize=10.9091)
+education_writer.append((247, 199.85199), ', Rome',
                         font=fonts['regular'], fontsize=10.9091)
 education_writer.write_text(doc[1])
 
