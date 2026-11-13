@@ -7,6 +7,7 @@ Replacement copy uses the original embedded Latin Modern fonts, font sizes,
 baselines, bullet indents and paragraph allocations.
 """
 from pathlib import Path
+from collections import Counter
 import re
 import fitz
 
@@ -131,6 +132,29 @@ education_writer.append((43.937, 457),
 education_writer.append((43.937, 471), 'Grade: 100/100.',
                         font=fonts['regular'], fontsize=10.9091)
 education_writer.write_text(doc[1])
+
+# Use regular weight throughout, including headings and emphasized statistics.
+for page in doc:
+    original_characters = Counter(c for c in page.get_text() if not c.isspace())
+    regular_writer = fitz.TextWriter(page.rect)
+    has_bold = False
+    for block in page.get_text('dict')['blocks']:
+        for line in block.get('lines', []):
+            for span in line['spans']:
+                if 'bold' not in span['font'].lower():
+                    continue
+                has_bold = True
+                # A narrow strip intersects this line's glyphs only: full font
+                # boxes can overlap the neighboring tightly spaced lines.
+                bbox = fitz.Rect(span['bbox'][0] + 0.2, span['origin'][1] - 5,
+                                 span['bbox'][2] - 0.2, span['origin'][1] - 2)
+                page.add_redact_annot(bbox, fill=(1, 1, 1))
+                regular_writer.append(span['origin'], span['text'],
+                                      font=fonts['regular'], fontsize=span['size'])
+    if has_bold:
+        page.apply_redactions(images=0, graphics=0)
+        regular_writer.write_text(page)
+        assert Counter(c for c in page.get_text() if not c.isspace()) == original_characters
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 doc.save(OUTPUT, garbage=4, deflate=True)
 doc.close()

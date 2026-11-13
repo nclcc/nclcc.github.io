@@ -1,30 +1,27 @@
-            NICOLÒ CICCARONE
+             NICOLÒ CICCARONE
             Senior Data Scientist & Applied Statistician | Machine Learning & MLOps
 
 Bari, Italy  | +39 366 322 1036  | niciccarone@gmail.com  | linkedin.com/in/nicolociccarone1997  | github.com/nclcc
                                              complexalabs.com
-PROFESSIONAL SUMMARY
+PROFESSIONAL  SUMMARY
 Senior data scientist and applied statistician with an econometrics background, building predictive
 models and production machine  learning systems. Applies  causal  inference,  survival  analysis and
 time-series  forecasting  to  climate,  financial  risk and  business  decisions. Develops data  processing
 applications using Python, SQL, Spark and AWS, with APIs, cloud orchestration and monitoring.
 Delivers analytics across staffing, retail, aviation and financial services.
-
-TECHNICAL SKILLS
-• Statistical Modeling: Statistics, econometrics, causal inference, survival and mixture-cure models,
+TECHNICAL  SKILLS
+• Statistical  Modeling:   Statistics, econometrics, causal inference, survival and mixture-cure models,
    score-driven (GAS) models, time-series forecasting, Hawkes processes, climate risk, gradient boosting.
-• Programming & Data: Python, R, SQL query languages, Polars, PySpark / Apache Spark, Julia
+• Programming  & Data:  Python, R, SQL query languages, Polars, PySpark / Apache Spark, Julia
    (basic), GIS, spatial data, MongoDB; quantitative data management.
-• Machine Learning:  PyTorch,  mixture-of-experts  (MoE),  natural  language  processing  (NLP),
+• Machine   Learning:   PyTorch,  mixture-of-experts  (MoE),  natural  language  processing  (NLP),
    predictive models for customer lifetime value (CLTV), churn and demand forecasting.
-• MLOps, Cloud & Serving: AWS SageMaker, ECS, EKS, ECR, CloudWatch; Docker, Kubernetes,
+• MLOps,  Cloud & Serving: AWS SageMaker, ECS, EKS, ECR, CloudWatch; Docker, Kubernetes,
    FastAPI, Celery, Grafana; model deployment, production inference, distributed workflows.
-• Additional Platforms:  Databricks;  Microsoft Azure ML,  Pipelines and  Fabric; Google Cloud
+• Additional   Platforms:   Databricks;  Microsoft Azure ML,  Pipelines and  Fabric; Google Cloud
    Platform (GCP) Vertex AI Workbench and Colab Enterprise.
-
-PROFESSIONAL EXPERIENCE
-
-Complexa Labs                                                                               Bari, Italy
+PROFESSIONAL  EXPERIENCE
+Complexa  Labs                                                                                Bari, Italy
 Quantitative Data Science & Engineering                                         01/2025 – Present
 • Deliver statistical modeling and production analytics for enterprise clients with over €1B in revenue.
 • Built and  deployed  a  time-to-fill  forecasting  engine  on AWS  SageMaker  using  score-driven
@@ -35,47 +32,39 @@ Quantitative Data Science & Engineering                                         
 • Designed and deployed a macroeconomic scenario simulator to  forecast business impacts under
    changing market conditions, supported by distributed workflow orchestration.
 • Optimized distributed data processing pipelines with PySpark joins, window functions and broadcast
-   optimization, reducing execution time by 70%; deployed natural language processing (NLP)
+   optimization, reducing   execution   time  by  70%;  deployed natural language processing (NLP)
    applications as Python FastAPI microservices.
-
-acmetric B.V.                                                     Amsterdam, Netherlands
+acmetric  B.V.                                                      Amsterdam, Netherlands
 Data Scientist                                                                01/2024 – 11/2024
 • Developed and deployed causal artificial intelligence (AI) models for pricing optimization and demand
    forecasting at Adidas International B.V.; the pricing algorithm remains in production use.
 • Developed and maintained gradient boosting machine (GBM) models to predict customer churn and
    litigation for LATAM Airlines.
 
-MOOS Solutions B.V.                                             Amsterdam, Netherlands
+MOOS  Solutions  B.V.                                              Amsterdam, Netherlands
 Data Scientist                                                                10/2022 – 12/2023
 • Designed and deployed a  proprietary  mixture-of-experts (MoE)  engine  for  real-time  inventory
    optimization, routing spatial Internet of Things (IoT) sensor data to specialist models; used by a
    startup. Forecast performance evaluated using mean absolute percentage error (MAPE).
-
-UBS                                                                       Kraków, Poland
+UBS                                                                        Kraków, Poland
 Risk Modeling and Analytics Specialist                                           04/2022 – 09/2022
 • Developed and deployed an initial climate-risk model for a commercial real-estate portfolio, applying
    scenario-based stress testing aligned with NGFS / IPCC pathways.
-
-EDUCATION & SPECIALIST TRAINING
-
-Università Cattolica del Sacro Cuore                                        04/2026 – 07/2026
+EDUCATION & SPECIALIST  TRAINING
+Università  Cattolica  del Sacro Cuore                                        04/2026 – 07/2026
 Specialized Training Programme in Statistical Epidemiology
 Methods for causal attribution of environmental exposures to cardiovascular, respiratory and immune-
 mediated public-health outcomes.
-
-Tinbergen Institute, Amsterdam                                                     07/2023
+Tinbergen   Institute,  Amsterdam                                                       07/2023
 PhD-Level Summer School in Deep Learning and Generative AI
 Intensive training with Eran Raviv, PhD.
-
-Vrije Universiteit Amsterdam                                                     2021 – 2022
+Vrije  Universiteit  Amsterdam                                                      2021 – 2022
 M.Sc. Econometrics & Operations Research
 Grade: 8.0/10. Thesis: Price volatility and climatic extremes: distinguishing signal from noise.
-
-University of Bologna                                                             2019 – 2021
+University   of Bologna                                                              2019 – 2021
 M.Sc. Economics, Econometrics Track
 Grade: 110/110 cum laude. Thesis: Hedging against climate change: A Hawkes process approach.
-
-University of Trento                                                              2015 – 2018
+University   of Trento                                                               2015 – 2018
 B.Sc. Economics and Management
 Grade: 110/110 cum laude. Department of Economics Honours Programme.
 Classical High School (Liceo Classico)
@@ -83,7 +72,6 @@ Diploma di maturità classica (Classical Studies Diploma)
 Grade: 100/100.
 
 LANGUAGES & RECOGNITION
-
-• Languages: Italian (native), English (C1/C2), French (B1), German (A2).
-• Recognition: INPS Merit Scholarship (2019); University of Trento Merit Scholarship (2018).
-• Certification: TOEFL 107/120 (2021).
+• Languages:   Italian (native), English (C1/C2), French (B1), German (A2).
+• Recognition:  INPS Merit Scholarship (2019); University of Trento Merit Scholarship (2018).
+• Certification:  TOEFL 107/120 (2021).

@@ -18,6 +18,9 @@
 \setlist[itemize]{leftmargin=14pt,itemsep=2pt,topsep=3pt,parsep=0pt}
 \newcommand{\job}[4]{\textbf{#1}\hfill #2\\\textit{#3}\hfill #4\par}
 \newcommand{\education}[4]{\textbf{#1}\hfill #2\\\textit{#3}\\#4\par\vspace{10pt}}
+% Mantieni la gerarchia tramite dimensioni, spaziatura e corsivo, senza grassetto.
+\renewcommand{\textbf}[1]{#1}
+\let\bfseries\mdseries
 \begin{document}
 \begin{center}
 {\LARGE\bfseries NICOLÒ CICCARONE}\\[3pt]
