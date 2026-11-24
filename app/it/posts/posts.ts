@@ -15,6 +15,14 @@ export interface PostMeta {
 
 export const POSTS: PostMeta[] = [
   {
+    slug: "quando-la-revisione-amplifica-lerrore",
+    title: "Quando la revisione amplifica l’errore",
+    date: "2026-11-24",
+    excerpt:
+      "Una catena di revisione multi-agente è affidabile soltanto quando corregge più costo di errore di quanto ne propaghi.",
+    tags: ["Valutazione AI", "Sistemi multi-agente", "Rischio"],
+  },
+  {
     slug: "no-single-study-has-the-answer",
     title: "Quando nessuno studio, da solo, ha la risposta",
     date: "2026-06-09",

@@ -1,0 +1,64 @@
+import CusdisComments from "@/components/CusdisComments";
+
+export const metadata = {
+  title: "When review amplifies error · Nicolò Ciccarone",
+};
+
+# When review amplifies error
+
+Adding another AI reviewer does not automatically make an answer safer. A reviewer can correct
+mistakes, but it can also propagate an existing mistake into dependent claims, calculations, or
+recommendations. The relevant question is not simply whether a model is accurate in isolation. It
+is whether the review process reduces the cost of unresolved mistakes over time.
+
+[Download the white paper (PDF)](/papers/error-dynamics-in-bot-conversations.pdf)
+
+## A cost process, not just a correctness score
+
+Let `Eₜ` be the cost of the mistakes that remain after review round `t`. Cost can combine
+financial impact, safety exposure, remediation effort, and downstream reliance. Let `cₜ` be the
+fraction of existing cost corrected in the next review, and let `rₜ` be the downstream cost
+induced per unit of residual error. Then:
+
+```
+Eₜ₊₁ = (1 − cₜ + rₜ)Eₜ
+```
+
+The model is deliberately simple. Correction reduces the existing stock; amplification creates new
+cost because an unresolved error influences what follows.
+
+## The threshold is clear
+
+Over `T` rounds,
+
+```
+E_T = E₀ ∏ₜ₌₀ᵀ⁻¹ Gₜ
+```
+
+For constant rates, error cost grows when `r > c`: a review chain propagates more cost than it
+removes. With variable rates, the relevant typical-path measure is the long-run log-growth rate,
+`γ = E[log Gₜ]`, under the usual stationarity and ergodicity conditions.
+
+- `γ < 0`: error cost contracts.
+- `γ = 0`: the process is critical.
+- `γ > 0`: error cost grows exponentially.
+
+This does not claim that every multi-agent workflow is unstable. It gives a criterion that can be
+measured, challenged, and compared across review protocols.
+
+## Why model diversity is not enough
+
+Different agents can still share sources, training data, prompts, and blind spots. In a multivariate
+version of the model, error costs are tracked across categories and a propagation matrix captures
+how an error in one category creates cost in another. The dominant eigenvalue of that matrix
+determines whether the coupled system contracts or grows in the long run.
+
+The practical implication is straightforward: benchmark accuracy is not a reliability guarantee for
+a conversation chain. Teams should measure correction, induced error cost, dependence between
+reviewers, and tail risk from rare but expensive mistakes.
+
+The paper develops the full framework, including stochastic and multivariate variants, conditions
+for explosive growth, and an empirical protocol for testing the model on tasks with verifiable
+ground truth.
+
+<CusdisComments title="When review amplifies error" />

@@ -1,0 +1,39 @@
+Una revisione AI in più non rende automaticamente una risposta più affidabile.
+
+Un revisore può correggere un errore, ma può anche propagarlo: verso un calcolo, una raccomandazione, una fonte citata o una decisione successiva. Per questo l’accuratezza di benchmark non basta a descrivere l’affidabilità di una conversazione multi-agente.
+
+Nel nuovo white paper di Complexa Labs propongo di modellare il problema come una dinamica di costo dell’errore:
+
+Eₜ₊₁ = (1 − cₜ + rₜ)Eₜ
+
+dove cₜ è la quota di costo corretta e rₜ il costo addizionale indotto dall’errore residuo.
+
+La soglia è semplice: quando r > c, il costo degli errori cresce. Con tassi variabili, la stabilità dipende dalla crescita logaritmica di lungo periodo. Il paper estende il modello a processi stocastici, heavy tails e sistemi multivariati, in cui un errore in una categoria può generare costo in un’altra.
+
+Il punto non è sostenere che la revisione multi-agente fallisca sempre. È renderla misurabile: stimare quanto corregge, quanto propaga e quanto è esposta a eventi rari ma costosi.
+
+Paper completo: https://nclcc.github.io/posts/when-review-amplifies-error/
+PDF: https://nclcc.github.io/papers/error-dynamics-in-bot-conversations.pdf
+
+#ArtificialIntelligence #MultiAgentSystems #RiskManagement #AppliedProbability #MachineLearning
+
+---
+
+Adding another AI reviewer does not automatically make an answer more reliable.
+
+A reviewer can correct an error, but it can also propagate it into a calculation, recommendation, citation, or later decision. This is why benchmark accuracy alone does not describe the reliability of a multi-agent conversation.
+
+In a new Complexa Labs white paper, I model the problem as error-cost dynamics:
+
+Eₜ₊₁ = (1 − cₜ + rₜ)Eₜ
+
+where cₜ is the fraction of error cost corrected and rₜ is the additional cost induced by residual error.
+
+The threshold is simple: when r > c, error cost grows. With variable rates, stability depends on long-run log growth. The paper extends the model to stochastic processes, heavy tails, and multivariate systems, where an error in one category can create cost in another.
+
+The point is not that multi-agent review always fails. It is to make it measurable: estimate how much a process corrects, how much it propagates, and how exposed it is to rare but costly failures.
+
+Full paper: https://nclcc.github.io/posts/when-review-amplifies-error/
+PDF: https://nclcc.github.io/papers/error-dynamics-in-bot-conversations.pdf
+
+#ArtificialIntelligence #MultiAgentSystems #RiskManagement #AppliedProbability #MachineLearning

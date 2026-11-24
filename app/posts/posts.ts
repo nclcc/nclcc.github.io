@@ -15,6 +15,14 @@ export interface PostMeta {
 
 export const POSTS: PostMeta[] = [
   {
+    slug: "when-review-amplifies-error",
+    title: "When review amplifies error",
+    date: "2026-11-24",
+    excerpt:
+      "A multi-agent review chain is reliable only when it corrects more error cost than it propagates. A framework for measuring the difference.",
+    tags: ["AI Evaluation", "Multi-Agent Systems", "Risk"],
+  },
+  {
     slug: "no-single-study-has-the-answer",
     title: "When no single study has the answer",
     date: "2026-06-09",

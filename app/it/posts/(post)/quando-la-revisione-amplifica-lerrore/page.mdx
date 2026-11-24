@@ -1,0 +1,65 @@
+import CusdisComments from "@/components/it/CusdisComments";
+
+export const metadata = {
+  title: "Quando la revisione amplifica l’errore · Nicolò Ciccarone",
+};
+
+# Quando la revisione amplifica l’errore
+
+Aggiungere un altro revisore AI non rende automaticamente una risposta più sicura. Un revisore può
+correggere gli errori, ma può anche propagare un errore esistente verso affermazioni, calcoli o
+raccomandazioni che ne dipendono. La domanda rilevante non è soltanto quanto un modello sia
+accurato isolatamente: è se il processo di revisione riduce nel tempo il costo degli errori irrisolti.
+
+[Scarica il white paper (PDF)](/papers/error-dynamics-in-bot-conversations.pdf)
+
+## Un processo di costo, non solo un punteggio di correttezza
+
+Sia `Eₜ` il costo degli errori che restano dopo il round di revisione `t`. Il costo può
+combinare impatto economico, esposizione al rischio, sforzo di correzione e dipendenza a valle.
+Sia `cₜ` la frazione di costo esistente corretta nella revisione successiva, e `rₜ` il costo a
+valle indotto per unità di errore residuo. Allora:
+
+```
+Eₜ₊₁ = (1 − cₜ + rₜ)Eₜ
+```
+
+Il modello è volutamente semplice. La correzione riduce lo stock esistente; l’amplificazione crea
+nuovo costo perché un errore irrisolto influenza ciò che accade dopo.
+
+## La soglia è chiara
+
+Dopo `T` round,
+
+```
+E_T = E₀ ∏ₜ₌₀ᵀ⁻¹ Gₜ
+```
+
+Con tassi costanti, il costo dell’errore cresce quando `r > c`: la catena di revisione propaga più
+costo di quanto ne rimuova. Con tassi variabili, la misura rilevante per la traiettoria tipica è il
+tasso di crescita logaritmico di lungo periodo, `γ = E[log Gₜ]`, sotto le usuali
+ipotesi di stazionarietà ed ergodicità.
+
+- `γ < 0`: il costo dell’errore si contrae.
+- `γ = 0`: il processo è critico.
+- `γ > 0`: il costo dell’errore cresce esponenzialmente.
+
+Questo non significa che ogni workflow multi-agente sia instabile. Fornisce un criterio che può
+essere misurato, discusso e confrontato tra protocolli di revisione.
+
+## Perché la diversità dei modelli non basta
+
+Agenti diversi possono comunque condividere fonti, dati di addestramento, prompt e punti ciechi.
+Nella versione multivariata del modello, i costi sono tracciati per categoria di errore e una matrice
+di propagazione descrive come un errore in una categoria generi costo in un’altra. L’autovalore
+dominante di questa matrice determina se il sistema accoppiato si contrae o cresce nel lungo periodo.
+
+L’implicazione pratica è semplice: l’accuratezza su benchmark non è una garanzia di affidabilità per
+una catena conversazionale. Bisogna misurare correzione, costo di errore indotto, dipendenza tra
+revisori e rischio di coda degli errori rari ma costosi.
+
+Il paper sviluppa il quadro completo, incluse varianti stocastiche e multivariate, condizioni per la
+crescita esplosiva e un protocollo empirico per testare il modello su task con ground truth
+verificabile.
+
+<CusdisComments title="Quando la revisione amplifica l’errore" />
